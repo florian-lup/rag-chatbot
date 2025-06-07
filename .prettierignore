@@ -1,0 +1,5 @@
+# don't touch build artifacts
+.next
+dist
+coverage
+node_modules 
