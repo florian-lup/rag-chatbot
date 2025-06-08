@@ -1,8 +1,8 @@
-import { memo } from "react";
-import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
-import { ArrowUp } from "lucide-react";
-import { useEnterSubmit } from "@/hooks/useEnterSubmit";
+import { memo } from 'react';
+import { Button } from '@/components/ui/button';
+import { Textarea } from '@/components/ui/textarea';
+import { ArrowUp } from 'lucide-react';
+import { useEnterSubmit } from '@/hooks/useEnterSubmit';
 
 interface ChatInputProps {
   message: string;
@@ -12,7 +12,13 @@ interface ChatInputProps {
   hasMessages: boolean;
 }
 
-const ChatInputComponent = ({ message, setMessage, onSendMessage, isTyping, hasMessages }: ChatInputProps) => {
+const ChatInputComponent = ({
+  message,
+  setMessage,
+  onSendMessage,
+  isTyping,
+  hasMessages,
+}: ChatInputProps) => {
   const handleKeyDown = useEnterSubmit(onSendMessage);
 
   function handleSendMessage() {
@@ -26,32 +32,28 @@ const ChatInputComponent = ({ message, setMessage, onSendMessage, isTyping, hasM
 
   return (
     <div className="max-w-3xl mx-auto p-4 pt-2">
-      {/* Composite input: textarea + footer */}
-      <div className="rounded-md border overflow-hidden p-2">
-        {/* Text area */}
+      {/* Wrapper to allow positioning button inside the input container */}
+      <div className="relative rounded-md border overflow-hidden">
         <Textarea
           id="chat-input"
-          placeholder={hasMessages ? "Ask a follow up question…" : "Ask me anything…"}
+          placeholder={hasMessages ? 'Ask a follow up question…' : 'Ask me anything…'}
           value={message}
           onChange={(e) => handleChange(e.target.value)}
           onKeyDown={handleKeyDown}
-          className="w-full resize-none border-none rounded-none p-3 min-h-[72px] max-h-40 shadow-none"
+          className="w-full resize-none rounded-none pr-12 min-h-36 max-h-60 shadow-none no-scrollbar border-none"
           rows={2}
           disabled={isTyping}
         />
 
-        {/* Footer */}
-        <div className="flex justify-end gap-2 p-2">
-          <Button
-            size="icon"
-            onClick={handleSendMessage}
-            disabled={!message.trim() || isTyping}
-            className="size-9 rounded-full"
-          >
-            <ArrowUp className="size-4" />
-          </Button>
-          {/* Future buttons can be added here */}
-        </div>
+        {/* Send button */}
+        <Button
+          size="icon"
+          onClick={handleSendMessage}
+          disabled={!message.trim() || isTyping}
+          className="absolute bottom-3 right-3 size-9 rounded-full z-10"
+        >
+          <ArrowUp className="size-4" />
+        </Button>
       </div>
     </div>
   );
