@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/components/theme-provider';
+import { Analytics } from "@vercel/analytics/react";
+
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -14,21 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Next.js Starter Kit',
-  description: 'A starter template for your Next.js project',
-  keywords: [
-    'template',
-    'scaffolding',
-    'next.js',
-    'react',
-    'tailwind',
-    'shadcn',
-    'ui',
-    'components',
-    'design',
-    'system',
-    'framework',
-  ],
+  title: 'Florian Lup',
+  description: 'Get fast, precise answers about my background, projects, and expertise.'
 };
 
 export default function RootLayout({
@@ -46,6 +35,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>

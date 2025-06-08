@@ -4,6 +4,14 @@ import type { NextConfig } from 'next';
 const isDev = process.env.NODE_ENV === 'development';
 
 const nextConfig: NextConfig = {
+  // Disable the X-Powered-By header for security
+  poweredByHeader: false,
+  
+  // Enable Lightning CSS optimization
+  experimental: {
+    optimizeCss: true,
+  },
+
   async headers() {
     // Base security-related headers that we always want
     const headers: { key: string; value: string }[] = [
