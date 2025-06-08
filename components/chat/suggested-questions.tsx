@@ -40,10 +40,12 @@ const SuggestedQuestionsComponent = ({ onPromptClick }: SuggestedQuestionsProps)
             key={index}
             className="p-4 cursor-pointer hover:bg-accent/50 transition-colors border-border/50 bg-card/50 animate-slide-up opacity-0"
             style={{
-              animationDelay: `${index * 100}ms`,
+              animationDelay: `${String(index * 100)}ms`,
               animationFillMode: 'forwards',
             }}
-            onClick={() => onPromptClick(item.question)}
+            onClick={() => {
+              onPromptClick(item.question);
+            }}
           >
             <div className="flex flex-col gap-2">
               <Badge variant="secondary" className="w-fit flex items-center gap-1">

@@ -38,8 +38,8 @@ export function Privacy({ children }: WithChildren) {
             </p>
             <p>
               When you chat with the AI, your messages are used temporarily for the sole purpose of
-              generating a response. Once the AI responds, that's it - nothing is saved or stored
-              anywhere.
+              generating a response. Once the AI responds, that&apos;s it - nothing is saved or
+              stored anywhere.
             </p>
           </section>
 
@@ -55,7 +55,7 @@ export function Privacy({ children }: WithChildren) {
               <li>Everything is cleared - no permanent storage</li>
             </ul>
             <p className="mt-3">
-              Think of it like having a conversation that disappears as soon as it's over.
+              Think of it like having a conversation that disappears as soon as it&apos;s over.
             </p>
           </section>
 
@@ -73,17 +73,17 @@ export function Privacy({ children }: WithChildren) {
           <section>
             <h3 className="text-base font-semibold text-foreground mb-3">Third Parties</h3>
             <p>
-              Since I don't collect your data in the first place, there's nothing to share with
-              anyone else. No data brokers, no analytics companies, no advertising networks.
+              Since I don&apos;t collect your data in the first place, there&apos;s nothing to share
+              with anyone else. No data brokers, no analytics companies, no advertising networks.
             </p>
           </section>
 
           <section>
             <h3 className="text-base font-semibold text-foreground mb-3">Your Privacy Rights</h3>
             <p>
-              I don't store your personal information, there's no data to access, correct, or
-              delete. Your privacy is protected by design - the best way to keep your data safe is
-              to not collect it in the first place!
+              I don&apos;t store your personal information, there&apos;s no data to access, correct,
+              or delete. Your privacy is protected by design - the best way to keep your data safe
+              is to not collect it in the first place!
             </p>
           </section>
 

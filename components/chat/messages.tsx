@@ -1,10 +1,10 @@
-import { memo } from "react";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
-import { Card } from "@/components/ui/card";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { Sparkles } from "lucide-react";
-import type { ChatMessage as ChatMessageType } from "@/types/chat";
+import { memo } from 'react';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import { Card } from '@/components/ui/card';
+import { Avatar, AvatarFallback } from '@/components/ui/avatar';
+import { Sparkles } from 'lucide-react';
+import type { ChatMessage as ChatMessageType } from '@/types/chat';
 
 function ChatMessageComponent({ role, content }: ChatMessageType) {
   const isUser = role === 'user';

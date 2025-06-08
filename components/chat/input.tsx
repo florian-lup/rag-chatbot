@@ -38,7 +38,9 @@ const ChatInputComponent = ({
           id="chat-input"
           placeholder={hasMessages ? 'Ask a follow up question…' : 'Ask me anything…'}
           value={message}
-          onChange={(e) => handleChange(e.target.value)}
+          onChange={(e) => {
+            handleChange(e.target.value);
+          }}
           onKeyDown={handleKeyDown}
           className="w-full resize-none rounded-none pr-12 min-h-36 max-h-60 shadow-none no-scrollbar border-none"
           rows={2}

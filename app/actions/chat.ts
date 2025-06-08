@@ -1,13 +1,13 @@
-"use server";
+'use server';
 
-import { openai } from "@/lib/openai";
-import { pinecone } from "@/lib/pinecone";
-import type { ChatMessage } from "@/types/chat";
-import type OpenAI from "openai";
+import { openai } from '@/lib/openai';
+import { pinecone } from '@/lib/pinecone';
+import type { ChatMessage } from '@/types/chat';
+import type OpenAI from 'openai';
 
 export async function chat(messages: ChatMessage[]): Promise<string> {
-  if (!messages || !Array.isArray(messages) || messages.length === 0) {
-    throw new Error("No messages provided");
+  if (messages.length === 0) {
+    throw new Error('No messages provided');
   }
 
   const systemPrompt = `You are Florian. Reply in the first person with a lively, confident voice that blends conversational warmth with occasional witty remarks and light sarcasm. Keep your responses concise and engaging.
@@ -28,122 +28,132 @@ Guidelines:
 
   const tools = [
     {
-      type: "function",
+      type: 'function',
       function: {
-        name: "search_bio",
+        name: 'search_bio',
         description:
           "Semantic search over Florian's bio knowledge base to retrieve relevant information.",
         parameters: {
-          type: "object",
+          type: 'object',
           properties: {
             query: {
-              type: "string",
-              description:
-                "Standalone search query derived from the user question.",
+              type: 'string',
+              description: 'Standalone search query derived from the user question.',
             },
           },
-          required: ["query"],
+          required: ['query'],
         },
       },
     },
-  ] as unknown as OpenAI.ChatCompletionTool[];
+  ] satisfies OpenAI.ChatCompletionTool[];
 
   const messagesForOpenAI = [
-    { role: "system", content: systemPrompt },
+    { role: 'system', content: systemPrompt } as const,
     ...messages,
-  ] as unknown as OpenAI.ChatCompletionMessageParam[];
+  ] satisfies OpenAI.ChatCompletionMessageParam[];
 
-  let firstResponse;
+  let firstResponse: OpenAI.ChatCompletion;
   try {
     firstResponse = await openai.chat.completions.create({
-      model: "o4-mini",
+      model: 'o4-mini',
       messages: messagesForOpenAI,
       tools,
-      tool_choice: "auto",
+      tool_choice: 'auto',
     });
   } catch (err) {
     const error = err as Error;
-    console.error("OpenAI chat.completions error", error);
-    throw new Error(error.message || "OpenAI request failed");
+    console.error('OpenAI chat.completions error', error);
+    throw new Error(error.message || 'OpenAI request failed');
   }
 
-  const firstMsg = firstResponse.choices[0].message;
+  const firstChoice = firstResponse.choices[0];
+  if (!firstChoice) {
+    throw new Error('OpenAI returned no choices');
+  }
 
-  if (firstMsg.tool_calls && firstMsg.tool_calls.length > 0) {
-    const toolCall = firstMsg.tool_calls[0];
-    const args = JSON.parse(toolCall.function.arguments || "{}") as { query: string };
+  const firstMsg = firstChoice.message;
+
+  const toolCall = firstMsg.tool_calls?.[0];
+  if (toolCall) {
+    const args = JSON.parse(toolCall.function.arguments || '{}') as { query: string };
 
     let searchResult: string;
     try {
       searchResult = await runSearchBio(args.query);
     } catch (err) {
-      console.error("runSearchBio error", err);
-      searchResult = "No relevant context found.";
+      console.error('runSearchBio error', err);
+      searchResult = 'No relevant context found.';
     }
 
     const followupMessages = [
       ...messagesForOpenAI,
       firstMsg,
       {
-        role: "tool",
-        name: "search_bio",
+        role: 'tool',
+        name: 'search_bio',
         tool_call_id: toolCall.id,
         content: searchResult,
       },
     ] as unknown as OpenAI.ChatCompletionMessageParam[];
 
-    let finalResp;
+    let finalResp: OpenAI.ChatCompletion;
     try {
       finalResp = await openai.chat.completions.create({
-        model: "o4-mini",
+        model: 'o4-mini',
         messages: followupMessages,
         tools,
-        tool_choice: "none",
+        tool_choice: 'none',
       });
     } catch (err) {
       const error = err as Error;
-      console.error("OpenAI follow-up error", error);
-      throw new Error(error.message || "OpenAI request failed");
+      console.error('OpenAI follow-up error', error);
+      throw new Error(error.message || 'OpenAI request failed');
     }
 
-    const assistantReply = finalResp.choices[0].message.content;
-    return assistantReply ?? "";
+    const finalChoice = finalResp.choices[0];
+    const assistantReply =
+      finalChoice && finalChoice.message.content ? finalChoice.message.content : '';
+    return assistantReply;
   }
 
-  return firstMsg.content ?? "";
+  if (firstMsg.content === null) {
+    return '';
+  }
+  return firstMsg.content;
 }
 
 async function runSearchBio(query: string): Promise<string> {
   try {
-    if (!query?.trim()) return "No results.";
+    if (!query.trim()) return 'No results.';
 
     const embed = await openai.embeddings.create({
-      model: "text-embedding-3-small",
+      model: 'text-embedding-3-small',
       input: query,
     });
-    const vector = embed.data[0].embedding as number[];
+    const firstEmbedding = embed.data[0]?.embedding;
+    if (!firstEmbedding) return 'No relevant context found.';
 
-    const resp = await pinecone
-      .index("flo")
-      .namespace("bio")
-      .query({
-        vector,
-        topK: 10,
-        includeMetadata: true,
-      });
+    const vector = firstEmbedding;
 
-    const chunks =
-      resp.matches?.
-        map((m) => {
-          const meta = m.metadata as { text?: string } | undefined;
-          return meta?.text ?? "";
-        })
-        .filter(Boolean) ?? [];
-    if (!chunks.length) return "No relevant context found.";
+    const resp = await pinecone.index('flo').namespace('bio').query({
+      vector,
+      topK: 10,
+      includeMetadata: true,
+    });
 
-    return chunks.join("\n\n");
+    const matches = resp.matches;
+    const chunks = matches
+      .map((m) => {
+        const { text = '' } = m.metadata as { text?: string };
+        return text;
+      })
+      .filter(Boolean);
+
+    if (chunks.length === 0) return 'No relevant context found.';
+
+    return chunks.join('\n\n');
   } catch (err) {
-    console.error("Pinecone query error", err);
-    return "No relevant context found.";
+    console.error('Pinecone query error', err);
+    return 'No relevant context found.';
   }
 }

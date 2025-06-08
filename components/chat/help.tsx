@@ -33,7 +33,7 @@ export function HelpDialog({ children }: HelpDialogProps) {
         <div className="text-left space-y-3 pt-2 text-sm text-muted-foreground">
           <p>
             Welcome! This website features an AI assistant designed to help you learn more about my
-            background, projects, and expertise. When you chat here, you're interacting with an
+            background, projects, and expertise. When you chat here, you&apos;re interacting with an
             AI—not with me personally.
           </p>
           <p>

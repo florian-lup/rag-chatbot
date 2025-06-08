@@ -1,14 +1,14 @@
-import { useState, useEffect, memo } from "react";
-import { Card } from "@/components/ui/card";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { Loader2 } from "lucide-react";
+import { useState, useEffect, memo } from 'react';
+import { Card } from '@/components/ui/card';
+import { Avatar, AvatarFallback } from '@/components/ui/avatar';
+import { Loader2 } from 'lucide-react';
 
 const messages = [
-  "thinking...",
-  "processing...",
-  "analyzing...",
-  "generating response...",
-  "almost there..."
+  'thinking...',
+  'processing...',
+  'analyzing...',
+  'generating response...',
+  'almost there...',
 ];
 
 const StatusIndicatorComponent = () => {
@@ -19,7 +19,9 @@ const StatusIndicatorComponent = () => {
       setMessageIndex((prev) => (prev + 1) % messages.length);
     }, 3000);
 
-    return () => clearInterval(interval);
+    return () => {
+      clearInterval(interval);
+    };
   }, []);
 
   return (

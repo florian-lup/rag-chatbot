@@ -1,4 +1,5 @@
-import { NextRequest, NextResponse } from 'next/server';
+import type { NextRequest } from 'next/server';
+import { NextResponse } from 'next/server';
 import type { ChatMessage, ChatApiError } from '@/types/chat';
 import { z } from 'zod';
 import { chat } from '@/app/actions/chat';
@@ -12,12 +13,14 @@ export async function POST(req: NextRequest) {
     messages: z.array(messageSchema).min(1, 'No messages provided'),
   });
 
-  const json = await req.json().catch((err) => {
+  let json: unknown;
+  try {
+    json = await req.json();
+  } catch (err: unknown) {
     console.error('Failed to parse request body', err);
     const error: ChatApiError = { error: 'Invalid JSON payload' };
     return NextResponse.json(error, { status: 400 });
-  });
-  if (json instanceof NextResponse) return json;
+  }
 
   const parsed = bodySchema.safeParse(json);
   if (!parsed.success) {

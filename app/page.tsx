@@ -1,7 +1,7 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense } from 'react';
 
 const ChatInterface = lazy(() =>
-  import("@/components/chat/chat").then((m) => ({ default: m.ChatInterface }))
+  import('@/components/chat/chat').then((m) => ({ default: m.ChatInterface })),
 );
 
 export default function ChatPage() {

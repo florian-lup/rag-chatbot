@@ -22,6 +22,10 @@ export function Contact({ children }: ContactProps) {
     await copy('contact@florianlup.com');
   };
 
+  const handleCopyClick = () => {
+    void handleCopyEmail();
+  };
+
   return (
     <Dialog>
       <DialogTrigger asChild>{children}</DialogTrigger>
@@ -46,7 +50,7 @@ export function Contact({ children }: ContactProps) {
           </div>
         </div>
         <div className="flex justify-end">
-          <Button variant="outline" size="sm" onClick={handleCopyEmail} className="gap-2">
+          <Button variant="outline" size="sm" onClick={handleCopyClick} className="gap-2">
             {isEmailCopied ? (
               <>
                 <CheckCircle className="w-4 h-4 text-green-500" />
