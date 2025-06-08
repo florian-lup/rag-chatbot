@@ -1,6 +1,6 @@
-# Mirror Image
+# RAG Chatbot
 
-A personal AI chatbot that utilizes Retrieval-Augmented Generation (RAG) to provide contextually accurate responses based on biographical information. Built with Next.js, OpenAI & Pinecone.
+AI chatbot that utilizes Retrieval-Augmented Generation (RAG) to provide contextually accurate responses based on biographical information. Built with Next.js, OpenAI & Pinecone.
 
 ## Features
 
@@ -30,12 +30,14 @@ A personal AI chatbot that utilizes Retrieval-Augmented Generation (RAG) to prov
 ### Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone <repository-url>
    cd mirror-image
    ```
 
 2. **Install dependencies**
+
    ```bash
    npm install
    # or
@@ -45,8 +47,9 @@ A personal AI chatbot that utilizes Retrieval-Augmented Generation (RAG) to prov
    ```
 
 3. **Set up environment variables**
-   
+
    Create a `.env` file in the root directory:
+
    ```env
    OPENAI_API_KEY=your_openai_api_key_here
    PINECONE_API_KEY=your_pinecone_api_key_here
@@ -54,25 +57,36 @@ A personal AI chatbot that utilizes Retrieval-Augmented Generation (RAG) to prov
    ```
 
 4. **Prepare your biographical data**
-   
+
    Create `documents/bio.md` with the biographical information you want the AI to reference.
 
 5. **Upload biographical data to Pinecone**
+
    ```bash
    npm run upsert
    ```
-   
+
    This script will:
+
    - Read your `bio.md` file
    - Split it into semantic chunks
    - Generate embeddings using OpenAI
    - Store the vectors in your Pinecone index
 
+   **Optional: Clear existing data**
+
+   ```bash
+   npm run delete-bio
+   ```
+
+   Use this to delete all records from the `bio` namespace before uploading new data.
+
 6. **Run the development server**
+
    ```bash
    npm run dev
    ```
-   
+
    Open [http://localhost:3000](http://localhost:3000) to see the application.
 
 ### Pinecone Setup
@@ -86,23 +100,30 @@ A personal AI chatbot that utilizes Retrieval-Augmented Generation (RAG) to prov
 ## Project Structure
 
 ```
-mirror-image/
-├── src/
-│   ├── app/                    # Next.js App Router
-│   │   ├── api/chat/          # Chat API endpoint
-│   │   └── page.tsx           # Main chat page
-│   ├── components/            # React components
-│   │   ├── chat/             # Chat-specific components
-│   │   └── ui/               # Reusable UI components
-│   ├── hooks/                # Custom React hooks
-│   ├── lib/                  # Utility libraries and configs
-│   ├── providers/            # React context providers
-│   └── types/                # TypeScript type definitions
-├── documents/                # Source documents for RAG
-│   └── bio.md               # Biographical information
-├── scripts/                 # Utility scripts
-│   └── upsert-bio.ts       # Data upload script
-└── public/                  # Static assets
+rag-chatbot/
+├── app/                      # Next.js App Router
+│   ├── actions/             # Server actions
+│   ├── api/                 # API routes
+│   │   └── chat/           # Chat API endpoint
+│   └── page.tsx            # Main chat page
+├── components/              # React components
+│   ├── chat/               # Chat-specific components
+│   └── ui/                 # Reusable UI components
+├── documents/              # Source documents for RAG
+│   └── bio.md             # Biographical information
+├── hooks/                  # Custom React hooks
+├── lib/                    # Utility libraries and configs
+├── scripts/                # Utility scripts
+│   ├── upsert-bio.ts      # Data upload script
+│   └── delete-bio.ts      # Data deletion script
+├── tests/                  # Test files
+├── types/                  # TypeScript type definitions
+├── components.json         # shadcn/ui configuration
+├── next.config.ts          # Next.js configuration
+├── package.json            # Dependencies and scripts
+├── playwright.config.ts    # Playwright test configuration
+├── tsconfig.json          # TypeScript configuration
+└── README.md              # Project documentation
 ```
 
 ## Scripts
@@ -112,6 +133,7 @@ mirror-image/
 - `npm run start` - Start production server
 - `npm run lint` - Run ESLint
 - `npm run upsert` - Upload biographical data to Pinecone
+- `npm run delete-bio` - Delete all records from bio namespace in Pinecone
 
 ## Deployment
 
