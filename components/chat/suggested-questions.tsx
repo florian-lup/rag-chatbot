@@ -1,7 +1,8 @@
-import { memo } from 'react';
-import { Card } from '../ui/card';
-import { Badge } from '../ui/badge';
 import { Briefcase, FolderKanban, Code2, Gamepad2 } from 'lucide-react';
+import { memo } from 'react';
+
+import { Badge } from '../ui/badge';
+import { Card } from '../ui/card';
 
 const suggestedQuestions = [
   {

@@ -1,5 +1,7 @@
 'use client';
 
+import type { WithChildren } from '@/types';
+
 import {
   Sheet,
   SheetContent,
@@ -8,8 +10,6 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '../ui/sheet';
-
-import type { WithChildren } from '@/types';
 
 export function Terms({ children }: WithChildren) {
   return (

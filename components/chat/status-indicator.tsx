@@ -1,7 +1,8 @@
-import { useState, useEffect, memo } from 'react';
-import { Card } from '../ui/card';
-import { Avatar, AvatarFallback } from '../ui/avatar';
 import { Loader2 } from 'lucide-react';
+import { useState, useEffect, memo } from 'react';
+
+import { Avatar, AvatarFallback } from '../ui/avatar';
+import { Card } from '../ui/card';
 
 const messages = [
   'thinking...',

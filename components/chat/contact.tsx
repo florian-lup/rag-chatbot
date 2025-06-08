@@ -1,5 +1,9 @@
-import React from 'react';
 import { Mail, CheckCircle, Copy } from 'lucide-react';
+import React from 'react';
+
+import { useCopyToClipboard } from '@/hooks';
+
+import { Button } from '../ui/button';
 import {
   Dialog,
   DialogContent,
@@ -8,8 +12,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '../ui/dialog';
-import { Button } from '../ui/button';
-import { useCopyToClipboard } from '@/hooks';
 
 interface ContactProps {
   children: React.ReactNode;

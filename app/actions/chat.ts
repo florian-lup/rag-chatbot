@@ -1,9 +1,13 @@
 'use server';
 
+import type OpenAI from 'openai';
+
 import { openai } from '@/lib/openai';
 import { pinecone } from '@/lib/pinecone';
 import type { ChatMessage } from '@/types';
-import type OpenAI from 'openai';
+
+const NO_CONTEXT_FOUND = 'No relevant context found.';
+
 export async function chat(messages: ChatMessage[]): Promise<string> {
   if (messages.length === 0) {
     throw new Error('No messages provided');
@@ -74,7 +78,7 @@ Guidelines:
       searchResult = await runSearchBio(args.query);
     } catch (err) {
       console.error('runSearchBio error', err);
-      searchResult = 'No relevant context found.';
+      searchResult = NO_CONTEXT_FOUND;
     }
 
     const followupMessages = [
@@ -108,14 +112,14 @@ Guidelines:
 
 async function runSearchBio(query: string): Promise<string> {
   try {
-    if (!query.trim()) return 'No results.';
+    if (!query.trim()) return NO_CONTEXT_FOUND;
 
     const embed = await openai.embeddings.create({
       model: 'text-embedding-3-small',
       input: query,
     });
     const firstEmbedding = embed.data[0]?.embedding;
-    if (!firstEmbedding) return 'No relevant context found.';
+    if (!firstEmbedding) return NO_CONTEXT_FOUND;
 
     const vector = firstEmbedding;
 
@@ -133,11 +137,11 @@ async function runSearchBio(query: string): Promise<string> {
       })
       .filter(Boolean);
 
-    if (chunks.length === 0) return 'No relevant context found.';
+    if (chunks.length === 0) return NO_CONTEXT_FOUND;
 
     return chunks.join('\n\n');
   } catch (err) {
     console.error('Pinecone query error', err);
-    return 'No relevant context found.';
+    return NO_CONTEXT_FOUND;
   }
 }

@@ -1,5 +1,5 @@
-import { Suspense } from 'react';
 import dynamicImport from 'next/dynamic';
+import { Suspense } from 'react';
 
 const ChatInterface = dynamicImport(
   () => import('@/components/chat/chat').then((m) => m.ChatInterface),

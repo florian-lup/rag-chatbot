@@ -1,14 +1,17 @@
 'use client';
 
 import { useState } from 'react';
+
+import { useAutoScroll, useChat } from '@/hooks';
+
+import { Button } from '../ui/button';
+
+import { Header } from './header';
+import { HelpDialog } from './help';
+import { ChatInput } from './input';
 import { ChatMessage as ChatMessageComponent } from './messages';
 import { StatusIndicator } from './status-indicator';
 import { SuggestedQuestions } from './suggested-questions';
-import { ChatInput } from './input';
-import { HelpDialog } from './help';
-import { Button } from '../ui/button';
-import { Header } from './header';
-import { useAutoScroll, useChat } from '@/hooks';
 
 export function ChatInterface() {
   const [message, setMessage] = useState('');

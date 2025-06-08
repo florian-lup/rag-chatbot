@@ -3,6 +3,8 @@ import { fileURLToPath } from 'url';
 import { FlatCompat } from '@eslint/eslintrc';
 import validateFilename from 'eslint-plugin-validate-filename';
 import noRelativeImportPaths from 'eslint-plugin-no-relative-import-paths';
+import sonarjs from 'eslint-plugin-sonarjs';
+import importPlugin from 'eslint-plugin-import';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -18,10 +20,12 @@ const eslintConfig = [
     'plugin:@typescript-eslint/strict-type-checked',
     'plugin:prettier/recommended',
   ),
+  sonarjs.configs.recommended,
   {
     plugins: {
       'validate-filename': validateFilename,
       'no-relative-import-paths': noRelativeImportPaths,
+      import: importPlugin,
     },
     rules: {
       'validate-filename/naming-rules': [
@@ -39,6 +43,23 @@ const eslintConfig = [
           allowedDepth: 1,
         },
       ],
+      // Import plugin rules
+      'import/order': [
+        'error',
+        {
+          groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
+          'newlines-between': 'always',
+          alphabetize: { order: 'asc', caseInsensitive: true },
+        },
+      ],
+      'import/no-duplicates': 'error',
+      'import/no-unresolved': 'error',
+      'import/no-cycle': 'error',
+      // Override SonarJS rules if needed
+      'sonarjs/cognitive-complexity': ['error', 15],
+      'sonarjs/no-duplicate-string': ['error', { threshold: 4 }],
+      'sonarjs/prefer-read-only-props': 'off', // Too strict for React components
+      'sonarjs/void-use': 'off', // Sometimes needed for event handlers
     },
   },
   {

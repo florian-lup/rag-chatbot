@@ -1,8 +1,9 @@
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
-import type { ChatMessage, ChatApiError } from '@/types';
 import { z } from 'zod';
+
 import { chat } from '@/app/actions/chat';
+import type { ChatMessage, ChatApiError } from '@/types';
 
 export async function POST(req: NextRequest) {
   const messageSchema = z.object({
