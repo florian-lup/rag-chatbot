@@ -153,5 +153,3 @@ async function runSearchBio(query: string): Promise<string> {
     return 'No relevant context found.';
   }
 }
-
-export const dynamic = 'force-dynamic';

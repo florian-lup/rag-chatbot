@@ -1,10 +1,12 @@
 import { Suspense } from 'react';
-import dynamic from 'next/dynamic';
+import dynamicImport from 'next/dynamic';
 
-const ChatInterface = dynamic(() => import('@/components/chat/chat').then((m) => m.ChatInterface), {
-  ssr: false,
-  loading: () => <div className="p-4">Loading chat…</div>,
-});
+const ChatInterface = dynamicImport(
+  () => import('@/components/chat/chat').then((m) => m.ChatInterface),
+  {
+    loading: () => <div className="p-4">Loading chat…</div>,
+  },
+);
 
 export default function ChatPage() {
   return (
@@ -15,3 +17,5 @@ export default function ChatPage() {
     </div>
   );
 }
+
+export const dynamic = 'force-dynamic';
