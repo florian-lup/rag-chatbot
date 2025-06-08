@@ -4,6 +4,7 @@ import { openai } from '@/lib/openai';
 import { pinecone } from '@/lib/pinecone';
 import type { ChatMessage } from '@/types/chat';
 import type OpenAI from 'openai';
+import { handleOpenAIError } from '@/lib/handle-openai-error';
 
 export async function chat(messages: ChatMessage[]): Promise<string> {
   if (messages.length === 0) {
@@ -61,9 +62,7 @@ Guidelines:
       tool_choice: 'auto',
     });
   } catch (err) {
-    const error = err as Error;
-    console.error('OpenAI chat.completions error', error);
-    throw new Error(error.message || 'OpenAI request failed');
+    handleOpenAIError(err);
   }
 
   const firstChoice = firstResponse.choices[0];
@@ -105,14 +104,11 @@ Guidelines:
         tool_choice: 'none',
       });
     } catch (err) {
-      const error = err as Error;
-      console.error('OpenAI follow-up error', error);
-      throw new Error(error.message || 'OpenAI request failed');
+      handleOpenAIError(err);
     }
 
     const finalChoice = finalResp.choices[0];
-    const assistantReply =
-      finalChoice && finalChoice.message.content ? finalChoice.message.content : '';
+    const assistantReply = finalChoice?.message.content ?? '';
     return assistantReply;
   }
 
@@ -157,3 +153,5 @@ async function runSearchBio(query: string): Promise<string> {
     return 'No relevant context found.';
   }
 }
+
+export const dynamic = 'force-dynamic';

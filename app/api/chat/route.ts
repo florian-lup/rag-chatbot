@@ -39,3 +39,6 @@ export async function POST(req: NextRequest) {
     return NextResponse.json(resp, { status: 500 });
   }
 }
+
+export const revalidate = 0; // no ISR
+export const dynamic = 'force-dynamic';
