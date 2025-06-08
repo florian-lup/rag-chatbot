@@ -126,12 +126,47 @@ rag-chatbot/
 └── README.md              # Project documentation
 ```
 
+## Testing
+
+The project includes comprehensive test coverage using Playwright:
+
+### Test Structure
+
+```
+tests/
+├── actions/                # Unit tests for server actions
+│   └── chat.spec.ts       # Tests for chat action with mocked OpenAI/Pinecone
+├── api/                   # Unit tests for API routes
+│   └── chat-route.spec.ts # Tests for /api/chat endpoint
+├── scripts/               # Tests for utility scripts
+│   ├── delete-bio.spec.ts # Tests for delete-bio script
+│   └── upsert-bio.spec.ts # Tests for upsert-bio script
+└── e2e/                   # End-to-end browser tests
+    └── chat-flow.spec.ts  # UI interaction tests
+```
+
+### Running Tests
+
+- `npm run test` - Run all Playwright tests
+- `pnpm exec playwright test tests/actions` - Run action tests only
+- `pnpm exec playwright test tests/api` - Run API tests only
+- `pnpm exec playwright test tests/scripts` - Run script tests only
+- `pnpm exec playwright test tests/e2e` - Run end-to-end tests only
+
+### Test Coverage
+
+- **Unit Tests**: Mock external dependencies (OpenAI, Pinecone) to test business logic
+- **Integration Tests**: Test API endpoints with realistic request/response cycles
+- **Script Tests**: Validate CLI tools handle missing environment variables gracefully
+- **E2E Tests**: Browser-based tests ensuring UI components render and function correctly
+
 ## Scripts
 
 - `npm run dev` - Start development server
 - `npm run build` - Build for production
 - `npm run start` - Start production server
 - `npm run lint` - Run ESLint
+- `npm run test` - Run all tests with Playwright
 - `npm run upsert` - Upload biographical data to Pinecone
 - `npm run delete-bio` - Delete all records from bio namespace in Pinecone
 

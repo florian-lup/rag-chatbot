@@ -9,6 +9,14 @@ const PORT = 3000;
  */
 const baseURL = `http://localhost:${PORT}`;
 
+// Ensure a dummy key is available during test runs so that instantiating the OpenAI client
+// in unit tests does not throw.
+process.env['OPENAI_API_KEY'] = process.env['OPENAI_API_KEY'] ?? 'test';
+
+// Ensure a dummy Pinecone key is available during test runs so that instantiating the Pinecone client
+// in unit tests does not throw.
+process.env['PINECONE_API_KEY'] = process.env['PINECONE_API_KEY'] ?? 'test';
+
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
