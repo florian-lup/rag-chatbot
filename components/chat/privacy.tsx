@@ -9,7 +9,7 @@ import {
   SheetTrigger,
 } from '../ui/sheet';
 
-import type { WithChildren } from '@/types/common';
+import type { WithChildren } from '@/types';
 
 export function Privacy({ children }: WithChildren) {
   return (

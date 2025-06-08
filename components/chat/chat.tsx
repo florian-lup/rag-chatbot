@@ -8,8 +8,7 @@ import { ChatInput } from './input';
 import { HelpDialog } from './help';
 import { Button } from '../ui/button';
 import { Header } from './header';
-import { useAutoScroll } from '@/hooks/useAutoScroll';
-import { useChat } from '@/hooks/useChat';
+import { useAutoScroll, useChat } from '@/hooks';
 
 export function ChatInterface() {
   const [message, setMessage] = useState('');

@@ -9,7 +9,7 @@ import {
   DialogTrigger,
 } from '../ui/dialog';
 import { Button } from '../ui/button';
-import { useCopyToClipboard } from '@/hooks/useCopyToClipboard';
+import { useCopyToClipboard } from '@/hooks';
 
 interface ContactProps {
   children: React.ReactNode;

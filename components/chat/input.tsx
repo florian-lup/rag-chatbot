@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { Button } from '../ui/button';
 import { Textarea } from '../ui/textarea';
 import { ArrowUp } from 'lucide-react';
-import { useEnterSubmit } from '@/hooks/useEnterSubmit';
+import { useEnterSubmit } from '@/hooks';
 
 interface ChatInputProps {
   message: string;

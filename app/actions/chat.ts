@@ -2,10 +2,8 @@
 
 import { openai } from '@/lib/openai';
 import { pinecone } from '@/lib/pinecone';
-import type { ChatMessage } from '@/types/chat';
+import type { ChatMessage } from '@/types';
 import type OpenAI from 'openai';
-import { handleOpenAIError } from '@/lib/handle-openai-error';
-
 export async function chat(messages: ChatMessage[]): Promise<string> {
   if (messages.length === 0) {
     throw new Error('No messages provided');
@@ -53,17 +51,12 @@ Guidelines:
     ...messages,
   ] satisfies OpenAI.ChatCompletionMessageParam[];
 
-  let firstResponse: OpenAI.ChatCompletion;
-  try {
-    firstResponse = await openai.chat.completions.create({
-      model: 'o4-mini',
-      messages: messagesForOpenAI,
-      tools,
-      tool_choice: 'auto',
-    });
-  } catch (err) {
-    handleOpenAIError(err);
-  }
+  const firstResponse = await openai.chat.completions.create({
+    model: 'o4-mini',
+    messages: messagesForOpenAI,
+    tools,
+    tool_choice: 'auto',
+  });
 
   const firstChoice = firstResponse.choices[0];
   if (!firstChoice) {
@@ -95,17 +88,12 @@ Guidelines:
       },
     ] as unknown as OpenAI.ChatCompletionMessageParam[];
 
-    let finalResp: OpenAI.ChatCompletion;
-    try {
-      finalResp = await openai.chat.completions.create({
-        model: 'o4-mini',
-        messages: followupMessages,
-        tools,
-        tool_choice: 'none',
-      });
-    } catch (err) {
-      handleOpenAIError(err);
-    }
+    const finalResp = await openai.chat.completions.create({
+      model: 'o4-mini',
+      messages: followupMessages,
+      tools,
+      tool_choice: 'none',
+    });
 
     const finalChoice = finalResp.choices[0];
     const assistantReply = finalChoice?.message.content ?? '';
