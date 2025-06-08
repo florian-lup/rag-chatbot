@@ -1,6 +1,6 @@
 import { memo } from 'react';
-import { Button } from '@/components/ui/button';
-import { Textarea } from '@/components/ui/textarea';
+import { Button } from '../ui/button';
+import { Textarea } from '../ui/textarea';
 import { ArrowUp } from 'lucide-react';
 import { useEnterSubmit } from '@/hooks/useEnterSubmit';
 

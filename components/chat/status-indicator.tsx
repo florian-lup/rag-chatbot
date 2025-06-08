@@ -1,6 +1,6 @@
 import { useState, useEffect, memo } from 'react';
-import { Card } from '@/components/ui/card';
-import { Avatar, AvatarFallback } from '@/components/ui/avatar';
+import { Card } from '../ui/card';
+import { Avatar, AvatarFallback } from '../ui/avatar';
 import { Loader2 } from 'lucide-react';
 
 const messages = [

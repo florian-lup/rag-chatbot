@@ -1,8 +1,8 @@
 import { FileText, ShieldAlert, Mail, RotateCcw, ExternalLink } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Privacy } from '@/components/chat/privacy';
-import { Terms } from '@/components/chat/terms';
-import { Contact } from '@/components/chat/contact';
+import { Button } from '../ui/button';
+import { Privacy } from './privacy';
+import { Terms } from './terms';
+import { Contact } from './contact';
 
 interface HeaderProps {
   hasMessages?: boolean;

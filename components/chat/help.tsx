@@ -9,7 +9,7 @@ import {
   DialogTitle,
   DialogDescription,
   DialogTrigger,
-} from '@/components/ui/dialog';
+} from '../ui/dialog';
 
 interface HelpDialogProps {
   children: ReactNode;

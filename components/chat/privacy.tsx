@@ -7,7 +7,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from '@/components/ui/sheet';
+} from '../ui/sheet';
 
 import type { WithChildren } from '@/types/common';
 

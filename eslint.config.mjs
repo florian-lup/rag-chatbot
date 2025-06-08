@@ -2,6 +2,7 @@ import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { FlatCompat } from '@eslint/eslintrc';
 import validateFilename from 'eslint-plugin-validate-filename';
+import noRelativeImportPaths from 'eslint-plugin-no-relative-import-paths';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -20,12 +21,22 @@ const eslintConfig = [
   {
     plugins: {
       'validate-filename': validateFilename,
+      'no-relative-import-paths': noRelativeImportPaths,
     },
     rules: {
       'validate-filename/naming-rules': [
         'error',
         {
           rules: [{ case: 'kebab', target: '**/*', excludes: ['**/[[]*'] }],
+        },
+      ],
+      'no-relative-import-paths/no-relative-import-paths': [
+        'error',
+        {
+          allowSameFolder: true, // Allow "./file" for same-folder imports
+          rootDir: '', // Don't strip any root directory
+          prefix: '@', // Use "@" prefix for absolute imports
+          allowedDepth: 1,
         },
       ],
     },

@@ -1,13 +1,13 @@
 'use client';
 
 import { useState } from 'react';
-import { ChatMessage as ChatMessageComponent } from '@/components/chat/messages';
-import { StatusIndicator } from '@/components/chat/status-indicator';
-import { SuggestedQuestions } from '@/components/chat/suggested-questions';
-import { ChatInput } from '@/components/chat/input';
-import { HelpDialog } from '@/components/chat/help';
-import { Button } from '@/components/ui/button';
-import { Header } from '@/components/chat/header';
+import { ChatMessage as ChatMessageComponent } from './messages';
+import { StatusIndicator } from './status-indicator';
+import { SuggestedQuestions } from './suggested-questions';
+import { ChatInput } from './input';
+import { HelpDialog } from './help';
+import { Button } from '../ui/button';
+import { Header } from './header';
 import { useAutoScroll } from '@/hooks/useAutoScroll';
 import { useChat } from '@/hooks/useChat';
 
