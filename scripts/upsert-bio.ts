@@ -15,7 +15,7 @@ import 'dotenv/config';
  * Environment variables required (see README or .env):
  *   OPENAI_API_KEY        – OpenAI secret key
  *   PINECONE_API_KEY      – Pinecone secret key
-*/
+ */
 
 import fs from 'node:fs/promises';
 import path from 'node:path';
@@ -60,15 +60,22 @@ async function main() {
   })) as { data: { embedding: number[] }[] };
 
   // 3. Build vectors to upsert
-  const vectors = embeddings.map((item, i) => ({
-    id: sha256(richChunks[i].text).slice(0, 16),
-    values: item.embedding as number[],
-    metadata: {
-      text: richChunks[i].text,
-      source: 'bio.md',
-      index: i,
-    },
-  }));
+  const vectors = embeddings.map((item, i) => {
+    const chunk = richChunks[i];
+    if (!chunk) {
+      throw new Error(`richChunks[${i}] is undefined – lengths are out of sync`);
+    }
+
+    return {
+      id: sha256(chunk.text).slice(0, 16),
+      values: item.embedding as number[],
+      metadata: {
+        text: chunk.text,
+        source: 'bio.md',
+        index: i,
+      },
+    };
+  });
 
   // 4. Upsert into Pinecone
   const index = pinecone.index(INDEX_NAME).namespace(NAMESPACE);
@@ -117,15 +124,15 @@ function splitMarkdown(md: string): RichChunk[] {
 
   const lines = md.split('\n');
   for (let i = 0; i < lines.length; i++) {
-    const line = lines[i];
+    const line = lines[i]!; // non-null assertion (safe because i < lines.length)
 
     const headingMatch = line.match(/^(#{1,6})\s+(.*)/);
     if (headingMatch) {
       // Start of a new chunk -> flush previous
       push();
 
-      const level = headingMatch[1].length;
-      const headingText = headingMatch[2].trim();
+      const level = headingMatch[1]!.length;
+      const headingText = headingMatch[2]!.trim();
 
       // Update current section label when we hit a level-2 heading (##)
       if (level === 2) {
@@ -153,4 +160,4 @@ if (require.main === module) {
     console.error(err);
     process.exit(1);
   });
-} 
+}
