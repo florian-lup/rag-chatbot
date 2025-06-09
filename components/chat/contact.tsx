@@ -41,13 +41,9 @@ export function Contact({ children }: ContactProps) {
         </DialogHeader>
         <div className="flex items-center space-x-2">
           <div className="grid flex-1 gap-2">
-            <label htmlFor="email" className="text-sm font-medium">
-              Email Address
-            </label>
+            <div className="text-sm font-medium">Email Address</div>
             <div className="flex items-center gap-2 p-3 bg-muted rounded-md">
-              <span id="email" className="text-sm font-mono">
-                contact@florianlup.com
-              </span>
+              <span className="text-sm font-mono">contact@florianlup.com</span>
             </div>
           </div>
         </div>

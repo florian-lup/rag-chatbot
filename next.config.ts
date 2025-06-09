@@ -1,42 +1,45 @@
 import type { NextConfig } from 'next';
 
-// Determine if we are running `next dev` (development) or a production build
-const isDev = process.env.NODE_ENV === 'development';
-
 const nextConfig: NextConfig = {
   // Disable the X-Powered-By header for security
   poweredByHeader: false,
-  
-  // Enable Lightning CSS optimization
-  experimental: {
-    optimizeCss: true,
-  },
 
   async headers() {
-    // Base security-related headers that we always want
-    const headers: { key: string; value: string }[] = [
-      { key: 'X-Frame-Options', value: 'DENY' },
-      { key: 'X-Content-Type-Options', value: 'nosniff' },
-      { key: 'Referrer-Policy', value: 'origin-when-cross-origin' },
-      {
-        key: 'Permissions-Policy',
-        value: 'camera=(), microphone=(), geolocation=()',
-      },
-    ];
-
-    // Add the Content-Security-Policy header ONLY in production
-    if (!isDev) {
-      headers.push({
-        key: 'Content-Security-Policy',
-        value:
-          "default-src 'self'; img-src 'self' data: https:; script-src 'self' https://va.vercel-scripts.com; style-src 'self';",
-      });
+    // Only apply security headers in production
+    if (process.env.NODE_ENV !== 'production') {
+      return [];
     }
 
     return [
       {
-        source: '/(.*)',
-        headers,
+        // Static security headers applied at build-time for better performance
+        source: '/:path*',
+        headers: [
+          {
+            key: 'Strict-Transport-Security',
+            value: 'max-age=63072000; includeSubDomains; preload',
+          },
+          {
+            key: 'X-DNS-Prefetch-Control',
+            value: 'on',
+          },
+          {
+            key: 'Cross-Origin-Opener-Policy',
+            value: 'same-origin',
+          },
+          {
+            key: 'Cross-Origin-Embedder-Policy',
+            value: 'require-corp',
+          },
+          {
+            key: 'Cross-Origin-Resource-Policy',
+            value: 'same-origin',
+          },
+          {
+            key: 'Permissions-Policy',
+            value: 'camera=(), microphone=(), geolocation=(), browsing-topics=()',
+          },
+        ],
       },
     ];
   },

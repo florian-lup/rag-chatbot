@@ -23,7 +23,7 @@ Check out a live example at [https://www.florianlup.com](https://www.florianlup.
 
 ### Prerequisites
 
-- Node.js 18+ and npm/pnpm/yarn
+- Node.js 18+ and pnpm
 - OpenAI API key
 - Pinecone API key
 
@@ -34,7 +34,7 @@ Check out a live example at [https://www.florianlup.com](https://www.florianlup.
    ```bash
    git clone https://github.com/florian-lup/rag-chatbot
    cd rag-chatbot
-   npm install
+   pnpm install
    ```
 
 2. **Environment variables**
@@ -52,20 +52,20 @@ Check out a live example at [https://www.florianlup.com](https://www.florianlup.
    Create `documents/bio.md` with your content, then:
 
    ```bash
-   npm run upsert-bio
+   pnpm upsert-bio
    ```
 
 4. **Run development server**
 
    ```bash
-   npm run dev --turbopack
+   pnpm dev
    ```
 
    Open [http://localhost:3000](http://localhost:3000)
 
 ### Pinecone Setup
 
-The `background-context` index will be created automatically when you run `npm run upsert-bio`:
+The `background-context` index will be created automatically when you run `pnpm upsert-bio`:
 
 - **Dimensions**: 1536 (text-embedding-3-small)
 - **Metric**: Cosine
@@ -90,11 +90,11 @@ rag-chatbot/
 
 ## Scripts
 
-- `npm run dev --turbopack` - Development server
-- `npm run build` - Production build
-- `npm run test` - Run Playwright tests
-- `npm run upsert-bio` - Upload data to Pinecone
-- `npm run delete-bio` - Clear Pinecone index
+- `pnpm dev --turbopack` - Development server
+- `pnpm build` - Production build
+- `pnpm test` - Run Playwright tests
+- `pnpm upsert-bio` - Upload data to Pinecone
+- `pnpm delete-bio` - Clear Pinecone index
 
 ## Testing
 
