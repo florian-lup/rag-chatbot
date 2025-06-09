@@ -5,6 +5,7 @@ import validateFilename from 'eslint-plugin-validate-filename';
 import noRelativeImportPaths from 'eslint-plugin-no-relative-import-paths';
 import sonarjs from 'eslint-plugin-sonarjs';
 import importPlugin from 'eslint-plugin-import';
+import unusedImports from 'eslint-plugin-unused-imports';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -26,6 +27,7 @@ const eslintConfig = [
       'validate-filename': validateFilename,
       'no-relative-import-paths': noRelativeImportPaths,
       import: importPlugin,
+      'unused-imports': unusedImports,
     },
     rules: {
       'validate-filename/naming-rules': [
@@ -60,6 +62,11 @@ const eslintConfig = [
       'sonarjs/no-duplicate-string': ['error', { threshold: 4 }],
       'sonarjs/prefer-read-only-props': 'off', // Too strict for React components
       'sonarjs/void-use': 'off', // Sometimes needed for event handlers
+      'unused-imports/no-unused-imports': 'error',
+      'unused-imports/no-unused-vars': [
+        'warn',
+        { vars: 'all', varsIgnorePattern: '^_', args: 'after-used', argsIgnorePattern: '^_' },
+      ],
     },
   },
   {

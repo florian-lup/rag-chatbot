@@ -3,10 +3,9 @@
 import 'dotenv/config';
 
 /**
- * Delete all records from bio namespace in Pinecone.
+ * Delete all records from Pinecone background-context index.
  *
- * Index: "flo"
- * Namespace: "bio"
+ * Index: "background-context"
  *
  * Usage:
  *   pnpm run delete-bio     # or npm run delete-bio / yarn delete-bio
@@ -23,8 +22,7 @@ import { Pinecone } from '@pinecone-database/pinecone';
 // ────────────────────────────────────────────────────────────────────────────────
 // Config ✏️ adjust if needed
 // ────────────────────────────────────────────────────────────────────────────────
-const INDEX_NAME = 'flo';
-const NAMESPACE = 'bio';
+const INDEX_NAME = 'background-context';
 
 // ────────────────────────────────────────────────────────────────────────────────
 // Entry point
@@ -41,28 +39,28 @@ async function main() {
   // Get index stats before deletion to see what we're deleting
   const index = pinecone.index(INDEX_NAME);
   const statsBefore = await index.describeIndexStats();
-  const namespaceBefore = statsBefore.namespaces?.[NAMESPACE];
+  const totalRecordsBefore = statsBefore.totalRecordCount || 0;
 
-  if (!namespaceBefore || namespaceBefore.recordCount === 0) {
-    console.log(`⚠️  Namespace '${NAMESPACE}' is already empty or doesn't exist`);
+  if (totalRecordsBefore === 0) {
+    console.log(`⚠️  Index '${INDEX_NAME}' is already empty`);
     return;
   }
 
-  console.log(`📊 Found ${namespaceBefore.recordCount} records in namespace '${NAMESPACE}'`);
+  console.log(`📊 Found ${totalRecordsBefore} records in index '${INDEX_NAME}'`);
 
   // Delete all records in the namespace
-  await index.namespace(NAMESPACE).deleteAll();
-  console.log(`🗑️  Deleted all records from namespace '${NAMESPACE}' in index '${INDEX_NAME}'`);
+  await index.deleteAll();
+  console.log(`🗑️  Deleted all records from index '${INDEX_NAME}'`);
 
   // Verify deletion by checking stats again
   const statsAfter = await index.describeIndexStats();
-  const namespaceAfter = statsAfter.namespaces?.[NAMESPACE];
+  const totalRecordsAfter = statsAfter.totalRecordCount || 0;
 
-  if (!namespaceAfter || namespaceAfter.recordCount === 0) {
-    console.log(`✔ Successfully cleared namespace '${NAMESPACE}'`);
+  if (totalRecordsAfter === 0) {
+    console.log(`✔ Successfully cleared index '${INDEX_NAME}'`);
   } else {
     console.log(
-      `⚠️  Namespace still contains ${namespaceAfter.recordCount} records. Deletion may be in progress.`,
+      `⚠️  Index still contains ${totalRecordsAfter} records. Deletion may be in progress.`,
     );
   }
 }

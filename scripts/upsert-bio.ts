@@ -5,12 +5,11 @@ import 'dotenv/config';
 /**
  * Upsert bio.md chunks into Pinecone.
  *
- * Index: "flo"
- * Namespace: "bio"
+ * Index: "background-context"
  * Embedding model: text-embedding-3-small (1536-D, cosine)
  *
  * Usage:
- *   pnpm run upsert          # or npm run upsert / yarn upsert
+ *   pnpm run upsert-bio          # or npm run upsert-bio / yarn upsert-bio
  *
  * Environment variables required (see README or .env):
  *   OPENAI_API_KEY        – OpenAI secret key
@@ -29,8 +28,7 @@ import OpenAI from 'openai';
 // ────────────────────────────────────────────────────────────────────────────────
 // Config ✏️ adjust if needed
 // ────────────────────────────────────────────────────────────────────────────────
-const INDEX_NAME = 'flo';
-const NAMESPACE = 'bio';
+const INDEX_NAME = 'background-context';
 const EMBEDDING_MODEL = 'text-embedding-3-small';
 const SOURCE_FILE = path.resolve('documents', 'bio.md');
 
@@ -77,10 +75,48 @@ async function main() {
     };
   });
 
-  // 4. Upsert into Pinecone
-  const index = pinecone.index(INDEX_NAME).namespace(NAMESPACE);
+  // 4. Ensure the index exists (create if it doesn't)
+  const listResponse = await pinecone.listIndexes();
+  const indexes = Array.isArray(listResponse)
+    ? listResponse
+    : ((listResponse as { indexes?: any[] }).indexes ?? []);
+
+  const indexExists = indexes.some((idx) =>
+    typeof idx === 'string' ? idx === INDEX_NAME : idx?.name === INDEX_NAME,
+  );
+
+  if (!indexExists) {
+    console.log(`ℹ️  Index '${INDEX_NAME}' does not exist. Creating it...`);
+    await pinecone.createIndex({
+      name: INDEX_NAME,
+      dimension: 1536, // text-embedding-3-small output dimensionality
+      metric: 'cosine',
+      spec: {
+        serverless: {
+          cloud: 'aws',
+          region: 'us-east-1',
+        },
+      },
+    });
+    console.log(`✔ Created index '${INDEX_NAME}'. Waiting for it to be ready...`);
+
+    // Poll until the index becomes available
+    let ready = false;
+    while (!ready) {
+      try {
+        await pinecone.index(INDEX_NAME).describeIndexStats();
+        ready = true;
+      } catch (err) {
+        // Index not ready yet; wait and retry
+        await new Promise((res) => setTimeout(res, 3000));
+      }
+    }
+  }
+
+  // 5. Upsert into Pinecone (default namespace)
+  const index = pinecone.index(INDEX_NAME);
   await index.upsert(vectors);
-  console.log(`✔ Upserted ${vectors.length} vectors into ${INDEX_NAME}/${NAMESPACE}`);
+  console.log(`✔ Upserted ${vectors.length} vectors into index '${INDEX_NAME}'`);
 }
 
 // ────────────────────────────────────────────────────────────────────────────────

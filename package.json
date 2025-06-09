@@ -10,7 +10,7 @@
     "lint:fix": "next lint --fix",
     "format": "prettier --write .",
     "test": "pnpm exec playwright test",
-    "upsert": "tsx scripts/upsert-bio.ts",
+    "upsert-bio": "tsx scripts/upsert-bio.ts",
     "delete-bio": "tsx scripts/delete-bio.ts"
   },
   "dependencies": {
@@ -51,6 +51,7 @@
     "eslint-plugin-no-relative-import-paths": "^1.6.1",
     "eslint-plugin-prettier": "^5.4.1",
     "eslint-plugin-sonarjs": "^3.0.2",
+    "eslint-plugin-unused-imports": "^4.1.4",
     "eslint-plugin-validate-filename": "^1.0.0",
     "prettier": "^3.5.3",
     "prettier-plugin-tailwindcss": "^0.6.12",

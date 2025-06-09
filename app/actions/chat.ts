@@ -123,7 +123,7 @@ async function runSearchBio(query: string): Promise<string> {
 
     const vector = firstEmbedding;
 
-    const resp = await pinecone.index('flo').namespace('bio').query({
+    const resp = await pinecone.index('background-context').query({
       vector,
       topK: 10,
       includeMetadata: true,
