@@ -33,18 +33,20 @@ const ChatInputComponent = ({
   }
 
   return (
-    <div className="max-w-3xl mx-auto p-4 pt-2">
+    <div className="mx-auto max-w-3xl p-4 pt-2">
       {/* Wrapper to allow positioning button inside the input container */}
-      <div className="relative rounded-md border overflow-hidden">
+      <div className="relative overflow-hidden rounded-md border">
         <Textarea
           id="chat-input"
-          placeholder={hasMessages ? 'Ask a follow up question…' : 'Ask me anything…'}
+          placeholder={
+            hasMessages ? 'Ask a follow up question…' : 'Ask me anything…'
+          }
           value={message}
-          onChange={(e) => {
+          onChange={e => {
             handleChange(e.target.value);
           }}
           onKeyDown={handleKeyDown}
-          className="w-full resize-none rounded-none pr-12 min-h-36 max-h-60 shadow-none no-scrollbar border-none"
+          className="no-scrollbar max-h-60 min-h-36 w-full resize-none rounded-none border-none pr-12 shadow-none"
           rows={2}
           disabled={isTyping}
         />
@@ -54,7 +56,7 @@ const ChatInputComponent = ({
           size="icon"
           onClick={handleSendMessage}
           disabled={!message.trim() || isTyping}
-          className="absolute bottom-3 right-3 size-9 rounded-full z-10"
+          className="absolute right-3 bottom-3 z-10 size-9 rounded-full"
         >
           <ArrowUp className="size-4" />
         </Button>

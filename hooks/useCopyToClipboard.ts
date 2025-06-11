@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { useState, useCallback, useRef, useEffect } from "react";
+import { useState, useCallback, useRef, useEffect } from 'react';
 
 /**
  * Returns a boolean flag that is true right after a successful copy operation
@@ -9,7 +9,9 @@ import { useState, useCallback, useRef, useEffect } from "react";
  * @param resetInterval Time in milliseconds after which the copied flag
  * resets back to false. Default is 2000 ms.
  */
-export function useCopyToClipboard(resetInterval: number = 2000): [boolean, (text: string) => Promise<boolean>] {
+export function useCopyToClipboard(
+  resetInterval: number = 2000,
+): [boolean, (text: string) => Promise<boolean>] {
   const [isCopied, setIsCopied] = useState(false);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -38,4 +40,4 @@ export function useCopyToClipboard(resetInterval: number = 2000): [boolean, (tex
   }, [isCopied, resetInterval]);
 
   return [isCopied, copy];
-} 
+}

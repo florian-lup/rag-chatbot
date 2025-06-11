@@ -5,15 +5,10 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
 
   async headers() {
-    // Only apply security headers in production
-    if (process.env.NODE_ENV !== 'production') {
-      return [];
-    }
-
     return [
       {
-        // Static security headers applied at build-time for better performance
-        source: '/:path*',
+        // Static security headers applied at build-time
+        source: '/(.*)',
         headers: [
           {
             key: 'Strict-Transport-Security',
@@ -37,7 +32,28 @@ const nextConfig: NextConfig = {
           },
           {
             key: 'Permissions-Policy',
-            value: 'camera=(), microphone=(), geolocation=(), browsing-topics=()',
+            value:
+              'camera=(), microphone=(), geolocation=(), browsing-topics=()',
+          },
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+          {
+            key: 'Referrer-Policy',
+            value: 'strict-origin-when-cross-origin',
+          },
+          {
+            key: 'X-Frame-Options',
+            value: 'DENY',
+          },
+          {
+            key: 'Origin-Agent-Cluster',
+            value: '?1',
+          },
+          {
+            key: 'X-Permitted-Cross-Domain-Policies',
+            value: 'none',
           },
         ],
       },

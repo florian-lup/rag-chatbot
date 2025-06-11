@@ -31,49 +31,34 @@ interface SuggestedQuestionsProps {
   onPromptClick: (prompt: string) => void;
 }
 
-const SuggestedQuestionsComponent = ({ onPromptClick }: SuggestedQuestionsProps) => {
+const SuggestedQuestionsComponent = ({
+  onPromptClick,
+}: SuggestedQuestionsProps) => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 w-full">
+    <div className="grid w-full grid-cols-1 gap-3 md:grid-cols-2">
       {suggestedQuestions.map((item, index) => {
         const Icon = item.icon;
         return (
           <Card
             key={index}
-            className="p-4 cursor-pointer hover:bg-accent/50 transition-colors border-border/50 bg-card/50 animate-slide-up opacity-0"
-            style={{
-              animationDelay: `${String(index * 100)}ms`,
-              animationFillMode: 'forwards',
-            }}
+            className={`hover:bg-accent/50 border-border/50 bg-card/50 animate-slide-up cursor-pointer p-4`}
             onClick={() => {
               onPromptClick(item.question);
             }}
           >
             <div className="flex flex-col gap-2">
-              <Badge variant="secondary" className="w-fit flex items-center gap-1">
-                <Icon className="w-3 h-3" />
+              <Badge
+                variant="secondary"
+                className="flex w-fit items-center gap-1"
+              >
+                <Icon className="h-3 w-3" />
                 {item.category}
               </Badge>
-              <p className="text-sm text-foreground">{item.question}</p>
+              <p className="text-foreground text-sm">{item.question}</p>
             </div>
           </Card>
         );
       })}
-      <style jsx global>{`
-        @keyframes slide-up {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        .animate-slide-up {
-          animation: slide-up 0.6s ease-out;
-        }
-      `}</style>
     </div>
   );
 };

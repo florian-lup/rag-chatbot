@@ -54,14 +54,16 @@ async function main() {
   // 2. Embed all chunk texts in one batch – OpenAI can handle up to 2048 inputs
   const { data: embeddings } = (await openai.embeddings.create({
     model: EMBEDDING_MODEL,
-    input: richChunks.map((c) => c.text),
+    input: richChunks.map(c => c.text),
   })) as { data: { embedding: number[] }[] };
 
   // 3. Build vectors to upsert
   const vectors = embeddings.map((item, i) => {
     const chunk = richChunks[i];
     if (!chunk) {
-      throw new Error(`richChunks[${i}] is undefined – lengths are out of sync`);
+      throw new Error(
+        `richChunks[${i}] is undefined – lengths are out of sync`,
+      );
     }
 
     return {
@@ -81,7 +83,7 @@ async function main() {
     ? listResponse
     : ((listResponse as { indexes?: any[] }).indexes ?? []);
 
-  const indexExists = indexes.some((idx) =>
+  const indexExists = indexes.some(idx =>
     typeof idx === 'string' ? idx === INDEX_NAME : idx?.name === INDEX_NAME,
   );
 
@@ -98,7 +100,9 @@ async function main() {
         },
       },
     });
-    console.log(`✔ Created index '${INDEX_NAME}'. Waiting for it to be ready...`);
+    console.log(
+      `✔ Created index '${INDEX_NAME}'. Waiting for it to be ready...`,
+    );
 
     // Poll until the index becomes available
     let ready = false;
@@ -108,7 +112,7 @@ async function main() {
         ready = true;
       } catch (err) {
         // Index not ready yet; wait and retry
-        await new Promise((res) => setTimeout(res, 3000));
+        await new Promise(res => setTimeout(res, 3000));
       }
     }
   }
@@ -116,7 +120,9 @@ async function main() {
   // 5. Upsert into Pinecone (default namespace)
   const index = pinecone.index(INDEX_NAME);
   await index.upsert(vectors);
-  console.log(`✔ Upserted ${vectors.length} vectors into index '${INDEX_NAME}'`);
+  console.log(
+    `✔ Upserted ${vectors.length} vectors into index '${INDEX_NAME}'`,
+  );
 }
 
 // ────────────────────────────────────────────────────────────────────────────────
@@ -191,7 +197,7 @@ function splitMarkdown(md: string): RichChunk[] {
 
 // Execute if called directly (node scripts/upsert-bio.ts)
 if (require.main === module) {
-  main().catch((err) => {
+  main().catch(err => {
     // eslint-disable-next-line no-console
     console.error(err);
     process.exit(1);

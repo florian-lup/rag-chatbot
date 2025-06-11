@@ -19,7 +19,8 @@ function stubChatCompletions(returnValues: Array<any>) {
   let call = 0;
   (openai as any).chat = {
     completions: {
-      create: async () => returnValues[Math.min(call++, returnValues.length - 1)],
+      create: async () =>
+        returnValues[Math.min(call++, returnValues.length - 1)],
     },
   };
 }
@@ -115,7 +116,8 @@ test.describe('chat() action utility', () => {
           {
             message: {
               role: 'assistant',
-              content: 'Florian is a seasoned developer with a knack for witty remarks.',
+              content:
+                'Florian is a seasoned developer with a knack for witty remarks.',
             },
           },
         ],
@@ -123,8 +125,12 @@ test.describe('chat() action utility', () => {
     ]);
 
     const { chat } = await import('@/app/actions/chat');
-    const reply = await chat([{ role: 'user', content: 'Tell me about Florian.' } as any]);
+    const reply = await chat([
+      { role: 'user', content: 'Tell me about Florian.' } as any,
+    ]);
 
-    expect(reply).toBe('Florian is a seasoned developer with a knack for witty remarks.');
+    expect(reply).toBe(
+      'Florian is a seasoned developer with a knack for witty remarks.',
+    );
   });
 });

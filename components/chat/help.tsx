@@ -27,26 +27,30 @@ export function HelpDialog({ children }: HelpDialogProps) {
           <DialogTitle>About this Website</DialogTitle>
           <VisuallyHidden.Root>
             <DialogDescription>
-              This is an AI-powered personal website that uses Retrieval-Augmented
+              This is an AI-powered personal website that uses
+              Retrieval-Augmented
             </DialogDescription>
           </VisuallyHidden.Root>
         </DialogHeader>
-        <div className="text-left space-y-3 pt-2 text-sm text-muted-foreground">
+        <div className="text-muted-foreground space-y-3 pt-2 text-left text-sm">
           <p>
-            Welcome! This website features an AI assistant designed to help you learn more about my
-            background, projects, and expertise. When you chat here, you&apos;re interacting with an
-            AI—not with me personally.
+            Welcome! This website features an AI assistant designed to help you
+            learn more about my background, projects, and expertise. When you
+            chat here, you&apos;re interacting with an AI—not with me
+            personally.
           </p>
           <p>
-            <strong>How it works:</strong> The AI uses Retrieval-Augmented Generation (RAG), which
-            means it can pull in relevant information from my public documents and content to
-            provide more accurate, helpful answers. Think of it as an AI that can look things up
-            about me in real time!
+            <strong>How it works:</strong> The AI uses Retrieval-Augmented
+            Generation (RAG), which means it can pull in relevant information
+            from my public documents and content to provide more accurate,
+            helpful answers. Think of it as an AI that can look things up about
+            me in real time!
           </p>
           <p>
-            <strong>Limitations:</strong> The AI tries its best, but it might not always get things
-            perfect. If you have questions about how it works, my background, or anything else, just
-            ask! You can also explore the suggested questions to get started.
+            <strong>Limitations:</strong> The AI tries its best, but it might
+            not always get things perfect. If you have questions about how it
+            works, my background, or anything else, just ask! You can also
+            explore the suggested questions to get started.
           </p>
         </div>
       </DialogContent>

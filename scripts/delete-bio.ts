@@ -46,7 +46,9 @@ async function main() {
     return;
   }
 
-  console.log(`📊 Found ${totalRecordsBefore} records in index '${INDEX_NAME}'`);
+  console.log(
+    `📊 Found ${totalRecordsBefore} records in index '${INDEX_NAME}'`,
+  );
 
   // Delete all records in the namespace
   await index.deleteAll();
@@ -67,7 +69,7 @@ async function main() {
 
 // Execute if called directly (node scripts/delete-bio.ts)
 if (require.main === module) {
-  main().catch((err) => {
+  main().catch(err => {
     // eslint-disable-next-line no-console
     console.error(err);
     process.exit(1);

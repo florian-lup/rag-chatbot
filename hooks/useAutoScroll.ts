@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef } from 'react';
 
 /**
  * Provides a ref that automatically scrolls into view when the given
@@ -11,12 +11,14 @@ import { useEffect, useRef } from "react";
  *
  * <div ref={bottomRef} />
  */
-export function useAutoScroll(dependencies: unknown[]): React.RefObject<HTMLDivElement | null> {
+export function useAutoScroll(
+  dependencies: unknown[],
+): React.RefObject<HTMLDivElement | null> {
   const ref = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    ref.current?.scrollIntoView({ behavior: "smooth" });
+    ref.current?.scrollIntoView({ behavior: 'smooth' });
   }, dependencies); // eslint-disable-line react-hooks/exhaustive-deps
 
   return ref;
-} 
+}

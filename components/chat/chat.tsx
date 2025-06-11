@@ -41,19 +41,21 @@ export function ChatInterface() {
   };
 
   return (
-    <div className="flex flex-col h-screen">
+    <div className="flex h-screen flex-col">
       {/* Header */}
       <Header hasMessages={messages.length > 0} onNewChat={reset} />
 
       {/* Main chat content area */}
-      <div className="flex-1 overflow-y-auto no-scrollbar">
-        <div className="max-w-3xl mx-auto p-6 h-full">
+      <div className="no-scrollbar flex-1 overflow-y-auto">
+        <div className="mx-auto h-full max-w-3xl p-6">
           {messages.length === 0 ? (
-            <div className="flex flex-col justify-center items-start h-full text-left">
+            <div className="flex h-full flex-col items-start justify-center text-left">
               {/* Initial greeting when no messages exist */}
               <div className="space-y-3">
-                <h1 className="text-4xl font-bold text-foreground">Hello there!</h1>
-                <p className="text-xl text-muted-foreground">
+                <h1 className="text-foreground text-4xl font-bold">
+                  Hello there!
+                </h1>
+                <p className="text-muted-foreground text-xl">
                   How can I{' '}
                   <HelpDialog>
                     <Button variant="link">help</Button>
@@ -66,7 +68,11 @@ export function ChatInterface() {
             <div className="space-y-6">
               {/* Display conversation history */}
               {messages.map((msg, index) => (
-                <ChatMessageComponent key={index} role={msg.role} content={msg.content} />
+                <ChatMessageComponent
+                  key={index}
+                  role={msg.role}
+                  content={msg.content}
+                />
               ))}
               {/* Show typing indicator when AI is responding */}
               {isTyping && <StatusIndicator />}
@@ -80,7 +86,7 @@ export function ChatInterface() {
       <div>
         {/* Show suggested questions above input only when no messages */}
         {messages.length === 0 && (
-          <div className="max-w-3xl mx-auto p-4 pb-2">
+          <div className="mx-auto max-w-3xl p-4 pb-2">
             <SuggestedQuestions onPromptClick={handlePromptClickWrapper} />
           </div>
         )}

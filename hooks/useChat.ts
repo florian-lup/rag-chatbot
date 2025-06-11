@@ -27,7 +27,10 @@ export function useChat(): UseChatReturn {
       const error = err as Error;
       assistantReply = error.message || 'Sorry, something went wrong.';
     }
-    setMessages((prev: ChatMessage[]) => [...prev, { role: 'assistant', content: assistantReply }]);
+    setMessages((prev: ChatMessage[]) => [
+      ...prev,
+      { role: 'assistant', content: assistantReply },
+    ]);
     setIsTyping(false);
   };
 

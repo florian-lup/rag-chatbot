@@ -10,4 +10,4 @@ export interface ApiError {
 
 export type ApiSuccess<T> = { data: T };
 
-export type ApiResponse<T> = ApiSuccess<T> | ApiError; 
+export type ApiResponse<T> = ApiSuccess<T> | ApiError;

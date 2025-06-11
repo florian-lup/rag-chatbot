@@ -8,7 +8,9 @@ test.describe('Chat UI', () => {
     await page.goto('/');
 
     // Initial greeting should be visible.
-    await expect(page.getByRole('heading', { name: 'Hello there!' })).toBeVisible();
+    await expect(
+      page.getByRole('heading', { name: 'Hello there!' }),
+    ).toBeVisible();
 
     // The chat textarea should be present and editable.
     const textarea = page.locator('#chat-input');

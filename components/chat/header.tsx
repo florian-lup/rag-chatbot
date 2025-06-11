@@ -1,4 +1,10 @@
-import { FileText, ShieldAlert, Mail, RotateCcw, ExternalLink } from 'lucide-react';
+import {
+  FileText,
+  ShieldAlert,
+  Mail,
+  RotateCcw,
+  ExternalLink,
+} from 'lucide-react';
 
 import { Button } from '../ui/button';
 
@@ -13,7 +19,11 @@ interface HeaderProps {
 
 export function Header({ hasMessages = false, onNewChat }: HeaderProps) {
   const handleGitHubClick = () => {
-    window.open('https://github.com/florian-lup', '_blank', 'noopener,noreferrer');
+    window.open(
+      'https://github.com/florian-lup',
+      '_blank',
+      'noopener,noreferrer',
+    );
   };
 
   const handleReloadClick = () => {
@@ -25,8 +35,8 @@ export function Header({ hasMessages = false, onNewChat }: HeaderProps) {
   };
 
   return (
-    <header className="w-full py-4 px-6">
-      <div className="flex justify-between items-center">
+    <header className="w-full px-6 py-4">
+      <div className="flex items-center justify-between">
         {/* Left side - Reload button (only when there are messages) */}
         <div className="flex items-center">
           {hasMessages && (
@@ -36,8 +46,8 @@ export function Header({ hasMessages = false, onNewChat }: HeaderProps) {
               className="text-muted-foreground"
               onClick={handleReloadClick}
             >
-              <RotateCcw className="w-4 h-4" />
-              <span className="hidden sm:inline ml-2">New Chat</span>
+              <RotateCcw className="h-4 w-4" />
+              <span className="ml-2 hidden sm:inline">New Chat</span>
             </Button>
           )}
         </div>
@@ -50,25 +60,25 @@ export function Header({ hasMessages = false, onNewChat }: HeaderProps) {
             className="text-muted-foreground"
             onClick={handleGitHubClick}
           >
-            <ExternalLink className="w-4 h-4" />
-            <span className="hidden sm:inline ml-2">GitHub</span>
+            <ExternalLink className="h-4 w-4" />
+            <span className="ml-2 hidden sm:inline">GitHub</span>
           </Button>
           <Contact>
             <Button variant="ghost" size="sm" className="text-muted-foreground">
-              <Mail className="w-4 h-4" />
-              <span className="hidden sm:inline ml-2">Contact</span>
+              <Mail className="h-4 w-4" />
+              <span className="ml-2 hidden sm:inline">Contact</span>
             </Button>
           </Contact>
           <Terms>
             <Button variant="ghost" size="sm" className="text-muted-foreground">
-              <FileText className="w-4 h-4" />
-              <span className="hidden sm:inline ml-2">Terms</span>
+              <FileText className="h-4 w-4" />
+              <span className="ml-2 hidden sm:inline">Terms</span>
             </Button>
           </Terms>
           <Privacy>
             <Button variant="ghost" size="sm" className="text-muted-foreground">
-              <ShieldAlert className="w-4 h-4" />
-              <span className="hidden sm:inline ml-2">Privacy</span>
+              <ShieldAlert className="h-4 w-4" />
+              <span className="ml-2 hidden sm:inline">Privacy</span>
             </Button>
           </Privacy>
         </div>

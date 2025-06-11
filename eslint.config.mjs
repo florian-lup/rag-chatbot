@@ -6,6 +6,13 @@ import noRelativeImportPaths from 'eslint-plugin-no-relative-import-paths';
 import sonarjs from 'eslint-plugin-sonarjs';
 import importPlugin from 'eslint-plugin-import';
 import unusedImports from 'eslint-plugin-unused-imports';
+import reactHooks from 'eslint-plugin-react-hooks';
+
+/**
+ * Flat ESLint configuration aligned with Next.js 15 best‑practice “web‑vitals” preset
+ * plus stricter TypeScript rules, Prettier formatting, React‑specific hook checks,
+ * import hygiene and filename / path conventions.
+ */
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -15,41 +22,65 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
+  // Base presets -----------------------------------------------------------
   ...compat.extends(
     'next/core-web-vitals',
     'next/typescript',
     'plugin:@typescript-eslint/strict-type-checked',
+    'plugin:react-hooks/recommended', // NEW – enforce rules‑of‑hooks & deps array
     'plugin:prettier/recommended',
   ),
   sonarjs.configs.recommended,
+
+  // Project‑wide rules / plugins -------------------------------------------
   {
     plugins: {
       'validate-filename': validateFilename,
       'no-relative-import-paths': noRelativeImportPaths,
       import: importPlugin,
       'unused-imports': unusedImports,
+      'react-hooks': reactHooks,
     },
     rules: {
+      /* ---------- Naming / organisation ----------------*/
       'validate-filename/naming-rules': [
         'error',
         {
-          rules: [{ case: 'kebab', target: '**/*', excludes: ['**/[[]*'] }],
+          rules: [
+            {
+              case: 'kebab',
+              target: '**/*',
+              excludes: [
+                '**/[[]*', // ignored: "[...slug]" etc.
+                '**/page.*', // Next.js special filenames
+                '**/layout.*',
+              ],
+            },
+          ],
         },
       ],
       'no-relative-import-paths/no-relative-import-paths': [
         'error',
         {
-          allowSameFolder: true, // Allow "./file" for same-folder imports
-          rootDir: '', // Don't strip any root directory
-          prefix: '@', // Use "@" prefix for absolute imports
+          allowSameFolder: true,
+          rootDir: '',
+          prefix: '@',
           allowedDepth: 1,
         },
       ],
-      // Import plugin rules
+
+      /* ---------- Import ordering / cycles -------------*/
       'import/order': [
         'error',
         {
-          groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
+          groups: [
+            'builtin',
+            'external',
+            'internal',
+            'parent',
+            'sibling',
+            'index',
+          ],
           'newlines-between': 'always',
           alphabetize: { order: 'asc', caseInsensitive: true },
         },
@@ -57,18 +88,36 @@ const eslintConfig = [
       'import/no-duplicates': 'error',
       'import/no-unresolved': 'error',
       'import/no-cycle': 'error',
-      // Override SonarJS rules if needed
+      // Prevent leaking dev deps into prod bundle
+      'import/no-extraneous-dependencies': [
+        'error',
+        {
+          devDependencies: [
+            '**/*.test.{ts,tsx,js,jsx}',
+            '**/*.spec.{ts,tsx,js,jsx}',
+            '**/test/**',
+            '**/scripts/**',
+          ],
+        },
+      ],
+
+      /* ---------- SonarJS tweaks ----------------------*/
       'sonarjs/cognitive-complexity': ['error', 15],
       'sonarjs/no-duplicate-string': ['error', { threshold: 4 }],
-      'sonarjs/prefer-read-only-props': 'off', // Too strict for React components
-      'sonarjs/void-use': 'off', // Sometimes needed for event handlers
+      'sonarjs/prefer-read-only-props': 'off',
+      'sonarjs/void-use': 'off',
+
+      /* ---------- Unused import / vars ----------------*/
       'unused-imports/no-unused-imports': 'error',
-      'unused-imports/no-unused-vars': [
-        'warn',
-        { vars: 'all', varsIgnorePattern: '^_', args: 'after-used', argsIgnorePattern: '^_' },
-      ],
+      // Let TS compiler + unused-imports handle vars; no duplicate rule needed
+
+      /* ---------- React hooks -------------------------*/
+      'react-hooks/rules-of-hooks': 'error',
+      'react-hooks/exhaustive-deps': 'warn',
     },
   },
+
+  // TypeScript‑specific rules applied only to TS/JS files --------------------
   {
     files: ['**/*.{ts,tsx,js,jsx}'],
     languageOptions: {
@@ -81,7 +130,7 @@ const eslintConfig = [
       '@typescript-eslint/no-floating-promises': 'error',
       '@typescript-eslint/no-unnecessary-condition': 'error',
       '@typescript-eslint/strict-boolean-expressions': 'error',
-      '@typescript-eslint/no-non-null-assertion': 'error',
+      '@typescript-eslint/no-non-null-assertion': 'warn', // downgraded to warn – practical in event handlers
       '@typescript-eslint/naming-convention': [
         'error',
         { selector: 'typeParameter', format: ['PascalCase'], prefix: ['T'] },
@@ -97,7 +146,11 @@ const eslintConfig = [
           filter: { regex: '^use[A-Z].*', match: true },
           format: ['camelCase'],
         },
-        { selector: 'variableLike', format: ['camelCase'], leadingUnderscore: 'allow' },
+        {
+          selector: 'variableLike',
+          format: ['camelCase'],
+          leadingUnderscore: 'allow',
+        },
         { selector: 'typeLike', format: ['PascalCase'] },
       ],
       '@typescript-eslint/no-unnecessary-type-assertion': 'error',

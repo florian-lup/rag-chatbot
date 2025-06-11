@@ -17,7 +17,7 @@ const StatusIndicatorComponent = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setMessageIndex((prev) => (prev + 1) % messages.length);
+      setMessageIndex(prev => (prev + 1) % messages.length);
     }, 3000);
 
     return () => {
@@ -33,9 +33,9 @@ const StatusIndicatorComponent = () => {
         </AvatarFallback>
       </Avatar>
 
-      <Card className="max-w-[70%] p-2 border-0 bg-background">
+      <Card className="bg-background max-w-[70%] border-0 p-2">
         <div className="flex items-center">
-          <span className="text-sm text-muted-foreground animate-pulse">
+          <span className="text-muted-foreground animate-pulse text-sm leading-none">
             {messages[messageIndex]}
           </span>
         </div>

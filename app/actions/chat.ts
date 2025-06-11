@@ -41,7 +41,8 @@ Guidelines:
           properties: {
             query: {
               type: 'string',
-              description: 'Standalone search query derived from the user question.',
+              description:
+                'Standalone search query derived from the user question.',
             },
           },
           required: ['query'],
@@ -71,7 +72,9 @@ Guidelines:
 
   const toolCall = firstMsg.tool_calls?.[0];
   if (toolCall) {
-    const args = JSON.parse(toolCall.function.arguments || '{}') as { query: string };
+    const args = JSON.parse(toolCall.function.arguments || '{}') as {
+      query: string;
+    };
 
     let searchResult: string;
     try {
@@ -131,7 +134,7 @@ async function runSearchBio(query: string): Promise<string> {
 
     const matches = resp.matches;
     const chunks = matches
-      .map((m) => {
+      .map(m => {
         const { text = '' } = m.metadata as { text?: string };
         return text;
       })

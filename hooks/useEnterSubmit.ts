@@ -1,6 +1,7 @@
-"use client";
+'use client';
 
-import { useCallback, KeyboardEvent } from "react";
+import { useCallback } from 'react';
+import type { KeyboardEvent } from 'react';
 
 /**
  * Returns an onKeyDown handler that calls the provided callback when the user
@@ -10,11 +11,11 @@ import { useCallback, KeyboardEvent } from "react";
 export function useEnterSubmit(callback: () => void) {
   return useCallback(
     (e: KeyboardEvent<HTMLTextAreaElement | HTMLInputElement>) => {
-      if (e.key === "Enter" && !e.shiftKey) {
+      if (e.key === 'Enter' && !e.shiftKey) {
         e.preventDefault();
         callback();
       }
     },
-    [callback]
+    [callback],
   );
-} 
+}

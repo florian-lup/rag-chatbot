@@ -1,6 +1,7 @@
 # RAG Chatbot
 
-AI chatbot that utilizes Retrieval-Augmented Generation (RAG) to provide contextually accurate responses. Built with Next.js, OpenAI & Pinecone.
+AI chatbot that utilizes Retrieval-Augmented Generation (RAG) to provide
+contextually accurate responses. Built with Next.js, OpenAI & Pinecone.
 
 ## Features
 
@@ -10,7 +11,8 @@ AI chatbot that utilizes Retrieval-Augmented Generation (RAG) to provide context
 
 ## Live Example
 
-Check out a live example at [https://www.florianlup.com](https://www.florianlup.com)
+Check out a live example at
+[https://www.florianlup.com](https://www.florianlup.com)
 
 ## Tech Stack
 
@@ -65,7 +67,8 @@ Check out a live example at [https://www.florianlup.com](https://www.florianlup.
 
 ### Pinecone Setup
 
-The `background-context` index will be created automatically when you run `pnpm upsert-bio`:
+The `background-context` index will be created automatically when you run
+`pnpm upsert-bio`:
 
 - **Dimensions**: 1536 (text-embedding-3-small)
 - **Metric**: Cosine
