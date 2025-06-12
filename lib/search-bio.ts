@@ -1,11 +1,12 @@
 import { CHAT_CONFIG } from '@/lib/config';
-import { openai } from '@/lib/openai';
-import { pinecone } from '@/lib/pinecone';
+import { getOpenAI } from '@/lib/openai';
+import { getPinecone } from '@/lib/pinecone';
 
 export async function runSearchBio(query: string): Promise<string> {
   try {
     if (!query.trim()) return CHAT_CONFIG.noContextMessage;
 
+    const openai = getOpenAI();
     const embed = await openai.embeddings.create({
       model: CHAT_CONFIG.embeddingModel,
       input: query,
@@ -15,6 +16,7 @@ export async function runSearchBio(query: string): Promise<string> {
 
     const vector = firstEmbedding;
 
+    const pinecone = getPinecone();
     const resp = await pinecone.index(CHAT_CONFIG.pineconeIndex).query({
       vector,
       topK: CHAT_CONFIG.topK,

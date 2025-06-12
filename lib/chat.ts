@@ -3,7 +3,7 @@
 import type OpenAI from 'openai';
 
 import { CHAT_CONFIG, SEARCH_BIO_TOOL } from '@/lib/config';
-import { openai } from '@/lib/openai';
+import { getOpenAI } from '@/lib/openai';
 import { SYSTEM_PROMPT } from '@/lib/prompt';
 import { runSearchBio } from '@/lib/search-bio';
 import type { ChatMessage } from '@/types';
@@ -13,6 +13,7 @@ export async function chat(messages: ChatMessage[]): Promise<string> {
     throw new Error('No messages provided');
   }
 
+  const openai = getOpenAI();
   const tools = [SEARCH_BIO_TOOL] satisfies OpenAI.ChatCompletionTool[];
 
   const messagesForOpenAI = [
