@@ -79,7 +79,6 @@ The `background-context` index will be created automatically when you run
 ```
 rag-chatbot/
 ├── app/                    # Next.js App Router
-│   ├── actions/           # Server actions
 │   ├── api/chat/         # Chat API endpoint
 │   └── page.tsx          # Main chat page
 ├── components/            # React components
@@ -98,19 +97,3 @@ rag-chatbot/
 - `pnpm test` - Run Playwright tests
 - `pnpm upsert-bio` - Upload data to Pinecone
 - `pnpm delete-bio` - Clear Pinecone index
-
-## Testing
-
-Comprehensive test coverage with Playwright:
-
-- **Unit Tests**: Server actions, API routes, scripts
-- **E2E Tests**: Browser-based UI interactions
-- **Mocking**: External dependencies (OpenAI, Pinecone)
-
-Run specific test suites:
-
-```bash
-pnpm exec playwright test tests/actions  # Action tests
-pnpm exec playwright test tests/api      # API tests
-pnpm exec playwright test tests/e2e      # End-to-end tests
-```

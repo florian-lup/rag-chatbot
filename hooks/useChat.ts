@@ -1,6 +1,7 @@
 import { useState } from 'react';
+
+import { chat } from '@/lib/chat';
 import type { ChatMessage } from '@/types';
-import { chat } from '@/app/actions/chat';
 
 interface UseChatReturn {
   messages: ChatMessage[];

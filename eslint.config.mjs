@@ -48,12 +48,18 @@ const eslintConfig = [
         {
           rules: [
             {
+              case: 'camel',
+              target: '**/hooks/**', // React hooks should use camelCase
+              patterns: '^use', // React hooks start with "use"
+            },
+            {
               case: 'kebab',
               target: '**/*',
               excludes: [
                 '**/[[]*', // ignored: "[...slug]" etc.
                 '**/page.*', // Next.js special filenames
                 '**/layout.*',
+                'hooks', // Exclude hooks directory from kebab-case rule
               ],
             },
           ],
@@ -96,7 +102,9 @@ const eslintConfig = [
             '**/*.test.{ts,tsx,js,jsx}',
             '**/*.spec.{ts,tsx,js,jsx}',
             '**/test/**',
+            '**/tests/**',
             '**/scripts/**',
+            'playwright.config.ts',
           ],
         },
       ],

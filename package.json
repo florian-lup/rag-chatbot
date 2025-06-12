@@ -9,9 +9,9 @@
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "format": "prettier --write .",
-    "test": "pnpm exec playwright test",
     "upsert-bio": "tsx scripts/upsert-bio.ts",
     "delete-bio": "tsx scripts/delete-bio.ts",
+    "test": "pnpm exec playwright test",
     "prepare": "husky install"
   },
   "dependencies": {
@@ -38,7 +38,7 @@
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
     "@eslint/eslintrc": "^3",
-    "@playwright/test": "^1.52.0",
+    "@playwright/test": "^1.53.0",
     "@tailwindcss/postcss": "^4",
     "@tailwindcss/typography": "^0.5.16",
     "@types/node": "^20",
