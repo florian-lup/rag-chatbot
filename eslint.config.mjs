@@ -105,6 +105,11 @@ const eslintConfig = [
             '**/tests/**',
             '**/scripts/**',
             'playwright.config.ts',
+            'vitest.config.ts',
+            'vitest.config.browser.ts',
+            'eslint.config.mjs',
+            'next.config.ts',
+            'postcss.config.mjs',
           ],
         },
       ],
@@ -160,6 +165,12 @@ const eslintConfig = [
           leadingUnderscore: 'allow',
         },
         { selector: 'typeLike', format: ['PascalCase'] },
+        // Allow __filename and __dirname in config files
+        {
+          selector: 'variable',
+          filter: { regex: '^__(filename|dirname)$', match: true },
+          format: null,
+        },
       ],
       '@typescript-eslint/no-unnecessary-type-assertion': 'error',
       '@typescript-eslint/consistent-type-imports': [
