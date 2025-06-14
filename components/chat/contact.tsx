@@ -1,5 +1,5 @@
 import { Mail, CheckCircle, Copy } from 'lucide-react';
-import React from 'react';
+import React, { memo } from 'react';
 
 import { useCopyToClipboard } from '@/hooks';
 
@@ -17,7 +17,7 @@ interface ContactProps {
   children: React.ReactNode;
 }
 
-export function Contact({ children }: ContactProps) {
+const ContactComponent = ({ children }: ContactProps) => {
   const [isEmailCopied, copy] = useCopyToClipboard();
 
   const handleCopyEmail = async () => {
@@ -70,4 +70,6 @@ export function Contact({ children }: ContactProps) {
       </DialogContent>
     </Dialog>
   );
-}
+};
+
+export const Contact = memo(ContactComponent);

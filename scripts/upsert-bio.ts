@@ -195,13 +195,11 @@ function splitMarkdown(md: string): RichChunk[] {
   return chunks;
 }
 
-// Execute if called directly (node scripts/upsert-bio.ts)
-if (require.main === module) {
-  main().catch(err => {
-    // eslint-disable-next-line no-console
-    console.error(err);
-    process.exit(1);
-  });
-}
+// Execute the main function
+main().catch(err => {
+  // eslint-disable-next-line no-console
+  console.error(err);
+  process.exit(1);
+});
 
 export { main, splitMarkdown };

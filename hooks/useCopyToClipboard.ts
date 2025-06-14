@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 /**
  * Returns a boolean flag that is true right after a successful copy operation
@@ -15,7 +15,8 @@ export function useCopyToClipboard(
   const [isCopied, setIsCopied] = useState(false);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const copy = useCallback(async (text: string): Promise<boolean> => {
+  // React 19's compiler automatically memoizes this function
+  const copy = async (text: string): Promise<boolean> => {
     if (!text) return false;
 
     try {
@@ -25,7 +26,7 @@ export function useCopyToClipboard(
     } catch {
       return false;
     }
-  }, []);
+  };
 
   // Reset the copied state after the specified interval
   useEffect(() => {

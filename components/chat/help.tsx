@@ -1,7 +1,7 @@
 'use client';
 
 import * as VisuallyHidden from '@radix-ui/react-visually-hidden';
-import { useState, type ReactNode } from 'react';
+import { useState, type ReactNode, memo } from 'react';
 
 import {
   Dialog,
@@ -16,7 +16,7 @@ interface HelpDialogProps {
   children: ReactNode;
 }
 
-export function HelpDialog({ children }: HelpDialogProps) {
+const HelpDialogComponent = ({ children }: HelpDialogProps) => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -56,4 +56,6 @@ export function HelpDialog({ children }: HelpDialogProps) {
       </DialogContent>
     </Dialog>
   );
-}
+};
+
+export const HelpDialog = memo(HelpDialogComponent);

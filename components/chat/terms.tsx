@@ -1,5 +1,7 @@
 'use client';
 
+import { memo } from 'react';
+
 import type { WithChildren } from '@/types';
 
 import {
@@ -11,7 +13,7 @@ import {
   SheetTrigger,
 } from '../ui/sheet';
 
-export function Terms({ children }: WithChildren) {
+const TermsComponent = ({ children }: WithChildren) => {
   return (
     <Sheet>
       <SheetTrigger asChild>{children}</SheetTrigger>
@@ -108,4 +110,6 @@ export function Terms({ children }: WithChildren) {
       </SheetContent>
     </Sheet>
   );
-}
+};
+
+export const Terms = memo(TermsComponent);

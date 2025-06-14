@@ -67,13 +67,11 @@ async function main() {
   }
 }
 
-// Execute if called directly (node scripts/delete-bio.ts)
-if (require.main === module) {
-  main().catch(err => {
-    // eslint-disable-next-line no-console
-    console.error(err);
-    process.exit(1);
-  });
-}
+// Execute the main function
+main().catch(err => {
+  // eslint-disable-next-line no-console
+  console.error(err);
+  process.exit(1);
+});
 
 export { main };

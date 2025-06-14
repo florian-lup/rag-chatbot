@@ -78,16 +78,17 @@ The `background-context` index will be created automatically when you run
 
 ```
 rag-chatbot/
-├── app/                    # Next.js App Router
+├── app/                  # Next.js App Router
 │   ├── api/chat/         # Chat API endpoint
 │   └── page.tsx          # Main chat page
-├── components/            # React components
+├── components/           # React components
 │   ├── chat/             # Chat-specific components
 │   └── ui/               # Reusable UI components
 ├── documents/bio.md      # Source data for RAG
 ├── scripts/              # Data management scripts
 ├── tests/                # Comprehensive test suite
 └── lib/                  # Utilities and configs
+├── hooks/                # Custom hooks
 ```
 
 ## Scripts

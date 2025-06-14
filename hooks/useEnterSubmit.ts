@@ -1,6 +1,5 @@
 'use client';
 
-import { useCallback } from 'react';
 import type { KeyboardEvent } from 'react';
 
 /**
@@ -9,13 +8,10 @@ import type { KeyboardEvent } from 'react';
  * textarea where Enter submits and Shift+Enter creates a newline.
  */
 export function useEnterSubmit(callback: () => void) {
-  return useCallback(
-    (e: KeyboardEvent<HTMLTextAreaElement | HTMLInputElement>) => {
-      if (e.key === 'Enter' && !e.shiftKey) {
-        e.preventDefault();
-        callback();
-      }
-    },
-    [callback],
-  );
+  return (e: KeyboardEvent<HTMLTextAreaElement | HTMLInputElement>) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      callback();
+    }
+  };
 }

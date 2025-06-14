@@ -17,8 +17,7 @@
     "test:unit:watch": "vitest watch tests/unit",
     "test:unit:ui": "vitest --ui tests/unit",
     "test:coverage": "vitest run --coverage tests/unit",
-    "test:e2e": "pnpm exec playwright test",
-    "prepare": "husky install"
+    "test:e2e": "pnpm exec playwright test"
   },
   "dependencies": {
     "@pinecone-database/pinecone": "^6.1.0",
@@ -65,8 +64,6 @@
     "eslint-plugin-sonarjs": "^3.0.2",
     "eslint-plugin-unused-imports": "^4.1.4",
     "eslint-plugin-validate-filename": "^1.0.0",
-    "husky": "^8.0.0",
-    "lint-staged": "^16.1.0",
     "prettier": "^3.5.3",
     "prettier-plugin-tailwindcss": "^0.6.12",
     "tailwindcss": "^4",
@@ -81,19 +78,6 @@
       "sharp",
       "unrs-resolver",
       "esbuild"
-    ]
-  },
-  "lint-staged": {
-    "*.{ts,tsx,js,jsx}": [
-      "eslint --fix"
-    ],
-    "*.{ts,tsx,js,jsx,json,md,css}": [
-      "prettier --write"
-    ]
-  },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
     ]
   }
 }

@@ -5,6 +5,7 @@ import {
   RotateCcw,
   ExternalLink,
 } from 'lucide-react';
+import { memo } from 'react';
 
 import { Button } from '../ui/button';
 
@@ -17,7 +18,7 @@ interface HeaderProps {
   onNewChat?: () => void;
 }
 
-export function Header({ hasMessages = false, onNewChat }: HeaderProps) {
+const HeaderComponent = ({ hasMessages = false, onNewChat }: HeaderProps) => {
   const handleGitHubClick = () => {
     window.open(
       'https://github.com/florian-lup',
@@ -85,4 +86,6 @@ export function Header({ hasMessages = false, onNewChat }: HeaderProps) {
       </div>
     </header>
   );
-}
+};
+
+export const Header = memo(HeaderComponent);
