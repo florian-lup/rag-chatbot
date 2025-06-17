@@ -2,10 +2,10 @@ import { NextRequest } from 'next/server';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 
 import { POST } from '@/app/api/chat/route';
-import { chat } from '@/lib/chat';
+import { chat } from '@/lib/services/chat';
 
 // Mock the chat function
-vi.mock('@/lib/chat', () => ({
+vi.mock('@/lib/services/chat', () => ({
   chat: vi.fn(),
 }));
 

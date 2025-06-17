@@ -1,12 +1,10 @@
-'use server';
-
 import type OpenAI from 'openai';
 import { z } from 'zod';
 
+import { getOpenAI } from '@/lib/clients/openai';
 import { CHAT_CONFIG, SEARCH_BIO_TOOL } from '@/lib/config';
-import { getOpenAI } from '@/lib/openai';
 import { SYSTEM_PROMPT } from '@/lib/prompt';
-import { runSearchBio } from '@/lib/search-bio';
+import { runSearchBio } from '@/lib/services/search-bio';
 import type { ChatMessage } from '@/types';
 
 // Zod schemas for validation

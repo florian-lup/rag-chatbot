@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
 const chatConfigSchema = z.object({
-  model: z.literal('o4-mini'),
+  model: z.literal('gpt-4.1-mini-2025-04-14'),
   embeddingModel: z.literal('text-embedding-3-small'),
   pineconeIndex: z.string().min(1),
   topK: z.number().positive(),
@@ -9,7 +9,7 @@ const chatConfigSchema = z.object({
 });
 
 export const CHAT_CONFIG = chatConfigSchema.parse({
-  model: 'o4-mini' as const,
+  model: 'gpt-4.1-mini-2025-04-14' as const,
   embeddingModel: 'text-embedding-3-small' as const,
   pineconeIndex: 'background-context' as const,
   topK: 10,

@@ -2,7 +2,7 @@ import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 import { z } from 'zod';
 
-import { chat } from '@/lib/chat';
+import { chat } from '@/lib/services/chat';
 import type { ChatMessage, ChatApiError } from '@/types';
 
 export async function POST(req: NextRequest) {

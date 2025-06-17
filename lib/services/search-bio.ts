@@ -1,6 +1,6 @@
+import { getOpenAI } from '@/lib/clients/openai';
+import { getPinecone } from '@/lib/clients/pinecone';
 import { CHAT_CONFIG } from '@/lib/config';
-import { getOpenAI } from '@/lib/openai';
-import { getPinecone } from '@/lib/pinecone';
 
 export async function runSearchBio(query: string): Promise<string> {
   try {

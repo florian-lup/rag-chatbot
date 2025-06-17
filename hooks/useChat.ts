@@ -1,7 +1,6 @@
 import { useState } from 'react';
 
-import { chat } from '@/lib/chat';
-import type { ChatMessage } from '@/types';
+import type { ChatMessage, ChatApiError } from '@/types';
 
 interface UseChatReturn {
   messages: ChatMessage[];
@@ -23,7 +22,21 @@ export function useChat(): UseChatReturn {
 
     let assistantReply = '';
     try {
-      assistantReply = await chat(history);
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ messages: history }),
+      });
+
+      if (!response.ok) {
+        const errorData: ChatApiError = await response.json();
+        throw new Error(errorData.error || 'Failed to get response');
+      }
+
+      const data = await response.json();
+      assistantReply = data.reply || 'No response received';
     } catch (err: unknown) {
       const error = err as Error;
       assistantReply = error.message || 'Sorry, something went wrong.';
