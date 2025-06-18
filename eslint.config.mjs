@@ -9,7 +9,7 @@ import unusedImports from 'eslint-plugin-unused-imports';
 import reactHooks from 'eslint-plugin-react-hooks';
 
 /**
- * Flat ESLint configuration aligned with Next.js 15 best‑practice “web‑vitals” preset
+ * Flat ESLint configuration aligned with Next.js 15 best‑practice "web‑vitals" preset
  * plus stricter TypeScript rules, Prettier formatting, React‑specific hook checks,
  * import hygiene and filename / path conventions.
  */
@@ -22,6 +22,50 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
+  // Global ignores -------------------------------------------
+  {
+    ignores: [
+      // Build outputs
+      '.next/**/*',
+      'out/**/*',
+      'build/**/*',
+      'dist/**/*',
+
+      // Dependencies
+      'node_modules/**/*',
+      '.pnp/**/*',
+      '.yarn/**/*',
+
+      // Generated files
+      'next-env.d.ts',
+      '*.tsbuildinfo',
+
+      // Cache directories
+      '.cache/**/*',
+      'coverage/**/*',
+      'playwright-report/**/*',
+      'test-results/**/*',
+      'blob-report/**/*',
+      'playwright/.cache/**/*',
+
+      // Config files that don't need linting
+      'pnpm-lock.yaml',
+      '*.lock',
+
+      // OS/Editor files
+      '.DS_Store',
+      '.vscode/**/*',
+      '.idea/**/*',
+
+      // Env files
+      '.env*',
+      '!.env.example',
+
+      // Vercel
+      '.vercel/**/*',
+    ],
+  },
+
   // Base presets -----------------------------------------------------------
   ...compat.extends(
     'next/core-web-vitals',
@@ -135,7 +179,8 @@ const eslintConfig = [
     files: ['**/*.{ts,tsx,js,jsx}'],
     languageOptions: {
       parserOptions: {
-        project: true,
+        // Use main tsconfig with ignores handling exclusions
+        project: './tsconfig.json',
         tsconfigRootDir: __dirname,
       },
     },

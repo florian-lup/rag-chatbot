@@ -1,9 +1,12 @@
 {
   "compilerOptions": {
+    // Target the latest ECMAScript version supported by modern browsers
     "target": "ES2022",
     "lib": ["dom", "dom.iterable", "esnext"],
+    // Disallow JavaScript files in the project
     "allowJs": false,
     "skipLibCheck": true,
+    // Enable strict type checking for better code quality
     "strict": true,
     "noEmit": true,
     "esModuleInterop": true,
@@ -13,6 +16,7 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    // Enhanced type checking options for better safety
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true,
     "noPropertyAccessFromIndexSignature": true,
@@ -23,10 +27,28 @@
         "name": "next"
       }
     ],
+    // Path aliases for cleaner imports
     "paths": {
       "@/*": ["./*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules",
+    // Build outputs
+    ".next/cache/**/*",
+    ".next/static/**/*",
+    ".next/server/**/*",
+    "out",
+    "build",
+    "dist",
+    // Test and cache directories
+    "coverage",
+    "test-results",
+    "playwright-report",
+    "blob-report",
+    ".cache",
+    // Generated files
+    "*.tsbuildinfo"
+  ]
 }
