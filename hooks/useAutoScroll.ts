@@ -18,7 +18,7 @@ export function useAutoScroll(
 
   useEffect(() => {
     ref.current?.scrollIntoView({ behavior: 'smooth' });
-  }, dependencies); // eslint-disable-line react-hooks/exhaustive-deps
+  }, dependencies);
 
   return ref;
 }
