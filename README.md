@@ -5,9 +5,12 @@ contextually accurate responses. Built with Next.js, OpenAI & Pinecone.
 
 ## Features
 
-- 🤖 **Intelligent Conversations**: AI-powered chat with memory
-- 🔍 **Semantic Search**: Vector-based retrieval of relevant context
-- 🎨 **Modern UI**: Clean, responsive interface with dark/light theme support
+- 🎨 **Modern UI**: Clean, responsive chat interface with React, Tailwind &
+  Shadcn
+- 📄 **Knowledge Base Management**: Scripts for embedding and upserting content
+  into Pinecone
+- 🔍 **Semantic Retrieval**: Vector-based search for relevant context
+- 🤖 **Contextual Chat**: AI responses powered by retrieved context and OpenAI
 
 ## Live Example
 
