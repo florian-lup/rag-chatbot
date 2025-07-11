@@ -18,7 +18,7 @@ Check out a live example at
 
 - **Next.js 15** + **React 19** + **TypeScript**
 - **Tailwind CSS 4** + **Radix UI** + **shadcn/ui**
-- **OpenAI API** (language model + embeddings)
+- **OpenAI API** (chat completion + embeddings)
 - **Pinecone** (vector database)
 
 ## Getting Started
@@ -70,9 +70,9 @@ Check out a live example at
 The `background-context` index will be created automatically when you run
 `pnpm upsert-bio`:
 
-- **Dimensions**: 1536 (text-embedding-3-small)
+- **Dimensions**: 1536
 - **Metric**: Cosine
-- **Region**: us-east-1 (customizable via `PINECONE_REGION`)
+- **Embedding model**: text-embedding-3-small
 
 ## Project Structure
 
