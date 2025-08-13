@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Create Next App",
-  description: "A starter kit for your Next.js project",
+  title: "Anara Support",
+  description: "An AI-powered customer support system",
 };
 
 export default function RootLayout({
