@@ -1,101 +1,120 @@
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { ChatInterface } from "@/components/chat/chat-interface";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Bot, MessageSquare, Search, Sparkles } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 bg-background text-foreground">
-      {/* Theme toggle in top-right corner */}
-      <div className="fixed top-4 right-4 z-50">
-        <ThemeToggle />
-      </div>
-      
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start max-w-2xl">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <Card>
-          <CardContent>
-            <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-              <li className="mb-2 tracking-[-.01em]">
-                Get started by editing{" "}
-                <Badge variant="outline" className="font-mono font-semibold">
-                  app/page.tsx
-                </Badge>
-                .
-              </li>
-              <li className="tracking-[-.01em]">Save and see your changes instantly.</li>
-            </ol>
-          </CardContent>
-        </Card>
+    <div className="flex h-screen bg-background">
+      {/* Sidebar */}
+      <aside className="w-80 border-r bg-muted/30 p-6 hidden lg:block">
+        <div className="mb-8">
+          <div className="flex items-center gap-2 mb-2">
+            <Bot className="w-8 h-8 text-primary" />
+            <h1 className="text-2xl font-bold">Anara Support</h1>
+          </div>
+          <p className="text-sm text-muted-foreground">AI-powered customer support assistant</p>
+        </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <Button asChild size="lg" className="rounded-full">
-            <a
-              href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Image
-                className="dark:invert"
-                src="/vercel.svg"
-                alt="Vercel logomark"
-                width={20}
-                height={20}
-              />
-              Deploy now
-            </a>
-          </Button>
-          <Button asChild variant="secondary" size="lg" className="rounded-full w-full sm:w-auto md:w-[158px]">
-            <a
-              href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Read our docs
-            </a>
-          </Button>
+        <div className="space-y-4">
+          <Card>
+            <CardHeader className="pb-3">
+              <CardTitle className="text-sm font-medium flex items-center gap-2">
+                <MessageSquare className="w-4 h-4" />
+                How it works
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-2">
+              <div className="flex gap-2">
+                <Search className="w-4 h-4 text-muted-foreground mt-0.5" />
+                <div>
+                  <p className="text-xs font-medium">Smart Retrieval</p>
+                  <p className="text-xs text-muted-foreground">
+                    Your query is refined and matched against our documentation
+                  </p>
+                </div>
+              </div>
+              <div className="flex gap-2">
+                <Sparkles className="w-4 h-4 text-muted-foreground mt-0.5" />
+                <div>
+                  <p className="text-xs font-medium">AI-Generated Answers</p>
+                  <p className="text-xs text-muted-foreground">
+                    Get accurate, contextual responses with source citations
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader className="pb-3">
+              <CardTitle className="text-sm font-medium">Quick Tips</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <ul className="text-xs space-y-1 text-muted-foreground">
+                <li>• Be specific in your questions</li>
+                <li>• Ask about features, workflows, or troubleshooting</li>
+                <li>• Check the sources for detailed information</li>
+                <li>• You can continue the conversation naturally</li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader className="pb-3">
+              <CardTitle className="text-sm font-medium">Example Questions</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-2">
+                <button className="text-xs text-left w-full p-2 rounded hover:bg-muted transition-colors">
+                  &quot;What file types does Anara support?&quot;
+                </button>
+                <button className="text-xs text-left w-full p-2 rounded hover:bg-muted transition-colors">
+                  &quot;How do I organize my research library?&quot;
+                </button>
+                <button className="text-xs text-left w-full p-2 rounded hover:bg-muted transition-colors">
+                  &quot;Can Anara generate flashcards from my documents?&quot;
+                </button>
+                <button className="text-xs text-left w-full p-2 rounded hover:bg-muted transition-colors">
+                  &quot;What AI models are available in Anara?&quot;
+                </button>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Theme toggle at bottom of sidebar */}
+        <div className="absolute bottom-6 left-6">
+          <ThemeToggle />
+        </div>
+      </aside>
+
+      {/* Main Chat Area */}
+      <main className="flex-1 flex flex-col">
+        {/* Header */}
+        <header className="border-b px-6 py-4 bg-background">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2 lg:hidden">
+              <Bot className="w-6 h-6 text-primary" />
+              <h1 className="text-lg font-semibold">Anara Support</h1>
+            </div>
+            <div className="hidden lg:block">
+              <h2 className="text-lg font-semibold">Chat Assistant</h2>
+              <p className="text-sm text-muted-foreground">
+                Ask questions about Anara&apos;s features and capabilities
+              </p>
+            </div>
+            <div className="lg:hidden">
+              <ThemeToggle />
+            </div>
+          </div>
+        </header>
+
+        {/* Chat Interface */}
+        <div className="flex-1 overflow-hidden">
+          <ChatInterface />
         </div>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center border-t border-border pt-6 mt-6">
-        <Button asChild variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground h-auto p-2">
-          <a
-            href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image aria-hidden src="/file.svg" alt="File icon" width={16} height={16} className="opacity-70" />
-            Learn
-          </a>
-        </Button>
-        <Button asChild variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground h-auto p-2">
-          <a
-            href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image aria-hidden src="/window.svg" alt="Window icon" width={16} height={16} className="opacity-70" />
-            Examples
-          </a>
-        </Button>
-        <Button asChild variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground h-auto p-2">
-          <a
-            href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image aria-hidden src="/globe.svg" alt="Globe icon" width={16} height={16} className="opacity-70" />
-            Go to nextjs.org →
-          </a>
-        </Button>
-      </footer>
     </div>
   );
 }
