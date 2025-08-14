@@ -197,15 +197,7 @@ export class RAGService {
         })
         .join("\n\n---\n\n");
 
-      const systemPrompt = `You are a helpful customer support assistant for Anara, an AI-enabled research workspace. Your role is to answer user questions based on the provided documentation context.
-
-Guidelines:
-1. Provide clear, concise, and accurate answers based on the documentation
-2. Use a friendly and professional tone
-3. If the answer is found in the context, cite the source using [number] notation
-4. If information is not in the context, politely say you don't have that information in the documentation
-5. For complex topics, break down the answer into clear steps or bullet points
-6. Always prioritize accuracy over completeness
+      const systemPrompt = `${config.chat.systemPrompt}
 
 Context from documentation:
 ${context}`;
@@ -213,7 +205,9 @@ ${context}`;
       // Build messages array with conversation history
       const apiMessages: ChatCompletionCreateParams["messages"] = [
         { role: "system", content: systemPrompt },
-        ...conversationHistory.slice(-4).map((m) => ({ role: m.role, content: m.content })),
+        ...conversationHistory
+          .slice(-config.chat.maxConversationHistory)
+          .map((m) => ({ role: m.role, content: m.content })),
         { role: "user", content: userQuery },
       ];
 
@@ -223,8 +217,7 @@ ${context}`;
       });
 
       const answer =
-        response.choices[0].message.content?.trim() ||
-        "I apologize, but I couldn't generate an answer. Please try again.";
+        response.choices[0].message.content?.trim() || config.chat.fallbackErrorMessage;
 
       return answer;
     } catch (error) {
@@ -288,8 +281,7 @@ ${context}`;
         console.log(`   • Incorrect index name or configuration`);
 
         return {
-          answer:
-            "I couldn't find any relevant information in the documentation to answer your question. Could you please rephrase or provide more details?",
+          answer: config.chat.noResultsMessage,
           sources: [],
         };
       }
