@@ -3,7 +3,6 @@ interface Config {
   openai: {
     apiKey: string;
     embeddingModel: string;
-    queryRewriteModel: string;
     answerModel: string;
   };
   pinecone: {
@@ -15,6 +14,11 @@ interface Config {
     topK: number;
     minScore: number;
   };
+  chunking: {
+    minChunkSize: number;
+    maxChunkSize: number;
+    overlapLines: number;
+  };
 }
 
 // Validated configuration (exported after validation)
@@ -25,9 +29,8 @@ function getRawConfig() {
   return {
     openai: {
       apiKey: process.env.OPENAI_API_KEY,
-      embeddingModel: process.env.EMBEDDING_MODEL || "text-embedding-3-small",
-      queryRewriteModel: process.env.QUERY_REWRITE_MODEL || "gpt-5-mini-2025-08-07",
-      answerModel: process.env.ANSWER_MODEL || "gpt-5-2025-08-07",
+      embeddingModel: "text-embedding-3-small",
+      answerModel: "gpt-5-2025-08-07",
     },
     pinecone: {
       apiKey: process.env.PINECONE_API_KEY,
@@ -36,7 +39,12 @@ function getRawConfig() {
     },
     retrieval: {
       topK: 10,
-      minScore: 0.7,
+      minScore: 0.25,
+    },
+    chunking: {
+      minChunkSize: 300, // Minimum characters per chunk
+      maxChunkSize: 1500, // Maximum characters per chunk
+      overlapLines: 2, // Lines to overlap between chunks
     },
   };
 }
@@ -73,7 +81,6 @@ export function validateConfig() {
     openai: {
       apiKey: rawConfig.openai.apiKey!,
       embeddingModel: rawConfig.openai.embeddingModel,
-      queryRewriteModel: rawConfig.openai.queryRewriteModel,
       answerModel: rawConfig.openai.answerModel,
     },
     pinecone: {
@@ -82,5 +89,6 @@ export function validateConfig() {
       indexName: rawConfig.pinecone.indexName!,
     },
     retrieval: rawConfig.retrieval,
+    chunking: rawConfig.chunking,
   };
 }

@@ -13,13 +13,28 @@ function getRagService() {
 }
 
 export async function POST(request: NextRequest) {
+  const startTime = Date.now();
+  console.log("\n🌐 CHAT API REQUEST DEBUG LOG:");
+  console.log("===============================");
+  console.log(`⏰ Request timestamp: ${new Date().toISOString()}`);
+
   try {
     const body = (await request.json()) as ChatApiRequest | unknown;
     // Narrow type
     const { message, conversationHistory = [] } =
       (body as ChatApiRequest) || ({} as ChatApiRequest);
 
+    console.log(`📨 Request details:`);
+    console.log(`   - Message: "${message}"`);
+    console.log(
+      `   - Message length: ${typeof message === "string" ? message.length : "N/A"} characters`,
+    );
+    console.log(
+      `   - Conversation history length: ${Array.isArray(conversationHistory) ? conversationHistory.length : "N/A"} messages`,
+    );
+
     if (!message || typeof message !== "string") {
+      console.log("❌ Invalid message - not a string or empty");
       return NextResponse.json(
         { error: "Message is required and must be a string" },
         { status: 400 },
@@ -28,14 +43,31 @@ export async function POST(request: NextRequest) {
 
     // Validate conversation history
     if (!Array.isArray(conversationHistory)) {
+      console.log("❌ Invalid conversation history - not an array");
       return NextResponse.json({ error: "Conversation history must be an array" }, { status: 400 });
     }
 
     // Get RAG service instance
     const service = getRagService();
 
+    console.log(`🚀 Starting RAG pipeline processing...`);
+
     // Process the query through the RAG pipeline
     const result = await service.processQuery(message, conversationHistory as ChatMessage[]);
+
+    const processingTime = Date.now() - startTime;
+    console.log(`📤 Response prepared:`);
+    console.log(`   - Answer length: ${result.answer.length} characters`);
+    console.log(`   - Sources found: ${result.sources.length}`);
+    console.log(`   - Processing time: ${processingTime}ms`);
+
+    if (result.sources.length > 0) {
+      console.log(
+        `   - Source scores: [${result.sources.map((s) => s.score.toFixed(4)).join(", ")}]`,
+      );
+    }
+
+    console.log("===============================\n");
 
     // Return the response
     return NextResponse.json({
@@ -54,7 +86,10 @@ export async function POST(request: NextRequest) {
       },
     });
   } catch (error) {
-    console.error("Error in chat API:", error);
+    const processingTime = Date.now() - startTime;
+    console.error("❌ Error in chat API:", error);
+    console.log(`⏱️  Failed after ${processingTime}ms`);
+    console.log("===============================\n");
 
     // Check if it's a configuration error
     if (error instanceof Error && error.message.includes("Configuration errors")) {

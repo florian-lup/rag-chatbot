@@ -6,7 +6,6 @@ import { OpenAI } from "openai";
 import fs from "fs/promises";
 import path from "path";
 import { v4 as uuidv4 } from "uuid";
-import MarkdownIt from "markdown-it";
 import { config, validateConfig } from "../config/config";
 import type { DocumentChunk as SharedDocumentChunk } from "@/types/types";
 
@@ -15,7 +14,6 @@ type DocumentChunk = SharedDocumentChunk;
 class DocumentIndexer {
   private pinecone: Pinecone;
   private openai: OpenAI;
-  private md: MarkdownIt;
 
   constructor() {
     validateConfig();
@@ -27,95 +25,152 @@ class DocumentIndexer {
     this.openai = new OpenAI({
       apiKey: config.openai.apiKey,
     });
-
-    this.md = new MarkdownIt();
   }
 
   /**
-   * Parse markdown content and split by semantic boundaries (headings)
+   * Get a summary of the document for context
    */
-  private parseMarkdownByHeadings(content: string, filename: string): DocumentChunk[] {
+  private getDocumentSummary(filename: string): string {
+    const summaries: Record<string, string> = {
+      "welcome.md":
+        "Overview of Anara, an AI-enabled research workspace with features for finding, understanding, organizing and producing scientific content",
+      "concepts.md":
+        "Key concepts and terminology used in Anara including workspace, library, folders, files, agents, chat, queries, and references",
+      "filetypes.md":
+        "Supported file formats in Anara including documents, images, audio, video, webpages, notes, and flashcards",
+    };
+
+    return summaries[filename] || `Documentation about ${filename.replace(".md", "")}`;
+  }
+
+  /**
+   * Parse markdown content using simple size-based chunking
+   */
+  private parseMarkdownBySemanticGroups(content: string, filename: string): DocumentChunk[] {
     const lines = content.split("\n");
     const chunks: DocumentChunk[] = [];
 
-    let currentSection = "Introduction";
-    let currentSubsection = "";
-    let currentContent: string[] = [];
+    // Get chunking configuration from config
+    const { minChunkSize, maxChunkSize, overlapLines } = config.chunking;
+
+    // Get document summary for enhanced context
+    const documentSummary = this.getDocumentSummary(filename);
+
+    // For small documents, consider keeping them whole
+    const documentText = lines.join("\n");
+    if (documentText.length <= maxChunkSize) {
+      // Document is small enough to be a single chunk
+      chunks.push(
+        this.createEnhancedChunk(
+          documentText,
+          filename,
+          filename.replace(".md", ""),
+          "",
+          0,
+          documentSummary,
+        ),
+      );
+      return chunks;
+    }
+
+    // For larger documents, chunk by size with overlap
+    let currentChunk: string[] = [];
     let chunkIndex = 0;
 
-    for (const line of lines) {
-      // Check for headings
-      const h1Match = line.match(/^# (.+)/);
-      const h2Match = line.match(/^## (.+)/);
-      const h3Match = line.match(/^### (.+)/);
+    for (let i = 0; i < lines.length; i++) {
+      currentChunk.push(lines[i]);
+      const currentText = currentChunk.join("\n");
 
-      if (h1Match) {
-        // Save previous chunk if exists
-        if (currentContent.length > 0) {
-          chunks.push(
-            this.createChunk(
-              currentContent.join("\n"),
-              filename,
-              currentSection,
-              currentSubsection,
-              chunkIndex++,
-            ),
-          );
-          currentContent = [];
+      // Check if we've reached the maximum chunk size
+      if (currentText.length > maxChunkSize) {
+        // Find a good breaking point (prefer paragraph breaks)
+        let breakPoint = currentChunk.length - 1;
+        for (let j = currentChunk.length - 1; j > currentChunk.length / 2; j--) {
+          if (currentChunk[j].trim() === "") {
+            breakPoint = j;
+            break;
+          }
         }
-        currentSection = h1Match[1].trim();
-        currentSubsection = "";
-        currentContent.push(line);
-      } else if (h2Match) {
-        // Save previous chunk if exists
-        if (currentContent.length > 0) {
-          chunks.push(
-            this.createChunk(
-              currentContent.join("\n"),
-              filename,
-              currentSection,
-              currentSubsection,
-              chunkIndex++,
-            ),
-          );
-          currentContent = [];
-        }
-        currentSubsection = h2Match[1].trim();
-        currentContent.push(line);
-      } else if (h3Match) {
-        // For h3, we include it in the current chunk but don't split
-        currentContent.push(line);
-      } else {
-        currentContent.push(line);
+
+        // Create chunk
+        const chunkToSave = currentChunk.slice(0, breakPoint).join("\n");
+        chunks.push(
+          this.createEnhancedChunk(
+            chunkToSave,
+            filename,
+            filename.replace(".md", ""),
+            `Part ${chunkIndex + 1}`,
+            chunkIndex++,
+            documentSummary,
+          ),
+        );
+
+        // Start new chunk with overlap
+        const overlapStart = Math.max(0, breakPoint - overlapLines);
+        currentChunk = currentChunk.slice(overlapStart);
       }
     }
 
-    // Don't forget the last chunk
-    if (currentContent.length > 0) {
-      chunks.push(
-        this.createChunk(
-          currentContent.join("\n"),
+    // Save the last chunk if it has content
+    if (currentChunk.length > 0) {
+      const currentText = currentChunk.join("\n");
+      // Only create a chunk if it meets minimum size or is the only chunk
+      if (currentText.length >= minChunkSize || chunks.length === 0) {
+        chunks.push(
+          this.createEnhancedChunk(
+            currentText,
+            filename,
+            filename.replace(".md", ""),
+            chunks.length > 0 ? `Part ${chunkIndex + 1}` : "",
+            chunkIndex,
+            documentSummary,
+          ),
+        );
+      } else if (chunks.length > 0) {
+        // If last chunk is too small, append it to the previous chunk
+        const lastChunk = chunks[chunks.length - 1];
+        const combinedText = lastChunk.text + "\n\n" + currentText;
+        chunks[chunks.length - 1] = this.createEnhancedChunk(
+          combinedText,
           filename,
-          currentSection,
-          currentSubsection,
-          chunkIndex,
-        ),
-      );
+          filename.replace(".md", ""),
+          lastChunk.metadata.subsection || "",
+          lastChunk.metadata.chunkIndex,
+          documentSummary,
+        );
+      }
     }
 
     return chunks;
   }
 
-  private createChunk(
+  /**
+   * Create an enhanced chunk with document-level context
+   */
+  private createEnhancedChunk(
     text: string,
     source: string,
     section: string,
     subsection: string,
     chunkIndex: number,
+    documentSummary: string,
   ): DocumentChunk {
+    // Clean up the text
+    const cleanText = text.trim();
+
+    // Build enhanced text with minimal but useful context
+    const contextParts = [`${source.replace(".md", "")} documentation:`, documentSummary];
+
+    if (subsection) {
+      contextParts.push(`Topic: ${subsection}`);
+    }
+
+    // Combine context with actual content - keep it natural
+    const enhancedText = `${contextParts.join(" ")}\n\n${cleanText}`;
+
     return {
       id: uuidv4(),
-      text: text.trim(),
+      text: enhancedText, // Use enhanced text for embedding generation
       metadata: {
         source,
         section,
@@ -155,6 +210,13 @@ class DocumentIndexer {
 
       console.log(`Found ${markdownFiles.length} markdown files to index`);
 
+      // Log chunking configuration
+      console.log(`\n📊 Chunking Configuration:`);
+      console.log(`   - Min chunk size: ${config.chunking.minChunkSize} characters`);
+      console.log(`   - Max chunk size: ${config.chunking.maxChunkSize} characters`);
+      console.log(`   - Overlap lines: ${config.chunking.overlapLines} lines`);
+      console.log(`   - Min score threshold: ${config.retrieval.minScore}`);
+
       let allChunks: DocumentChunk[] = [];
 
       // Process each file
@@ -163,7 +225,7 @@ class DocumentIndexer {
         const content = await fs.readFile(filePath, "utf-8");
 
         console.log(`Processing ${file}...`);
-        const chunks = this.parseMarkdownByHeadings(content, file);
+        const chunks = this.parseMarkdownBySemanticGroups(content, file);
         allChunks = allChunks.concat(chunks);
 
         console.log(`  - Created ${chunks.length} chunks`);
