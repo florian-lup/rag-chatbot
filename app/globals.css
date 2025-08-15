@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -120,5 +121,25 @@
   button:not([disabled]),
   [role="button"]:not([disabled]) {
     cursor: pointer;
+  }
+}
+
+@layer components {
+  /* Enhanced prose link styling for better integration with theme */
+  .prose a {
+    @apply text-primary no-underline hover:text-primary/80 focus-visible:text-primary/80;
+    @apply border-b border-primary/30 hover:border-primary/60 focus-visible:border-primary/60;
+    @apply transition-colors duration-200;
+    @apply rounded-sm focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2;
+  }
+
+  .prose a:visited {
+    @apply text-primary/70 border-primary/20;
+  }
+
+  /* Ensure external link indicators work with dark mode */
+  .prose a[target="_blank"]::after {
+    content: " ↗";
+    @apply text-muted-foreground text-xs;
   }
 }

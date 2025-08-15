@@ -9,6 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import type { Components } from "react-markdown";
 import type { ChatMessage as ApiChatMessage, SourcePreview } from "@/types/types";
 import { useAutoFocus, useAutoScrollToBottom, useEnterToSubmit } from "@/hooks/hooks";
 
@@ -105,6 +106,23 @@ export function ChatInterface() {
 
   const handleKeyDown = useEnterToSubmit(submitWithoutEvent);
 
+  // Custom components for ReactMarkdown
+  const markdownComponents: Components = {
+    a: ({ href, children, ...props }) => {
+      const isExternal = href?.startsWith("http") || href?.startsWith("//");
+      return (
+        <a
+          href={href}
+          target={isExternal ? "_blank" : undefined}
+          rel={isExternal ? "noopener noreferrer" : undefined}
+          {...props}
+        >
+          {children}
+        </a>
+      );
+    },
+  };
+
   return (
     <div className="flex flex-col h-full max-h-[calc(100vh-8rem)]">
       {/* Messages Container */}
@@ -153,7 +171,9 @@ export function ChatInterface() {
                   <CardContent className="p-3">
                     {message.role === "assistant" ? (
                       <div className="prose prose-sm dark:prose-invert max-w-none">
-                        <ReactMarkdown remarkPlugins={[remarkGfm]}>{message.content}</ReactMarkdown>
+                        <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
+                          {message.content}
+                        </ReactMarkdown>
                       </div>
                     ) : (
                       <p className="text-sm whitespace-pre-wrap">{message.content}</p>

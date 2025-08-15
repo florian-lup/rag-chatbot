@@ -289,6 +289,12 @@ ${context}`;
       // Generate answer
       const answer = await this.generateAnswer(userQuery, retrievedDocuments, conversationHistory);
 
+      // Log final answer for debugging/observability
+      console.log("\n🧠 FINAL ANSWER OUTPUT:");
+      console.log("========================");
+      console.log(answer);
+      console.log("========================\n");
+
       return {
         answer,
         sources: retrievedDocuments,
