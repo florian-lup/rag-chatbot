@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useRef, useCallback } from "react";
-import { Send, Bot, User, Loader2, FileText, AlertCircle } from "lucide-react";
+import { Send, Bot, Loader2, FileText, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
@@ -141,79 +141,56 @@ export function ChatInterface() {
         {messages.map((message) => (
           <div
             key={message.id}
-            className={`flex gap-3 ${message.role === "user" ? "justify-end" : "justify-start"}`}
+            className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}
           >
-            <div
-              className={`flex gap-3 max-w-[80%] ${
-                message.role === "user" ? "flex-row-reverse" : "flex-row"
-              }`}
-            >
-              {/* Avatar */}
-              <div
-                className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center ${
-                  message.role === "user" ? "bg-primary text-primary-foreground" : "bg-muted"
-                }`}
+            <div className="flex flex-col gap-2 max-w-[80%]">
+              <Card
+                className={`${
+                  message.role === "user" ? "bg-primary text-primary-foreground" : "bg-card"
+                } p-3`}
               >
-                {message.role === "user" ? (
-                  <User className="w-4 h-4" />
-                ) : (
-                  <Bot className="w-4 h-4" />
-                )}
-              </div>
+                <CardContent className="p-0">
+                  {message.role === "assistant" ? (
+                    <div className="prose prose-sm dark:prose-invert max-w-none">
+                      <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
+                        {message.content}
+                      </ReactMarkdown>
+                    </div>
+                  ) : (
+                    <p className="text-sm whitespace-pre-wrap">{message.content}</p>
+                  )}
+                </CardContent>
+              </Card>
 
-              {/* Message Content */}
-              <div className="flex flex-col gap-2">
-                <Card
-                  className={`${
-                    message.role === "user" ? "bg-primary text-primary-foreground" : "bg-card"
-                  }`}
-                >
-                  <CardContent className="p-3">
-                    {message.role === "assistant" ? (
-                      <div className="prose prose-sm dark:prose-invert max-w-none">
-                        <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
-                          {message.content}
-                        </ReactMarkdown>
-                      </div>
-                    ) : (
-                      <p className="text-sm whitespace-pre-wrap">{message.content}</p>
-                    )}
-                  </CardContent>
-                </Card>
+              {/* Sources */}
+              {message.sources && message.sources.length > 0 && (
+                <div className="flex flex-wrap gap-1">
+                  {message.sources.map((source, index) => (
+                    <Badge
+                      key={index}
+                      variant="secondary"
+                      className="text-xs cursor-pointer hover:bg-secondary/80"
+                      title={`${source.text}\n\nScore: ${source.score.toFixed(2)}`}
+                    >
+                      <FileText className="w-3 h-3 mr-1" />
+                      {source.source} - {source.section}
+                      {source.subsection && ` (${source.subsection})`}
+                    </Badge>
+                  ))}
+                </div>
+              )}
 
-                {/* Sources */}
-                {message.sources && message.sources.length > 0 && (
-                  <div className="flex flex-wrap gap-1">
-                    {message.sources.map((source, index) => (
-                      <Badge
-                        key={index}
-                        variant="secondary"
-                        className="text-xs cursor-pointer hover:bg-secondary/80"
-                        title={`${source.text}\n\nScore: ${source.score.toFixed(2)}`}
-                      >
-                        <FileText className="w-3 h-3 mr-1" />
-                        {source.source} - {source.section}
-                        {source.subsection && ` (${source.subsection})`}
-                      </Badge>
-                    ))}
-                  </div>
-                )}
-
-                {/* Timestamp */}
-                <span className="text-xs text-muted-foreground">
-                  {message.timestamp.toLocaleTimeString()}
-                </span>
-              </div>
+              {/* Timestamp */}
+              <span className="text-xs text-muted-foreground">
+                {message.timestamp.toLocaleTimeString()}
+              </span>
             </div>
           </div>
         ))}
 
         {isLoading && (
-          <div className="flex gap-3 justify-start">
-            <div className="flex gap-3 max-w-[80%]">
-              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-muted flex items-center justify-center">
-                <Bot className="w-4 h-4" />
-              </div>
+          <div className="flex justify-start">
+            <div className="max-w-[80%]">
               <Card>
                 <CardContent className="p-3">
                   <div className="flex items-center gap-2">

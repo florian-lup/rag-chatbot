@@ -13,9 +13,6 @@ yarn.lock
 pnpm-lock.yaml
 bun.lockb
 
-public/*.svg
-public/*.png
-public/*.jpg
-public/*.jpeg
-public/*.gif
+public/
+docs/
 

@@ -40,10 +40,19 @@ export interface ChatApiResponseData {
   sources: SourcePreview[];
 }
 
-// Optional: shared document chunk schema used by scripts
+// Shared document chunk schema used by scripts
 export interface DocumentChunk {
   id: string;
   text: string;
   metadata: DocumentMetadata & { chunkIndex: number };
   embedding?: number[];
+}
+
+// Changelog types
+export interface ChangelogSection {
+  date: string;
+  title: string;
+  content: string[];
+  improvements: string[];
+  fixes: string[];
 }

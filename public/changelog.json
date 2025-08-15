@@ -1,0 +1,455 @@
+[
+  {
+    "date": "August 12, 2025",
+    "title": "Major model upgrades, improved citations, and file tagging in the editor",
+    "content": [
+      "In the last few days we added support for several new models, including OpenAI's GPT-5 and GPT-OSS 120B. GPT-5 offers significantly more intelligent responses and a more expressive writing style. OSS is fast and reliable - we’re so impressed with its performance vs Gemini Flash 2.5 that we made it the default model for free users.",
+      "We also introduced GPT o3 and o4-mini with real-time “thinking process” and made major upgrades to existing models: Gemini 2.5 Flash now uses its advanced reasoning engine, also displaying thinking in real-time.",
+      "The citation hover component in chat is now significantly more insightful. Instead of only showing the raw text from a source, we now generate an explanation of why that particular citation is relevant to the conversation. This summary, along with key quotes from the document, makes it much easier to verify the AI's reasoning without having to open and read the entire source document."
+    ],
+    "improvements": [
+      "You can now tag files and folders directly inside the editor. Simply type '@' to search for and link to any item in your library.",
+      "The @Search Web and @Search Papers agents are now significantly faster and more accurate, as we've refined the way we process search queries.",
+      "Added a copy transcript button for audio recordings. Click the three-dot menu next to the speed controls to copy the transcript.",
+      "We've polished the text streaming animation. Responses from AI models now appear much more smoothly as they are generated.",
+      "Added support for the Thai language in chat and editor AI generations.",
+      "Our agents can now intelligently use multiple tools to answer a single question. For example, an agent can now search the web and your private documents in the same step to create a more comprehensive response.",
+      "You can now attach PDF documents directly to chat messages.",
+      "The table view now automatically resets any active filters after you import new items, ensuring new imports are immediately visible."
+    ],
+    "fixes": [
+      "Fixed an issue where the same filter could be applied to a field multiple times in the table view.",
+      "Fixed an issue where in some cases deleting a folder from the sidebar would not delete the files and chats contained within it.",
+      "Resolved a bug where the chat input would sometimes be disabled for notes that contained content.",
+      "Fixed an issue where multiple sets of default folders were created for new users during the onboarding process.",
+      "Fixed a bug where pressing the Return key in the text editor slash command menu would create a new line instead of selecting the highlighted option.",
+      "Fixed an issue on mobile devices where a banner could hide the support button.",
+      "Resolved an issue where opening the Command+K menu on very large workspaces could cause the app to crash."
+    ]
+  },
+  {
+    "date": "July 14, 2025",
+    "title": "Citation counts, left sidebar updates and more table customization",
+    "content": [
+      "This week's release focuses on refinement - adding OSCOLA citation support for legal researchers, bringing citation counts front and center, and giving you more control over your table view with customizable metadata columns.",
+      "We also reorganized the left sidebar for better chat access and fixed several bugs."
+    ],
+    "improvements": [
+      "Added support for the OSCOLA (Oxford University Standard for Citation of Legal Authorities) referencing format. This is now available as an option when generating citations and bibliographies.",
+      "A citation count for each document now appears in the main table view and in the right sidebar. This allows you to quickly see how many references are associated with a file without needing to open it.",
+      "All metadata fields that were previously only visible in the right sidebar can now be added as columns to the main table view. This provides more flexibility to customize your layout and compare key document information across all your files at a glance.",
+      "We've updated the left sidebar to include a new, dedicated section for your chats. It displays your five most recent conversations for quick access and can be expanded to view your full chat history.",
+      "The left sidebar is now also optimized for smaller screens and this update includes several bug fixes for a more stable experience.",
+      "Improved the automatic fetching of metadata when you import documents. You should now see more complete and accurate information for your files, and we also improved how this data loads into the table for a smoother experience.",
+      "In addition to your personal Zotero library, you can now import documents directly from your shared group collections."
+    ],
+    "fixes": [
+      "Resolved an issue that could cause the table to appear empty for new users until the page was refreshed. New items will now appear in the table instantly after they are imported or created.",
+      "Resolved a layout bug on mobile devices where the 'Share' container would not fit on the screen correctly.",
+      "Resolved an issue with the ++ command for generating text in the editor. The feature would sometimes delete the first word or the first few letters of the AI-generated content immediately after inserting it, which will no longer happen.",
+      "Resolved a styling issue in the note sideview that could cause the title of a document to overlap with the content below it.",
+      "Fixed a bug that caused the \"Published\" column in the table view to always appear empty.",
+      "Resolved a bug in the document viewer that caused mathematical equations in Markdown files to render incorrectly.",
+      "Fixed a layout bug on mobile devices that caused the Import menu and its buttons to be cut off or pushed out of view.",
+      "Fixed an issue where importing from arXiv would fail if the provided link was missing the https:// prefix.",
+      "Fixed a rendering bug that occurred when opening the website from the Twitter app, which could cause parts of the page to be unreadable in dark mode.",
+      "Fixed an issue that prevented import limits from increasing correctly for new users",
+      "Fixed a bug where some AI-generated content, such as Notes, would be in English even when a different language was selected in settings."
+    ]
+  },
+  {
+    "date": "July 1, 2025",
+    "title": "Better PDF annotations, Claude 4 integration and improved drag and drop import",
+    "content": [
+      "We’re heads down on some very exciting new chat features launching soon. Alongside our work here we spent time in the last few weeks polishing existing features - we enhanced table functionality with resizable columns and better loading states, improved file import with smarter drag-and-drop zones, and refined the PDF annotations feature.",
+      "Plus in the last two weeks, we found time to complete an extensive infrastructure overhaul to significantly improve app performance, reliability, and stability."
+    ],
+    "improvements": [
+      "Improved metadata field (author, year etc) loading in table for new imports by showing content immediately instead of requiring a page refresh to display",
+      "Shipped a vast improvement to our PDF annotation features with smoother text selection, simplified commenting and updated darker highlight colors",
+      "Enhanced file upload experience with drag-and-drop zones for importing to your library, importing to specific folders, attaching files in chat, and dropping files onto any folder in the left sidebar",
+      "Added \"Remove from folder\" option to table selection menu, making it easier to move files out of folders without deleting them",
+      "Updated to Claude Sonnet 4 for more intelligent and improved accuracy in document analysis and conversations",
+      "Added \"Log out of all devices\" button for enhanced account security when using public or shared computers",
+      "Added ability to resize table columns by dragging the column borders, allowing you to customize column widths for better viewing of your content",
+      "Added changelog notifications that appear in the left sidebar when new updates are published, with easy navigation to view the latest changes and the ability to dismiss notifications"
+    ],
+    "fixes": [
+      "Fixed issue where note generation wasn't respecting your selected language preference, ensuring all features now work consistently in your chosen language",
+      "Fixed issue where resizing the summary column would cut off text prematurely, now properly displays the full summary content when expanded",
+      "Fixed issue where the tags column wouldn't properly resize when dragging column borders",
+      "Fixed \"Not Found\" error that occurred when using the CMD+K search menu to access the Import File menu",
+      "Fixed text selection overlap issues in the PDF viewer that were interfering with highlighting and annotation",
+      "Fixed drag-and-drop issues with folder reordering in the left sidebar where folders would jump to incorrect positions"
+    ]
+  },
+  {
+    "date": "June 17, 2025",
+    "title": "Table view improvements and edit mode",
+    "content": [
+      "Following the launch of table view, we spent the last two weeks focused on improvements and bug fixes. We made various updates across table view and related features.",
+      "We're also happy to introduce “Edit Mode”. You can now edit notes directly from chat using AI - when viewing a note, simply open the chat and select \"Edit\" to modify your content. For example, you can ask it to convert a technical document into a simple summary or rewrite a paragraph to match your brand's voice."
+    ],
+    "improvements": [
+      "The app now uses a single, full-page loader when loading content, replacing the multiple scattered indicators.",
+      "Added folder column to table view showing which folder each file belongs to, with clickable folder names for quick navigation.",
+      "Added tags column to table view showing file tags, with each tag clickable to filter by files with the same tag",
+      "Summary and author cells in table view now update as soon as the content is available, rather than requiring a page refresh.",
+      "Added ability to select text from expanded cells in table view.",
+      "You can now rename and delete conversations from a new quick action menu in the chat history popover menu.",
+      "Added ability to drag and drop column titles in the view menu to reorder table columns.",
+      "Changed \"Ask AI\" in search menu to open a new chat with library instead of generating an inline response.",
+      "Improved folder renaming experience with automatic input focus, disabled password auto-fill, and fixed menu reopening issues.",
+      "The app will no longer automatically navigate away from your current view after a file import is complete.",
+      "Added confirmation modal when editing previous messages to warn you that chat responses will be overwritten.",
+      "The left sidebar now opens automatically when you create a new folder."
+    ],
+    "fixes": [
+      "Fixed an issue where chat history was not maintained when chatting with library items for some users.",
+      "Resolved a bug where editing a previous chat message would fail to apply the proper context.",
+      "Fixed an issue where filters in the table view were not working correctly for some users.",
+      "Fixed an issue where imported documents could temporarily disappear from the table after navigating to a different page.",
+      "Resolved an issue causing citations in editor reference section to infinitely load for some users.",
+      "Fixed an issue in the PDF viewer where highlighting text would incorrectly cause the page to scroll to the top.",
+      "Fixed an issue where using backspace to move to a previous bullet point in the editor would incorrectly jump to the heading.",
+      "Fixed an bug that could cause items selected in table view to appear duplicated.",
+      "Fixed an issue where LaTeX math equations were not rendering correctly in chat.",
+      "Resolved an issue where line breaks were not being preserved in sent chat messages."
+    ]
+  },
+  {
+    "date": "June 2, 2025",
+    "title": "Introducing Table View",
+    "content": [
+      "Today, we’re super excited to share the next major iteration of Anara - Table View.",
+      "Anara started as a way to quickly understand documents. Over time we evolved, first with a powerful text editor, then with support for diverse media like video and audio.",
+      "As your libraries grew, we saw the need for a better way to organize everything.",
+      "That’s why we built Table View.",
+      "Table View is your new command center - a dynamic, spreadsheet-like interface designed specifically for scientific content. It offers a flexible and organized way to see, sort, filter and discover information across your library.",
+      "One of the most powerful features of Table View is contextual chat. You can now chat with any file or folder by opening the chat interface at that level.",
+      "All conversations are contextually stored - for example, if you chat with a specific folder, those conversations will be preserved within that folder, making it easy to resurface past insights."
+    ],
+    "improvements": [
+      "You can now edit previous message in the chat by clicking on the previously sent message.",
+      "Improved bulk import workflow to display a fresh upload list for each new import session, preventing confusion from previous session files",
+      "The items in the upload list are also now clickable making it easier to navigate to recently imported items."
+    ],
+    "fixes": [
+      "Fixed an issue where chat history was not properly maintained when chatting with library, ensuring conversation context is preserved.",
+      "Resolved an issue where AI messages would display as permanently loading in some cases when cancelled or interrupted.",
+      "Fixed an issue where some teams users experienced problems interacting with documents, ensuring proper access and functionality across all team workspaces.",
+      "Improved table formatting in chat to properly display bullet points as structured lists instead of showing HTML markup in generated content."
+    ]
+  },
+  {
+    "date": "May 19, 2025",
+    "title": "PDF annotations, Zotero Integration and improved importing",
+    "content": [
+      "This update brings PDF annotations, an integration with Zotero and improved file importing to enhance your research workflows.",
+      "You can now highlight text in multiple colors and add comments in the PDF viewer. To add a comment, simply select text, click 'Highlight', then choose 'Comment'. All your annotations appear in the sidebar, where you can filter by highlight color.",
+      "Connect your Zotero library to easily import research materials and references directly into your workspace. Simply click ‘Zotero’ in the upload menu and select the collections you’d like to import."
+    ],
+    "improvements": [
+      "The 10-file limit on concurrent imports has been removed. With our new bulk importing system, you can now upload hundreds of documents simultaneously. Your uploads will continue processing even if you refresh the page or close your browser.",
+      "Enhanced our ability to extract text from PDFs and images, with much improved accuracy for tables and support for more languages.",
+      "Enhanced our document search system, reducing service timeouts and making searches at least 2.5 times faster than before."
+    ],
+    "fixes": [
+      "Fixed an issue where bullet points in tables created with GPT 4.1 weren't displaying properly as separate items.",
+      "Fixed an issue where the chat would automatically open when accessing the right sidebar, allowing you to view your annotations without the chat panel appearing.",
+      "The upload progress indicator now automatically hides a few seconds after all files have finished importing, keeping your workspace clean and distraction-free."
+    ]
+  },
+  {
+    "date": "May 5, 2025",
+    "title": "Revamped right sidebar and major performance improvements",
+    "content": [
+      "We're excited to announce a significant upgrade to the right sidebar with a new tabbed interface. It now includes \"Details\" and \"Related\" tabs. Details shows comprehensive citation details (like author, publication info, DOI, links, summaries, and tags).",
+      "The Related tab makes it easier to find connected research by showing papers that cite the document in view, papers cited in the document and additional relevant publications from across the internet.",
+      "This week we moved our billing operations from Unriddle Ltd to Anara Labs, Inc. There's nothing you need to do on your end. You may notice our company name appears differently on your billing statements, but this won't affect your subscription status or payment details."
+    ],
+    "improvements": [
+      "You can now quickly preview citations in the editor by simply hovering your mouse over them, similar to how it works in the chat.",
+      "We improved how we automatically retrieve information about files in your library (e.g. Authors, Abstract, Publishing Journal). You should see much more information in the right sidebar for recent and future imports.",
+      "We significantly improved the performance of the left sidebar, especially for users with many files. It should now load much faster and scroll more smoothly.",
+      "Improved Anara’s ability to follow specific instructions in your prompts, particularly regarding constraints like desired word count and citation formatting.",
+      "Your work in the editor will now be saved more frequently, creating a new recovery point every 10 minutes. This provides better protection against accidental data loss and makes it easier to restore previous versions.",
+      "When selecting an AI model in the settings, you'll now see descriptions for each model directly within the dropdown list, replicating the change we made last week to the model dropdown in the chat input."
+    ],
+    "fixes": [
+      "Fixed an issue where Anara might not have remembered the full context of the current chat conversation, ensuring more relevant and consistent responses.",
+      "Fixed issues with exporting content from the text editor. In-line citations are now correctly included and formatted when exporting to both Word (.docx) and PDF files.",
+      "Fixed an error causing transcription to fail in some cases for audio recording and audio and video imports.",
+      "Resolved an issue where Anara could sometimes add an excessive number of citation references within a single sentence."
+    ]
+  },
+  {
+    "date": "April 21, 2025",
+    "title": "Anara Web Clipper, editor overhaul, latest AI models and EPUB support",
+    "content": [
+      "With this update, we introduced document history into the editor so you can easily track changes, review previous versions and restore content if needed.",
+      "The editor now also features sentence autocompletion. Simply press the Tab key to complete your sentence when enabled. It’s disabled by default - enable it in Settings → Preferences."
+    ],
+    "improvements": [
+      "Added ID-based importing. When you paste an academic identifier (DOI, PMID or arXiv ID) into the dedicated ID field, Anara automatically fetches the full paper and metadata.",
+      "Introduced “Fun mode” which allows you to customize the background of your PDF viewer. You can find the option to enable in Settings → Preferences.",
+      "Took significant steps to improve load time and navigation speeds throughout the app.",
+      "Added support for EPUB files, allowing you to import your ebooks directly into Anara.",
+      "Integrated support for Google’s latest model, Gemini 2.5 Pro, which performs best when analyzing large groups of files.",
+      "Upgraded from GPT-4o to OpenAI's new GPT-4.1 model. It offers an excellent balance of speed and quality, making it our preferred middle-ground option.",
+      "Added descriptions in our model selector menu to show which AI models work best for specific tasks.",
+      "Made considerable improvements to the quality of responses when grouping files particularly when asking questions relating to the entire group as a whole.",
+      "Fixed significant lag issues in the PDF viewer, particularly affecting documents with image-rich content.",
+      "Added keyboard navigation for YouTube videos with left and right arrow keys to skip backward forward and space key to play and pause the video."
+    ],
+    "fixes": []
+  },
+  {
+    "date": "April 7, 2025",
+    "title": "Introducing semantic image recognition",
+    "content": [
+      "Over the past couple of weeks, we’ve been heads down on some major updates that aren’t quite ready to ship yet. While those bigger changes are in the pipeline, we’re excited to share several smaller improvements that just went live.",
+      "Anara now analyzes images in your documents with enhanced understanding of charts and tables. Our system now processes visual data more effectively, helping you extract insights faster. Simply ask a question about any image in your library to try it out.",
+      "We also added the ability to @ mention items from your library in chat messages. Use this feature to quickly reference and interact with information from multiple files across your library."
+    ],
+    "improvements": [
+      "Shipped a performance improvement to our PDF viewer to fix slowdown issues when viewing documents with many images.",
+      "Improved response length when \"no limit\" setting is selected, addressing your feedback about short answers in the chat.",
+      "Added six new citation formats including IEEE and Vancouver, bringing the total available citation styles to 10.",
+      "Added support for longer videos (up to 4 hours) when they already have transcripts, eliminating the need for automatic transcription."
+    ],
+    "fixes": [
+      "Fixed an issue where the screen would reset when reordering or deleting PDF files in the sidebar.",
+      "Fixed a bug that prevented users from submitting questions when selecting from suggested prompts.",
+      "Resolved an issue that caused chat messages to be sent unintentionally when clicking on notes.",
+      "Fixed drag and drop import for .txt files that wasn't working properly.",
+      "Improved file organization and folder navigation based on your feedback about inaccurate drag and drop interactions.",
+      "Fixed a keyboard shortcut conflict where Ctrl+K was opening both the address bar and search menu in some browsers."
+    ]
+  },
+  {
+    "date": "March 24, 2025",
+    "title": "Unriddle is now Anara, improved citations and new settings",
+    "content": [],
+    "improvements": [
+      "Improved citation handling in notes with customizable inline reference styles. You can now choose between numeric formatting (e.g., \"[12]\") and author-year format (e.g., \"Hawkins, 2023\"), with support for various citation styles including formats like Leah et al. 2025.",
+      "Revamped our settings menu. It now includes dedicated subpages for Account and Preferences, with new options to clear cookies, manage account deletion, toggle on and off auto-rename on import, and toggle on and off the artifacts feature (notes and flashcards in chat).",
+      "You can now open cited documents in a new tab by right-clicking or Command-clicking on a response citation.",
+      "When you hover a citation in a response, you now see a small preview of the cited content. For chats with multiple documents, this new component also includes the title of the cited document.",
+      "Switched our default model from Claude 3.5 to Gemini Flash 2.0, which enabled us to increase the free user word limit to 1,000 per day.",
+      "Made even more improvements to our audio recording features, including better transcript formatting, speaker identification, resolved various playback issues, improved mobile interface and resolved Chrome browser recording indicator bugs.",
+      "Previously, when renaming a file in Anara, the name wouldn't update in other locations until the page refreshed. Now all places where the name appears update automatically as you type."
+    ],
+    "fixes": [
+      "Resolved a bug where default nuclear fission research paper were not being added to new user libraries.",
+      "Resolved a bug where Gemini’s model safety features were incorrectly blocking legitimate research-related queries.",
+      "Fixed an issue where nested groups would unexpectedly separate when dragged and dropped into other groups"
+    ]
+  },
+  {
+    "date": "March 10, 2025",
+    "title": "A new way to chat with Anara",
+    "content": [
+      "Since our last update, we introduced an entirely new way to chat with Anara. You can now create chats without having to import a file. Responses are drawn from the context of all files in your library so you can quickly understand and find information across everything you read and write about on Anara.",
+      "By default you’re interacting with your library but you can change the “Knowledge” using the knowledge dropdown at the bottom of the chat input. Choose from “Library”, “General knowledge” and “User guide” depending on your query.",
+      "This update also comes with a new “Chat” file type. When you create a chat using the methods outlined above, the new chat appears in your sidebar so you can easily come back to it in the future."
+    ],
+    "improvements": [
+      "Multiple improvements to flashcard and note generation, including increased flashcard count limits and better visual indicators during content creation.",
+      "Chat input drafts are now automatically saved when switching between files, allowing you to easily return to your prompts later.",
+      "Updated video timestamp formatting in chat responses to use sequential numbering, matching our recent change to page reference numbers.",
+      "Added new notification component for feature announcements and important updates.",
+      "Redesigned free user usage component in sidebar to take up less space while still showing limits.",
+      "Added margin spacing above reference highlights to ensure text appears centered when navigating to document references.",
+      "Updated our paywalls to include pricing plan options directly within the app, eliminating the need to visit a separate pricing page.",
+      "Improved chat loading with a new animated loader and clearer \"Reasoning\" status indicator.",
+      "We now save draft messages in the chat input so you can switch between files without losing draft prompts."
+    ],
+    "fixes": [
+      "Fixed LaTeX rendering in the chat messages that was causing formatting issues with mathematical content.",
+      "Fixed loading issues for chats with many messages by implementing progressive message loading when scrolling up.",
+      "Fixed issue where long URLs weren't wrapping properly in chat, causing horizontal scrolling.",
+      "Fixed intermittent app freezing issues that previously required refreshing the page."
+    ]
+  },
+  {
+    "date": "February 24, 2025",
+    "title": "Generate notes and flashcards, referral program, response improvements and more",
+    "content": [
+      "We gave Anara the ability to generate components based on your request. For now, this means you can create flashcards and notes directly through the chat! When viewing a file or group, simply ask Anara to generate research materials from that content. Try \"Generate flashcards to help me understand chapter 6\" or \"Create summary notes for this article.\"",
+      "This update also includes a new referral program. You can now earn $10 cash just by referring a friend to Anara. You get $10 cash, they get a $10 discount. If you know anyone who wants to save time on their research work or studies - now’s a great time to invite them.",
+      "And we made a pretty significant change to how our AI constructs responses when drawing from a source file. This update improves the accuracy and comprehensiveness of AI-generated content across all “chat with” features (e.g. chat with document, chat with video). It went live on Feb 13 - you should notice a much better response quality since then."
+    ],
+    "improvements": [
+      "Added support for Gemini Flash 2.0, Google's latest and most powerful model, for all paying users.",
+      "We modified how in-text references in chat messages are displayed. Previously, reference numbers indicated the source page number. Now, references are numbered sequentially within each response (1, 2, 3, etc.), similar to in-text citations. The functionality remains the same - clicking a reference number will still scroll you to the corresponding section.",
+      "Wrote a new onboarding guide detailing information on how to get started with Anara. Users who signed up after Feb 16 will see the new guide in their libraries.",
+      "Made various improvements to our audio recording features, including much improved audio transcription quality and reliability.",
+      "Added Venmo support for referral program payouts. Initially, we launched this feature with just PayPal payout support.",
+      "Launched a new automated email series for new users with helpful tips and guides for getting the most out of Anara. You can easily opt out by clicking \"Unsubscribe\" in any email."
+    ],
+    "fixes": [
+      "Fixed a bug that prevented the language selector menu from scrolling properly.",
+      "Fixed an issue where the delete link accessed via support wasn't functioning properly.",
+      "Fixed an issue where some audio files failed to import properly",
+      "Fixed an issue where audio recordings longer than 30 minutes could cause the app to crash.",
+      "Fixed an issue where flashcards were being generated when the request was actually for a list of practice questions.",
+      "Fixed an issue where some users were unable to upload images due to a file format validation error.",
+      "Fixed an issue where results in the \"Find citations...\" menu weren't not loading in some cases."
+    ]
+  },
+  {
+    "date": "February 10, 2025",
+    "title": "Attachments, audio imports, DeepSeek and a new user guide.",
+    "content": [
+      "We've added image attachment support to chat conversations - simply drag and drop images or click the paperclip icon to include them as part of your message. This includes an improvement to excerpt attachments, enabling support for multiple excerpts simultaneously. Both image and excerpt attachments can be easily removed by clicking the 'x' icon that appears on hover.",
+      "We added support for the DeepSeek R1 reasoning model with expandable reasoning steps displayed in the chat message thread.",
+      "In addition to being able to record audio with Anara, you can now import audio files (mp3, wav). Simply follow the same import process you use for PDFs, images, and other file types."
+    ],
+    "improvements": [
+      "Added ‘Brainrot’ button that we made for fun last week.",
+      "Improved audio recording features with faster processing time, better reliability, quality, and user experience.",
+      "Updated our pricing page to provide clearer guidance on plan features and inclusions.",
+      "Redesigned chat input and chat message thread with improved text input, cleaner message threads, and better handling of long prompts.",
+      "Made significant improvements to mobile experience including better onboarding flow, improved sidebar behavior, and fixed various UI issues for smoother mobile usage.",
+      "Improved knowledge web and related sidebar with better performance, automatic background connection checks, and expanded support beyond just notes and documents to all file types in user's library.",
+      "Moved settings storage from local to database, meaning that your settings now stay the same across all your devices and browsers.",
+      "Improved group creation by auto-focusing the rename input field when creating a new group.",
+      "The 'breakdown' quick action at the top of new chats now recognizes the type of file being viewed and tailors its analysis accordingly. For example, it provides different breakdowns for research papers versus lecture videos.",
+      "Added ability to rename files from the top navigation bar."
+    ],
+    "fixes": [
+      "Resolved an issue where system instructions marked with bracket symbols were sometimes included in chat responses.",
+      "Fixed a bug where unwanted \"thank you\" messages appeared during silent periods in audio recordings.",
+      "Fixed an issue with YouTube video imports getting stuck in an infinite loading state and improved video handling.",
+      "Fixed loader flashing issues throughout the app and implemented a new animated logo loader that shows on refresh.",
+      "Fixed an issue where the Library citation search in the actions menu wasn't loading properly, preventing you from citing content from yout library.",
+      "Fixed an issue where chat would automatically scroll to the bottom on import, which was hiding the auto-summary at the top of the chat thread."
+    ]
+  },
+  {
+    "date": "January 26, 2025",
+    "title": "Dark mode, higher usage limits and new marketing pages",
+    "content": [
+      "Anara now includes dark mode support, including the PDF viewer! This means when you switch to dark mode, both the main interface and any PDF documents you’re viewing will adapt to the darker theme. Just click your Library name in the top left corner, head to Theme, and choose between Light, Dark, or System settings.",
+      "We significantly increased our free usage limits. Free users can now use Anara for up to 250 words, 5 imports, and 1 audio recording per day. This is a substantial increase from our previous limits of 10 messages and 5 imports per month, giving you more flexibility to try Anara without paying. If you hit this limit, we’ll politely ask you to upgrade to a paid plan."
+    ],
+    "improvements": [
+      "After importing a file, you’ll now automatically be redirected to that file. If you’re importing multiple items at once, we'll take you to the one that loads first",
+      "We improved Claude's formatting of lists and other markdown elements to make them cleaner and more organized",
+      "When you share an Anara link, your file's title now appears in a nice preview card on social media and messaging apps",
+      "We no longer display imported websites in their original form. Instead, we extract and display the text content only. This change addresses issues with popups, paywalls, and other disruptive elements that were appearing on imported sites",
+      "Significantly improved the quality of summaries that automatically appear next to imported files"
+    ],
+    "fixes": [
+      "Fixed a bug that caused the account menu in the top left corner to flicker when clicked",
+      "Fixed a bug where clicking 'Delete' with multiple items selected would only delete the item whose menu was expanded Now clicking delete removes all selected items",
+      "Fixed a bug where selecting text and clicking the \"Chat\" button in the text editor failed to add the selected text to the chat"
+    ]
+  },
+  {
+    "date": "January 12, 2025",
+    "title": "Introducing Record and Chat with Audio",
+    "content": [
+      "We added a brand new Anara file type and section of our app - record and chat with audio. Just hit record, and we'll transcribe everything that's said. You can ask questions to clarify anything mentioned during recording or get a conversation summary after recording. You can even ask questions while the recording is still in progress.",
+      "We've completely revamped how AI actions work when you have a note open alongside a document or video. Previously, AI generations worked independently of the content you were viewing. Now, they're created with full context of what you're looking at. For example, if you're reading a paper on quantum computing, you can generate notes about specific sections and concepts directly from that paper."
+    ],
+    "improvements": [
+      "Added improved text navigation controls for PDF viewing, making it easier to move between pages and sections of documents",
+      "Added keyboard support for left sidebar selection. Hold shift and click on items you’d like to select.",
+      "Enhanced accuracy of group responses to better handle complex queries and provide more relevant information",
+      "Improved accuracy of questions about specific pages on chats with singular documents by retrieving pages directly",
+      "Enhanced search functionality in PDF viewer with improved input handling and results display"
+    ],
+    "fixes": [
+      "Fixed an issue where billing options weren't processing correctly for some subscription changes",
+      "Improved toast notification clarity when updating display names",
+      "Fixed document auto-renaming functionality when importing from arXiv links",
+      "Resolved a bug with citation handling when adding multiple sources to a document",
+      "Fixed search functionality to properly display groups in the search menu on New page",
+      "Addressed a browser compatibility issue affecting users with automatic page translation enabled",
+      "Fixed a bug where language preference settings were not consistently applied",
+      "Resolved several navigation issues in search functionality",
+      "Fixed chat message display to properly handle long links without horizontal scrolling",
+      "Resolved an issue with deleted document handling",
+      "Improved upload limit enforcement for free tier accounts",
+      "Added proper navigation handling when deleting currently open items",
+      "Improved animation consistency when switching between right sidebar panes"
+    ]
+  },
+  {
+    "date": "December 29, 2024",
+    "title": "Chat sharing and easier research paper importing",
+    "content": [
+      "You can now share your conversations with other users who’ll be able to view and continue the discussion for easy collaboration."
+    ],
+    "improvements": [],
+    "fixes": []
+  },
+  {
+    "date": "December 15, 2024",
+    "title": "Lector, our open-source PDF viewer",
+    "content": [
+      "Rebuilt the PDF viewer from the ground up for significantly improved performance and reduced resource usage. This includes a new keyword search interface with much improved results highlighting.",
+      "You can now import hosted PDFs and YouTube videos by adding “anara.com” in front of URLs. For example visiting anara.comhttps:/www.youtube.com/watch?v=VFwCGECvq4I will import this video into your library.",
+      "We added an empty state view to the chat window, displaying a summary of the item in view along with suggested prompts to get a conversation started."
+    ],
+    "improvements": [
+      "Overhauled our text editor indexing to improve response accuracy when chatting with Notes.",
+      "Website items now get automatically renamed to the title of the website being imported."
+    ],
+    "fixes": [
+      "PDFs imported via URL now display correctly in the UI.",
+      "Fixed a bug where, on importing youtube videos, shortened link versions or links with timestamps were not accepted.",
+      "Resolved an issue where the chat was sending multiple duplicate messages at once.",
+      "Fixed a bug where, in some rare cases, groups of documents were not showing in the left sidebar, only in the graph.",
+      "Document deletion now works properly for items that haven't completed processing.",
+      "Fixed a bug where document highlights were incorrectly persisted when switching between items in a group.",
+      "Restored functionality for ++ operations in the text editor when working with Notes in the sideview.",
+      "Fixed a bug where drag and dropping documents into an empty group was not working in some cases.",
+      "Improved page reference buttons to properly navigate to relevant content.",
+      "Users are now correctly redirected after deleting a chat view.",
+      "Improved scrolling behavior for website imports."
+    ]
+  },
+  {
+    "date": "December 12, 2024",
+    "title": "Metadata sidebar and UX changes",
+    "content": [
+      "Introduced a new right sidebar that automatically displays key information for books, videos, and research papers in your library, including document summaries, authors, and publication dates.",
+      "Added duplicate and delete options, plus word and character count indicators, to the Note menu.",
+      "Implemented nested Groups functionality, allowing Groups to be organized hierarchically. Each nested Group maintains its own isolated chat context, while parent Groups retain access to all items within their hierarchy."
+    ],
+    "improvements": [
+      "Added Chat and Note toggle buttons to the app’s top navigation, allowing you to hide and show the Chat and Note Sideview panes.",
+      "Updated the navigation buttons in the Note Sideview for much improved UX.",
+      "Switched to a more reliable and efficient vector database system to improve app performance and reduce downtime. This has significantly improved stability and response times across all features.",
+      "Rebuilt the Search menu - you can now search your library based on exact match, approximate match and natural language query via a language model.",
+      "Overhauled our billing logic to reduce bugs relating to subscriptions and payments.",
+      "It’s now possible to open a sidebar item in a new browser tab by right clicking or holding CMD/CTRL and clicking.",
+      "Added URL validation to website import for better UX.",
+      "Improved text generation in Note with better completion handling, text highlighting and action menu responses. This includes improved rewriting capabilities and fixes a bug where language preferences were not properly maintained (previously defaulting to English)"
+    ],
+    "fixes": [
+      "Fixed a bug where chat pane was hiding automatically when switching between a Note and a Document.",
+      "Fixed a bug where loading indicator in chat would flash appear in the wrong position in Chat."
+    ]
+  },
+  {
+    "date": "November 17, 2024",
+    "title": "Video support and group improvements",
+    "content": [
+      "You can now import and chat with YouTube videos and uploaded MP4 files. This includes timestamp referencing so you can easily skip to relevant parts of the video."
+    ],
+    "improvements": [
+      "Moved the language selector from settings into the Chat input and added a search dropdown so it’s easier to choose a language.",
+      "Group page references in Chat now appear inline with the responses, similar to how they work when interacting with a single source.",
+      "Added MP4 filetype support to the site-wide drag and drop import functionality.",
+      "Rebuilt pane window resizing for more performant smoother resizing.",
+      "Vast improvement to Group answers. Our language models now have a much better idea of what information came from which document."
+    ],
+    "fixes": [
+      "Fixed a bug where code blocks were being incorrectly formatted in Markdown. Inline code snippets were being treated as code blocks."
+    ]
+  }
+]

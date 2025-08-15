@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import { ThemeProvider } from "@/components/theme-provider";
+import { SidebarProvider } from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/app-sidebar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,7 +35,12 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <SidebarProvider defaultOpen={true}>
+            <div className="flex h-screen w-full">
+              <AppSidebar />
+              {children}
+            </div>
+          </SidebarProvider>
         </ThemeProvider>
         {process.env.NODE_ENV === "production" && process.env.VERCEL === "1" && <Analytics />}
       </body>
