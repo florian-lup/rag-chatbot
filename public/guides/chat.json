@@ -1,0 +1,138 @@
+{
+  "group": "Chat",
+  "pages": [
+    {
+      "title": "Overview",
+      "href": "/chat/chat-overview",
+      "content": "Chat is your place to get answers from both the web and the files in your library. Anara offers two types of chat experiences.\nWhen you start a chat from the home page, Anara provides intelligent responses by searching through academic databases, your personal library, and web sources to deliver comprehensive, research-backed answers to your questions. You can control this with the Context settings in the settings menu inside the input.\nWhen chatting directly with files or folders, Anara focuses specifically on the content you’re viewing, allowing for detailed questions about your research materials.",
+      "headings": [
+        "Get started",
+        "Chat",
+        "Import files",
+        "Read",
+        "Write",
+        "Sidebars",
+        "Share",
+        "User interface",
+        "Chrome extension",
+        "Help and support",
+        "Legal",
+        "Overview"
+      ],
+      "description": "",
+      "category": "Chat"
+    },
+    {
+      "title": "Agents",
+      "href": "/chat/chat-agents",
+      "content": "Anara offers a variety of specialized AI agents to help with different aspects of your research workflow. Simply type @ in any chat to access these powerful tools. Each agent is designed to excel at specific tasks, from searching academic papers to creating flashcards.\n​How to use agents\nHere’s how to use agents in Anara:\n\nType @ in any chat to see the full list of available agents\nSelect the agent that best matches your current task\nProvide the agent with specific instructions about what you need\n\nYou can also combine multiple agents in a single conversation to tackle complex research tasks. For example, use @Research to find information, then @Create Flashcards to turn that information into study materials.\n​Available agents\nHere’s a complete list of available agents within Anara:\n\n@ Research Ask complex questions to get a comprehensive, synthesized answer drawn from your library, the web, and millions of academic papers.\n@ Search Workspace Instantly find any piece of information across all of the files and notes saved in your library.\n@ Search Web Find accurate, up-to-date answers to any question using information from the internet.\n@ Search Papers Search millions of papers from major academic databases like PubMed, arXiv and JSTOR.\n@ Search YouTube Find relevant YouTube videos and quickly extract and apply information from them.\n@ Complete Form Provide a template or a list of questions and this agent will systematically find the answers and organize them into a final, structured response.\n@ Create Citation Point to a file (or a group of files), and this agent will instantly generate properly formatted academic citations in your preferred citation style.\n@ Create Flashcards Turn notes, documents, or YouTube videos into a set of flashcards and multiple-choice questions.\n@ Edit Note  Modify your existing notes by giving specific instructions for what you want to change, add, or remove from your document.\n@ Edit Flashcards  Make changes to your existing flashcard sets - add new cards, modify content, or remove cards you no longer need.",
+      "headings": [
+        "Get started",
+        "Chat",
+        "Import files",
+        "Read",
+        "Write",
+        "Sidebars",
+        "Share",
+        "User interface",
+        "Chrome extension",
+        "Help and support",
+        "Legal",
+        "Agents",
+        "​How to use agents",
+        "​Available agents"
+      ],
+      "description": "",
+      "category": "Chat"
+    },
+    {
+      "title": "Chat with folders",
+      "href": "/chat/chat-with-folders",
+      "content": "You can add multiple files into one AI assistant for quick cross-referencing and search. When you ask a question from a folder, Anara responds based on all content found in the folder, drawing insights from every included file.\n​How to create folders\nThere are two ways to create folders in Anara:\n\nClick the + icon in the left sidebar, select “Folder” under the Create dropdown, and drag items into the folder, or\nSelect multiple items from the table and click “Add to folder”.\n\n​Subfolders\nA powerful feature in Anara is the ability to nest folders within other folders, creating a hierarchical organization. Each nested folder has its own AI assistant that responds based on the files within that specific folder, while parent folder assistants can access files across their entire hierarchy.\nWhen chatting with a folder, you can switch between table (default) and tab view. Table View displays all your documents and metadata at a glance, while Tabs View lets you open and compare papers side by side. If you click on a citation in a response, Anara will automatically switch to Tabs View and navigate to the relevant section in the source file.",
+      "headings": [
+        "Get started",
+        "Chat",
+        "Import files",
+        "Read",
+        "Write",
+        "Sidebars",
+        "Share",
+        "User interface",
+        "Chrome extension",
+        "Help and support",
+        "Legal",
+        "Chat with folders",
+        "​How to create folders",
+        "​Subfolders"
+      ],
+      "description": "",
+      "category": "Chat"
+    },
+    {
+      "title": "Citations",
+      "href": "/chat/citations",
+      "content": "Each response includes citations and links to original sources, enabling you to verify accuracy, and ensure academic integrity throughout your research process. When hovering over citations, you’ll see an explanation of why the citation is relevant, along with supporting quotes from the source document.",
+      "headings": [
+        "Get started",
+        "Chat",
+        "Import files",
+        "Read",
+        "Write",
+        "Sidebars",
+        "Share",
+        "User interface",
+        "Chrome extension",
+        "Help and support",
+        "Legal",
+        "Citations"
+      ],
+      "description": "",
+      "category": "Chat"
+    },
+    {
+      "title": "Edit sent messages",
+      "href": "/chat/edit-sent-messages",
+      "content": "You can edit a previously sent message in chat to tweak the prompt slightly for a better response. Simply click on the previously sent message to edit. Note that when you edit a message, all subsequent messages in the conversation will be overwritten.",
+      "headings": [
+        "Get started",
+        "Chat",
+        "Import files",
+        "Read",
+        "Write",
+        "Sidebars",
+        "Share",
+        "User interface",
+        "Chrome extension",
+        "Help and support",
+        "Legal",
+        "Edit sent messages"
+      ],
+      "description": "",
+      "category": "Chat"
+    },
+    {
+      "title": "Chat settings",
+      "href": "/chat/chat-settings",
+      "content": "​Context settings\nAnara gives you complete control over which information sources are used in responses. Use the toggles in chat settings to customize your sources:\n\nLibrary: Include files from your personal workspace\nWeb: Allow searches across academic databases and internet sources\nModel knowledge: Access the AI’s built-in information\n\nWhen chatting with specific files or folders, these context settings are unavailable. In these cases, Anara will always use information from the selected files or folders to generate responses.\n​Response length\nAdjust how detailed Anara’s answers are by using the length setting. Choose preset lengths from 50-500 words, select “No limit” for unrestricted responses, or use the default 120-word length (maximum for free users).\nFor custom word counts beyond preset options, select “No limit” and specify your desired length in your prompt (e.g., “Please respond in 800 words”).\nNote: Actual response lengths may vary by approximately 20% to ensure quality and completeness.\n​Language settings\nAnara supports over 90 languages including French, Spanish, German, Hindi, and Chinese. You can change your preferred language in either the chat settings menu or your account settings.\nNote: While our models support over 90 languages, our interface is currently only available in English.",
+      "headings": [
+        "Get started",
+        "Chat",
+        "Import files",
+        "Read",
+        "Write",
+        "Sidebars",
+        "Share",
+        "User interface",
+        "Chrome extension",
+        "Help and support",
+        "Legal",
+        "Chat settings",
+        "​Context settings",
+        "​Response length",
+        "​Language settings"
+      ],
+      "description": "",
+      "category": "Chat"
+    }
+  ]
+}

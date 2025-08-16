@@ -1,0 +1,51 @@
+{
+  "group": "Write",
+  "pages": [
+    {
+      "title": "AI autocomplete",
+      "href": "/write/ai-autocomplete",
+      "content": "If you type “++” anywhere in your text, our AI will predict your next few sentences based on the context of what you’ve been writing about. In regular note view, AI autocomplete draws information from the model’s base knowledge trained on data from the internet.\nWhen using this feature in note sideview (where you can open notes alongside other files, see below) the feature gets even better. It not only uses its base knowledge but also draws context from the file you’re viewing. This means suggestions are more relevant to your research and can help you incorporate information directly from your files.",
+      "headings": [
+        "Get started",
+        "Chat",
+        "Import files",
+        "Read",
+        "Write",
+        "Sidebars",
+        "Share",
+        "User interface",
+        "Chrome extension",
+        "Help and support",
+        "Legal",
+        "AI autocomplete"
+      ],
+      "description": "",
+      "category": "Write"
+    },
+    {
+      "title": "Citing in Anara",
+      "href": "/write/citing",
+      "content": "Anara offers robust citation handling to help you seamlessly integrate references into your work. We are continuously improving this feature to provide a smooth and accurate experience.\n​Adding Citations\nCiting your sources with Anara is simple and intuitive:\n\nSelect Text: Highlight the text you want to cite.\nClick “Cite”: Click the Cite button that appears.\nFind Supporting Sources: Anara will search your library or the internet for relevant research papers, books, and websites that support your statement.\nInsert Citation: Select the appropriate source(s) from the list to add them as citations to your document.\n\nOnce added, citations will appear both in-text (according to your chosen Inline Reference Style) and as fully formatted references at the end of your document.\n​Semantic Search for Citations\nUnlike traditional tools that rely on keyword matching, Anara’s citation search understands semantic meaning. It analyzes the meaning of your selected text and compares it against a vast database of academic papers, books, and articles from across the web. This approach often results in more relevant matches and can help you discover related content from different fields that you might miss with conventional keyword-based search tools.\n​Inline Reference Styles\nYou can choose your preferred style to match your writing needs or publication guidelines. Anara supports a growing list of citation formats. We currently offer 10 different citation styles:\n\nAPA (7th edition)\nMLA (9th edition)\nHarvard\nChicago\nIEEE\nCSE\nACS\nVancouver\nASA\nAMA\n\n​Exporting with Citations\nWhen you export your work from Anara’s editor:\n\nIn-line citations are correctly included and formatted when exporting to both Word (.docx) and PDF files. (Feature update: May 5, 2025)\n\nThis ensures your references are preserved accurately in your final documents.",
+      "headings": [
+        "Get started",
+        "Chat",
+        "Import files",
+        "Read",
+        "Write",
+        "Sidebars",
+        "Share",
+        "User interface",
+        "Chrome extension",
+        "Help and support",
+        "Legal",
+        "Citing in Anara",
+        "​Adding Citations",
+        "​Semantic Search for Citations",
+        "​Inline Reference Styles",
+        "​Exporting with Citations"
+      ],
+      "description": "",
+      "category": "Write"
+    }
+  ]
+}

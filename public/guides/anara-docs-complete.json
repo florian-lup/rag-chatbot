@@ -1,0 +1,837 @@
+{
+  "timestamp": "2025-08-16T16:16:13.929Z",
+  "baseUrl": "https://docs.anara.com",
+  "categories": [
+    {
+      "group": "Get started",
+      "pages": [
+        {
+          "title": "Welcome",
+          "href": "/get-started/welcome",
+          "content": "Anara is the place where people and AI do research work together. It’s an AI-enabled workspace that helps you find, understand, organize and produce scientific content.\nWhether you’re part of a research team in industry, pursuing a PhD at a university lab, or beginning your master’s degree, Anara is designed to support your work from start to finish.\n​Key features\nWe offer several features to help you get your research work done faster:\n\nGet concise, scholarly answers to any question. When you ask a question in the chat Anara searches major academic databases like PubMed, arXiv and JSTOR to deliver a comprehensive response.\nUnderstand any file or group of files, instantly. Whether it’s a dense 200-page textbook, a new clinical study, or a technical research paper, just import it to Anara and start asking questions.\nTrusted sources and citations in every response. Every response includes citations so you can verify accuracy and  ensure your work maintains the highest standard of academic integrity\nGenerate flashcards and multiple choice questions. Upload lecture slides, textbooks, or videos, and Anara will create flashcards and practice quizzes tailored to your specific materials.\nBuild a single, searchable library for all your projects. Whether working solo or collaborating with a team, Anara provides one organized place for all your scholarly work.\n\n​Getting started\nTo get started with Anara, you can do any of the following:\nImportAdd documents, images, audio and video to your libraryChatGet answers to questions from the internet and your documentsWriteWrite, edit and cite in our editorTeamsCollaborate with your team\n​Stay up to date\nBlogRead our blogChangelogCheck our changelogTwitterFollow us on X / Twitter",
+          "headings": [
+            "Get started",
+            "Chat",
+            "Import files",
+            "Read",
+            "Write",
+            "Sidebars",
+            "Share",
+            "User interface",
+            "Chrome extension",
+            "Help and support",
+            "Legal",
+            "Welcome",
+            "​Key features",
+            "​Getting started",
+            "Import",
+            "Chat",
+            "Write",
+            "Teams",
+            "​Stay up to date",
+            "Blog",
+            "Changelog",
+            "Twitter"
+          ],
+          "description": "",
+          "category": "Get started"
+        },
+        {
+          "title": "Concepts",
+          "href": "/get-started/core-concepts",
+          "content": "​Workspace\nYour workspace is the central environment where all your research activities take place. It contains your library, chats, and all other Anara features you’ll use.\n​Library\nThe library is where all your files are stored and organized. You can import documents, create notes, organize content into folders, and easily search through everything.\n​Folders\nFolders are your top level organizational containers, housing all your research projects or broad subject areas.\n​Files\nFiles are the basic building blocks of content in Anara. They can be imported documents (like PDFs or PowerPoints), media (images, video, audio), or notes you write directly inside Anara. You can find a complete list of supported file types here.\n​Agent\nAn AI that can read, write, make decisions and iterate through tasks to complete a specific goal. Find a full list of available agents here.\n​Chat\nInterface for AI conversations. Supports multiple tabs, conversation history, editing previously sent messages, and export functionality.\n​Query\nA request for information sent to Anara. Queries can be simple questions, complex research prompts, or text generations in the editor. They can include context from your files, web searches, or academic databases.\n​Context\nInformation provided to AI models as part of a query. Includes files, symbols, and conversation history.\n​Models\nDifferent AI models available for text generation. Each model has different speed and capability characteristics.\n​Metadata\nAdditional information about files shown in the right pane. This includes titles, creators, publishers, dates, page numbers, and any other data needed to cite the item.\n​References\nFormal academic references to source materials used in your research. Anara supports various citation styles (APA, MLA, Chicago, etc.) and helps maintain proper attribution throughout your work.\n​Citations\nNumbered citations in AI responses that link directly to source materials. When clicked, citations reveal the exact location of information, allowing you to verify accuracy, and ensure academic integrity throughout your research process.",
+          "headings": [
+            "Get started",
+            "Chat",
+            "Import files",
+            "Read",
+            "Write",
+            "Sidebars",
+            "Share",
+            "User interface",
+            "Chrome extension",
+            "Help and support",
+            "Legal",
+            "Concepts",
+            "​Workspace",
+            "​Library",
+            "​Folders",
+            "​Files",
+            "​Agent",
+            "​Chat",
+            "​Query",
+            "​Context",
+            "​Models",
+            "​Metadata",
+            "​References",
+            "​Citations"
+          ],
+          "description": "",
+          "category": "Get started"
+        },
+        {
+          "title": "Filetypes",
+          "href": "/get-started/anara-filetypes",
+          "content": "​Documents\nAnara supports a wide range of document formats including PDF, DOCX, PPTX, TXT, and more. Documents are fully indexed for searching and can be analyzed by our AI.\n​Images\nUpload images in common formats (JPG, PNG, GIF, etc.). Our AI can recognize and extract text from images, allowing you to search and reference visual content.\n​Audio\nImport audio files (MP3, WAV, M4A) to have them automatically transcribed. Great for lectures, interviews, or field recordings.\n​Video\nUpload video files (MP4, MOV, etc.) to have both audio transcribed and relevant visual information extracted.\n​Webpages\nSave web pages directly to your library. Anara preserves the content even if the original page changes or goes offline.\n​Audio recordings\nCreate audio recordings directly within Anara. Perfect for capturing lectures, meetings, or your own research notes on the go.\n​Notes\nCreate text documents directly in Anara using our rich text editor. Notes support formatting, embedded media, and AI-assisted writing.\n​Flashcards\nGenerate or create custom flashcard decks for studying. Flashcards are automatically generated from your documents using @Flashcards in any chat.",
+          "headings": [
+            "Get started",
+            "Chat",
+            "Import files",
+            "Read",
+            "Write",
+            "Sidebars",
+            "Share",
+            "User interface",
+            "Chrome extension",
+            "Help and support",
+            "Legal",
+            "Filetypes",
+            "​Documents",
+            "​Images",
+            "​Audio",
+            "​Video",
+            "​Webpages",
+            "​Audio recordings",
+            "​Notes",
+            "​Flashcards"
+          ],
+          "description": "",
+          "category": "Get started"
+        }
+      ]
+    },
+    {
+      "group": "Chat",
+      "pages": [
+        {
+          "title": "Overview",
+          "href": "/chat/chat-overview",
+          "content": "Chat is your place to get answers from both the web and the files in your library. Anara offers two types of chat experiences.\nWhen you start a chat from the home page, Anara provides intelligent responses by searching through academic databases, your personal library, and web sources to deliver comprehensive, research-backed answers to your questions. You can control this with the Context settings in the settings menu inside the input.\nWhen chatting directly with files or folders, Anara focuses specifically on the content you’re viewing, allowing for detailed questions about your research materials.",
+          "headings": [
+            "Get started",
+            "Chat",
+            "Import files",
+            "Read",
+            "Write",
+            "Sidebars",
+            "Share",
+            "User interface",
+            "Chrome extension",
+            "Help and support",
+            "Legal",
+            "Overview"
+          ],
+          "description": "",
+          "category": "Chat"
+        },
+        {
+          "title": "Agents",
+          "href": "/chat/chat-agents",
+          "content": "Anara offers a variety of specialized AI agents to help with different aspects of your research workflow. Simply type @ in any chat to access these powerful tools. Each agent is designed to excel at specific tasks, from searching academic papers to creating flashcards.\n​How to use agents\nHere’s how to use agents in Anara:\n\nType @ in any chat to see the full list of available agents\nSelect the agent that best matches your current task\nProvide the agent with specific instructions about what you need\n\nYou can also combine multiple agents in a single conversation to tackle complex research tasks. For example, use @Research to find information, then @Create Flashcards to turn that information into study materials.\n​Available agents\nHere’s a complete list of available agents within Anara:\n\n@ Research Ask complex questions to get a comprehensive, synthesized answer drawn from your library, the web, and millions of academic papers.\n@ Search Workspace Instantly find any piece of information across all of the files and notes saved in your library.\n@ Search Web Find accurate, up-to-date answers to any question using information from the internet.\n@ Search Papers Search millions of papers from major academic databases like PubMed, arXiv and JSTOR.\n@ Search YouTube Find relevant YouTube videos and quickly extract and apply information from them.\n@ Complete Form Provide a template or a list of questions and this agent will systematically find the answers and organize them into a final, structured response.\n@ Create Citation Point to a file (or a group of files), and this agent will instantly generate properly formatted academic citations in your preferred citation style.\n@ Create Flashcards Turn notes, documents, or YouTube videos into a set of flashcards and multiple-choice questions.\n@ Edit Note  Modify your existing notes by giving specific instructions for what you want to change, add, or remove from your document.\n@ Edit Flashcards  Make changes to your existing flashcard sets - add new cards, modify content, or remove cards you no longer need.",
+          "headings": [
+            "Get started",
+            "Chat",
+            "Import files",
+            "Read",
+            "Write",
+            "Sidebars",
+            "Share",
+            "User interface",
+            "Chrome extension",
+            "Help and support",
+            "Legal",
+            "Agents",
+            "​How to use agents",
+            "​Available agents"
+          ],
+          "description": "",
+          "category": "Chat"
+        },
+        {
+          "title": "Chat with folders",
+          "href": "/chat/chat-with-folders",
+          "content": "You can add multiple files into one AI assistant for quick cross-referencing and search. When you ask a question from a folder, Anara responds based on all content found in the folder, drawing insights from every included file.\n​How to create folders\nThere are two ways to create folders in Anara:\n\nClick the + icon in the left sidebar, select “Folder” under the Create dropdown, and drag items into the folder, or\nSelect multiple items from the table and click “Add to folder”.\n\n​Subfolders\nA powerful feature in Anara is the ability to nest folders within other folders, creating a hierarchical organization. Each nested folder has its own AI assistant that responds based on the files within that specific folder, while parent folder assistants can access files across their entire hierarchy.\nWhen chatting with a folder, you can switch between table (default) and tab view. Table View displays all your documents and metadata at a glance, while Tabs View lets you open and compare papers side by side. If you click on a citation in a response, Anara will automatically switch to Tabs View and navigate to the relevant section in the source file.",
+          "headings": [
+            "Get started",
+            "Chat",
+            "Import files",
+            "Read",
+            "Write",
+            "Sidebars",
+            "Share",
+            "User interface",
+            "Chrome extension",
+            "Help and support",
+            "Legal",
+            "Chat with folders",
+            "​How to create folders",
+            "​Subfolders"
+          ],
+          "description": "",
+          "category": "Chat"
+        },
+        {
+          "title": "Citations",
+          "href": "/chat/citations",
+          "content": "Each response includes citations and links to original sources, enabling you to verify accuracy, and ensure academic integrity throughout your research process. When hovering over citations, you’ll see an explanation of why the citation is relevant, along with supporting quotes from the source document.",
+          "headings": [
+            "Get started",
+            "Chat",
+            "Import files",
+            "Read",
+            "Write",
+            "Sidebars",
+            "Share",
+            "User interface",
+            "Chrome extension",
+            "Help and support",
+            "Legal",
+            "Citations"
+          ],
+          "description": "",
+          "category": "Chat"
+        },
+        {
+          "title": "Edit sent messages",
+          "href": "/chat/edit-sent-messages",
+          "content": "You can edit a previously sent message in chat to tweak the prompt slightly for a better response. Simply click on the previously sent message to edit. Note that when you edit a message, all subsequent messages in the conversation will be overwritten.",
+          "headings": [
+            "Get started",
+            "Chat",
+            "Import files",
+            "Read",
+            "Write",
+            "Sidebars",
+            "Share",
+            "User interface",
+            "Chrome extension",
+            "Help and support",
+            "Legal",
+            "Edit sent messages"
+          ],
+          "description": "",
+          "category": "Chat"
+        },
+        {
+          "title": "Chat settings",
+          "href": "/chat/chat-settings",
+          "content": "​Context settings\nAnara gives you complete control over which information sources are used in responses. Use the toggles in chat settings to customize your sources:\n\nLibrary: Include files from your personal workspace\nWeb: Allow searches across academic databases and internet sources\nModel knowledge: Access the AI’s built-in information\n\nWhen chatting with specific files or folders, these context settings are unavailable. In these cases, Anara will always use information from the selected files or folders to generate responses.\n​Response length\nAdjust how detailed Anara’s answers are by using the length setting. Choose preset lengths from 50-500 words, select “No limit” for unrestricted responses, or use the default 120-word length (maximum for free users).\nFor custom word counts beyond preset options, select “No limit” and specify your desired length in your prompt (e.g., “Please respond in 800 words”).\nNote: Actual response lengths may vary by approximately 20% to ensure quality and completeness.\n​Language settings\nAnara supports over 90 languages including French, Spanish, German, Hindi, and Chinese. You can change your preferred language in either the chat settings menu or your account settings.\nNote: While our models support over 90 languages, our interface is currently only available in English.",
+          "headings": [
+            "Get started",
+            "Chat",
+            "Import files",
+            "Read",
+            "Write",
+            "Sidebars",
+            "Share",
+            "User interface",
+            "Chrome extension",
+            "Help and support",
+            "Legal",
+            "Chat settings",
+            "​Context settings",
+            "​Response length",
+            "​Language settings"
+          ],
+          "description": "",
+          "category": "Chat"
+        }
+      ]
+    },
+    {
+      "group": "Import files",
+      "pages": [
+        {
+          "title": "Overview",
+          "href": "/import/overview",
+          "content": "Anara offers several ways to add content to your library.\n​Upload menu\nYou can upload files or entire folders by clicking the + icon at the top of the left sidebar.\n​Drag and drop\nIf you prefer drag and drop, you can drop files into the main library table, into a specific folder’s table, or directly onto a folder in the left sidebar.\n​Via URL or ID\nYou can also bring content in using the in-app import tools. Select Import → URL from the + menu to add websites, PDFs, or YouTube videos by pasting a link. For research papers, use Import → ID to import directly by DOI, PMID, or arXiv ID.\n​URL prefix\nIf you already have the link open in your browser, you can use the URL prefix method. Simply type anara.com/ before any YouTube, website, or document URL in your browser’s address bar and press Enter—just make sure you’re logged in to Anara first.\n​Chrome extension\nFinally, you can install our Web Clipper Chrome extension to save content while browsing the web. It lets you import files, folders, and web pages directly to your library in a single click. See the Chrome extension guide.",
+          "headings": [
+            "Get started",
+            "Chat",
+            "Import files",
+            "Read",
+            "Write",
+            "Sidebars",
+            "Share",
+            "User interface",
+            "Chrome extension",
+            "Help and support",
+            "Legal",
+            "Overview",
+            "​Upload menu",
+            "​Drag and drop",
+            "​Via URL or ID",
+            "​URL prefix",
+            "​Chrome extension"
+          ],
+          "description": "",
+          "category": "Import files"
+        },
+        {
+          "title": "Supported file types for import",
+          "href": "/import/file-types",
+          "content": "Anara supports importing all major document, image, video, and audio file types.\n\nDocuments: pdf, doc, docx, epub, ppt, pptx, md, txt\nWebsites: url\nImages: jpg, jpeg, png, tiff, bmp, heic\nVideos: mp4, YouTube url\nAudio: mp3, wav\n\nSomething missing from this list? Reach out with a suggestion.\nWe automatically apply OCR to supported image-based documents, including poorly formatted and handwritten documents, so their text is searchable. See OCR support for details.",
+          "headings": [
+            "Get started",
+            "Chat",
+            "Import files",
+            "Read",
+            "Write",
+            "Sidebars",
+            "Share",
+            "User interface",
+            "Chrome extension",
+            "Help and support",
+            "Legal",
+            "Supported file types for import"
+          ],
+          "description": "",
+          "category": "Import files"
+        },
+        {
+          "title": "OCR support",
+          "href": "/import/ocr-support",
+          "content": "Our system can automatically extract text from scanned documents and images using Optical Character Recognition (OCR). This allows you to search, highlight, and work with text that would otherwise be locked inside image-based files.\nThe OCR process is applied automatically to all imported content containing image-based text, with no manual activation required.\n​How it works\nWhen you upload a supported file type containing image-based text, Anara runs OCR in the background. Once processed, the extracted text is stored alongside the file so it can be included in full-text search results, highlighted and copied, and used in Anara’s summarization and analysis tools\n​Supported formats\nOur OCR feature supports a wide range of document types:\n\nPDFs with scanned pages or image content\nAll image files (jpg, jpeg, png, tiff, bmp, heic)\nScreenshots and images embedded within documents\nHandwritten notes (with support for multiple languages)",
+          "headings": [
+            "Get started",
+            "Chat",
+            "Import files",
+            "Read",
+            "Write",
+            "Sidebars",
+            "Share",
+            "User interface",
+            "Chrome extension",
+            "Help and support",
+            "Legal",
+            "OCR support",
+            "​How it works",
+            "​Supported formats"
+          ],
+          "description": "",
+          "category": "Import files"
+        }
+      ]
+    },
+    {
+      "group": "Read",
+      "pages": [
+        {
+          "title": "Overview",
+          "href": "/read/overview",
+          "content": "Anara’s built-in PDF viewer makes it easy to read and work with your documents in one place. Use the panel on the left to switch between page thumbnails, an outline view, or in-document search. You can zoom, navigate between pages, and adjust the view to suit your reading style.",
+          "headings": [
+            "Get started",
+            "Chat",
+            "Import files",
+            "Read",
+            "Write",
+            "Sidebars",
+            "Share",
+            "User interface",
+            "Chrome extension",
+            "Help and support",
+            "Legal",
+            "Overview"
+          ],
+          "description": "",
+          "category": "Read"
+        },
+        {
+          "title": "Annotate with highlights and comments",
+          "href": "/read/annotating",
+          "content": "Annotations in Anara let you capture, organize, and discuss key information directly within your documents. You can highlight important passages, add color-coded notes, and leave comments for yourself or collaborators — all without leaving the viewer.\n​Creating a highlight\n\nOpen a document.\nSelect any text to bring up the annotation toolbar.\nChoose a highlight color from the palette to mark the text.\nYour highlight will be saved automatically and appear in the Annotations tab on the right-hand panel.\n\n​Adding a comment\n\nAfter highlighting text, click Comment in the annotation toolbar.\nType your note in the comment box and press Enter to save.\nComments appear in the Annotations tab alongside the highlighted text.\n\n​Viewing and managing\n\nOpen the Annotations tab in the right-hand panel to see all highlights and comments for the document.\nClick any annotation in the list to navigate instantly to that specific location in the document.\nHover over any highlight to quickly view its associated comments.",
+          "headings": [
+            "Get started",
+            "Chat",
+            "Import files",
+            "Read",
+            "Write",
+            "Sidebars",
+            "Share",
+            "User interface",
+            "Chrome extension",
+            "Help and support",
+            "Legal",
+            "Annotate with highlights and comments",
+            "​Creating a highlight",
+            "​Adding a comment",
+            "​Viewing and managing"
+          ],
+          "description": "",
+          "category": "Read"
+        }
+      ]
+    },
+    {
+      "group": "Write",
+      "pages": [
+        {
+          "title": "AI autocomplete",
+          "href": "/write/ai-autocomplete",
+          "content": "If you type “++” anywhere in your text, our AI will predict your next few sentences based on the context of what you’ve been writing about. In regular note view, AI autocomplete draws information from the model’s base knowledge trained on data from the internet.\nWhen using this feature in note sideview (where you can open notes alongside other files, see below) the feature gets even better. It not only uses its base knowledge but also draws context from the file you’re viewing. This means suggestions are more relevant to your research and can help you incorporate information directly from your files.",
+          "headings": [
+            "Get started",
+            "Chat",
+            "Import files",
+            "Read",
+            "Write",
+            "Sidebars",
+            "Share",
+            "User interface",
+            "Chrome extension",
+            "Help and support",
+            "Legal",
+            "AI autocomplete"
+          ],
+          "description": "",
+          "category": "Write"
+        },
+        {
+          "title": "Citing in Anara",
+          "href": "/write/citing",
+          "content": "Anara offers robust citation handling to help you seamlessly integrate references into your work. We are continuously improving this feature to provide a smooth and accurate experience.\n​Adding Citations\nCiting your sources with Anara is simple and intuitive:\n\nSelect Text: Highlight the text you want to cite.\nClick “Cite”: Click the Cite button that appears.\nFind Supporting Sources: Anara will search your library or the internet for relevant research papers, books, and websites that support your statement.\nInsert Citation: Select the appropriate source(s) from the list to add them as citations to your document.\n\nOnce added, citations will appear both in-text (according to your chosen Inline Reference Style) and as fully formatted references at the end of your document.\n​Semantic Search for Citations\nUnlike traditional tools that rely on keyword matching, Anara’s citation search understands semantic meaning. It analyzes the meaning of your selected text and compares it against a vast database of academic papers, books, and articles from across the web. This approach often results in more relevant matches and can help you discover related content from different fields that you might miss with conventional keyword-based search tools.\n​Inline Reference Styles\nYou can choose your preferred style to match your writing needs or publication guidelines. Anara supports a growing list of citation formats. We currently offer 10 different citation styles:\n\nAPA (7th edition)\nMLA (9th edition)\nHarvard\nChicago\nIEEE\nCSE\nACS\nVancouver\nASA\nAMA\n\n​Exporting with Citations\nWhen you export your work from Anara’s editor:\n\nIn-line citations are correctly included and formatted when exporting to both Word (.docx) and PDF files. (Feature update: May 5, 2025)\n\nThis ensures your references are preserved accurately in your final documents.",
+          "headings": [
+            "Get started",
+            "Chat",
+            "Import files",
+            "Read",
+            "Write",
+            "Sidebars",
+            "Share",
+            "User interface",
+            "Chrome extension",
+            "Help and support",
+            "Legal",
+            "Citing in Anara",
+            "​Adding Citations",
+            "​Semantic Search for Citations",
+            "​Inline Reference Styles",
+            "​Exporting with Citations"
+          ],
+          "description": "",
+          "category": "Write"
+        }
+      ]
+    },
+    {
+      "group": "Sidebars",
+      "pages": [
+        {
+          "title": "Left sidebar",
+          "href": "/sidebars/left-sidebar",
+          "content": "The left sidebar in Anara keeps all your essential tools and content within reach as you navigate Anara. It stays visible as you work so you can quickly move between files, chats, folders, and other parts of the app without losing your place.\n​Account menu\nAt the very top, you’ll see your account or team name. Click it to access a dropdown menu where you can open Settings, change your Theme, or log out of Anara.\n​Create menu (+ button)\nThe + button next to the team menu opens the create/import menu. From here you can upload files or folders, import content via URL, ID, or Zotero, start a new chat or note, create a new folder, record audio, and learn about supported file types.\n​Navigation menu\nThe navigation menu is your primary way to access different parts of Anara. It includes:\n\nHome. Go to your workspace’s main view where you can ask questions for answers from the web and the files in your library.\nLibrary. Browse, organize, and access all your imported files.\nSearch. Search for any files in your library.\n\n​Chats\nShows your recent chats with Anara. Click More to expand the list and see your full chat history.\n​Folders\nLists all your folders. You can click a folder to open it, expand a folder to see subfolders, right-click or use the menu to rename, separate, or delete folders, and drag and drop files onto a folder to move them there.\n​Bottom menu\nAt the bottom of the sidebar, you’ll find three important options:\n\nInvite and earn. Share Anara with friends and colleagues to earn rewards.\nFeedback. Provide suggestions or report issues directly through the sidebar.\nSupport. Access comprehensive help resources, including user guides, direct support contact, issue reporting, and release notes.",
+          "headings": [
+            "Get started",
+            "Chat",
+            "Import files",
+            "Read",
+            "Write",
+            "Sidebars",
+            "Share",
+            "User interface",
+            "Chrome extension",
+            "Help and support",
+            "Legal",
+            "Left sidebar",
+            "​Account menu",
+            "​Create menu (+ button)",
+            "​Navigation menu",
+            "​Chats",
+            "​Folders",
+            "​Bottom menu"
+          ],
+          "description": "",
+          "category": "Sidebars"
+        },
+        {
+          "title": "Right sidebar",
+          "href": "/sidebars/right-sidebar",
+          "content": "The right sidebar in Anara shows information and options related to the file, folder, or chat you have open. Its content changes depending on the context, giving you quick access to details, related files, and your annotations.\n​Details tab\nThe Details tab displays key information about the current file. This can include the title, authors, publication details, tags, citation count, and links such as the DOI or source URL.\nDepending on the file type, you may also see a summary, abstract, and full citation. From here you can copy citations or change the citation format in settings.\n​Related tab\nThe Related tab shows connections to other files and resources. This includes papers that cite the current file, papers it cites, related items from your library, and related items from the internet.\n​Annotations tab\nThe Annotations tab lists all highlights and comments for the current file.\nYou can click an annotation to jump to that location in the document, change its highlight color, or edit and delete it. You can also filter annotations by color to focus on specific types of notes.",
+          "headings": [
+            "Get started",
+            "Chat",
+            "Import files",
+            "Read",
+            "Write",
+            "Sidebars",
+            "Share",
+            "User interface",
+            "Chrome extension",
+            "Help and support",
+            "Legal",
+            "Right sidebar",
+            "​Details tab",
+            "​Related tab",
+            "​Annotations tab"
+          ],
+          "description": "",
+          "category": "Sidebars"
+        },
+        {
+          "title": "Notes sidebar",
+          "href": "/sidebars/notes-sidebar",
+          "content": "The notes sidebar in Anara shows a global list of all notes in your library. This means you can see and access every note you’ve created.\n​Notes list\nThe main view displays your notes sorted by most recent. Each note is shown with its title, and clicking a note opens it in the sidebar so you can read or edit it.\n​Creating a note\nClick the + button in the top-right corner of the notes sidebar to create a new note. Notes can be used to capture ideas, summaries, or references that you want to keep in one place, regardless of where you are in Anara.\n​Editing and managing notes\nOpen any note to make edits directly. You can rename a note, update its content, or delete it using the menu in the top-right corner of the note view.\nThis menu also includes an option to open the note in full view for easier reading and editing.",
+          "headings": [
+            "Get started",
+            "Chat",
+            "Import files",
+            "Read",
+            "Write",
+            "Sidebars",
+            "Share",
+            "User interface",
+            "Chrome extension",
+            "Help and support",
+            "Legal",
+            "Notes sidebar",
+            "​Notes list",
+            "​Creating a note",
+            "​Editing and managing notes"
+          ],
+          "description": "",
+          "category": "Sidebars"
+        }
+      ]
+    },
+    {
+      "group": "Share",
+      "pages": [
+        {
+          "title": "Overview",
+          "href": "/share/share-overview",
+          "content": "When a note is shared with the team, all team members can edit and add text in real time. You’ll see their cursors and changes as they type.",
+          "headings": [
+            "Get started",
+            "Chat",
+            "Import files",
+            "Read",
+            "Write",
+            "Sidebars",
+            "Share",
+            "User interface",
+            "Chrome extension",
+            "Help and support",
+            "Legal",
+            "Overview"
+          ],
+          "description": "",
+          "category": "Share"
+        },
+        {
+          "title": "Creating a share link",
+          "href": "/share/creating-a-share-link",
+          "content": "To create a share link, click “Share” at the top of any chat and then “Publish”. The share link is automatically copied to your clipboard.\nPeople visiting your share link will be able to see all messages sent before you created the link. To include new messages you’ve sent since then, simply open the share menu and click “Republish” to update the link.",
+          "headings": [
+            "Get started",
+            "Chat",
+            "Import files",
+            "Read",
+            "Write",
+            "Sidebars",
+            "Share",
+            "User interface",
+            "Chrome extension",
+            "Help and support",
+            "Legal",
+            "Creating a share link"
+          ],
+          "description": "",
+          "category": "Share"
+        },
+        {
+          "title": "Receiving a share link",
+          "href": "/share/receiving-a-share-link",
+          "content": "Anyone who has access to a shared link can view the linked conversation and the associated file. They’ll have the option to continue the conversation. If they do so, the file will be added to their library along with the shared message history.",
+          "headings": [
+            "Get started",
+            "Chat",
+            "Import files",
+            "Read",
+            "Write",
+            "Sidebars",
+            "Share",
+            "User interface",
+            "Chrome extension",
+            "Help and support",
+            "Legal",
+            "Receiving a share link"
+          ],
+          "description": "",
+          "category": "Share"
+        }
+      ]
+    },
+    {
+      "group": "User interface",
+      "pages": [
+        {
+          "title": "Keyboard shortcuts",
+          "href": "/user-interface/keyboard-shortcuts",
+          "content": "​General\ncmd/ctrl + \\ to open/close the Left Sidebar\ncmd/ctrl + / to open/close the Right Sidebar\ncmd/ctrl + K to search library\n​Text Editor\ncmd/ctrl + J to open the AI Menu\ncmd/ctrl + L to open the Cite\n​Basics\ncmd/ctrl + C to Copy\ncmd/ctrl + X to Cut\ncmd/ctrl + V to Paste\ncmd/ctrl + Shift + V to Paste without formatting\ncmd/ctrl + Z to Undo\ncmd/ctrl + Shift + Z to Redo\nShift + Enter to Add a line break\n​Text Formatting\ncmd/ctrl + B to Bold\ncmd/ctrl + I to Italicize\ncmd/ctrl + U to Underline\ncmd/ctrl + Shift + X to Strikethrough\ncmd/ctrl + Shift + H to Highlight\ncmd/ctrl + E to Code\n​Paragraph Formatting\ncmd/ctrl + Alt + 0 to Apply normal text style\ncmd/ctrl + Alt + 1 to Apply heading style 1\ncmd/ctrl + Alt + 2 to Apply heading style 2\ncmd/ctrl + Alt + 3 to Apply heading style 3\ncmd/ctrl + Alt + 4 to Apply heading style 4\ncmd/ctrl + Alt + 5 to Apply heading style 5\ncmd/ctrl + Alt + 6 to Apply heading style 6\ncmd/ctrl + Shift + 7 to Ordered list\ncmd/ctrl + Shift + 8 to Bullet list\ncmd/ctrl + Shift + 9 to Task list\ncmd/ctrl + Shift + B to Blockquote\ncmd/ctrl + Shift + L to Left align\ncmd/ctrl + Shift + E to Center align\ncmd/ctrl + Shift + R to Right align\ncmd/ctrl + Shift + J to Justify\ncmd/ctrl + Alt + C to Code block\ncmd/ctrl + , to Subscript\ncmd/ctrl + . to Superscript\n​Text Selection\ncmd/ctrl + A to Select all\nShift + ← to Extend selection one character to the left\nShift + → to Extend selection one character to the right\nShift + ↑ to Extend selection one line up\nShift + ↓ to Extend selection one line down\ncmd/ctrl + Shift + ↑ to Extend selection to the beginning of the document\ncmd/ctrl + Shift + ↓ to Extend selection to the end of the document",
+          "headings": [
+            "Get started",
+            "Chat",
+            "Import files",
+            "Read",
+            "Write",
+            "Sidebars",
+            "Share",
+            "User interface",
+            "Chrome extension",
+            "Help and support",
+            "Legal",
+            "Keyboard shortcuts",
+            "​General",
+            "​Text Editor",
+            "​Basics",
+            "​Text Formatting",
+            "​Paragraph Formatting",
+            "​Text Selection"
+          ],
+          "description": "",
+          "category": "User interface"
+        },
+        {
+          "title": "Themes",
+          "href": "/user-interface/themes",
+          "content": "Anara includes dark and light mode support across the entire platform, including our PDF viewer. This means when you switch to dark mode, both the main interface and any PDF documents you’re viewing will adapt to the darker theme.\nTo change the theme, click your library name in the top left corner, navigate to Theme, and select either light, dark, or system settings.",
+          "headings": [
+            "Get started",
+            "Chat",
+            "Import files",
+            "Read",
+            "Write",
+            "Sidebars",
+            "Share",
+            "User interface",
+            "Chrome extension",
+            "Help and support",
+            "Legal",
+            "Themes"
+          ],
+          "description": "",
+          "category": "User interface"
+        }
+      ]
+    },
+    {
+      "group": "Chrome extension",
+      "pages": [
+        {
+          "title": "Overview",
+          "href": "/chrome-extension/chrome-overview",
+          "content": "The Anara Web Clipper Chrome extension lets you effortlessly save PDFs, webpages, and YouTube videos directly into your Anara library with just one click—no downloads necessary.\n\nGetting Started:\n\nInstall the Anara Web Clipper extension from the Chrome Web Store.\nPin it to your browser toolbar for quick access.\nWhenever you find a useful PDF, webpage, or YouTube video, click the Anara icon and select “Add to Library.”\n\nIdeal for researchers, academics, and knowledge professionals who want an easy way to collect and organize important online content seamlessly.\nStart simplifying your research workflow today with Anara.",
+          "headings": [
+            "Get started",
+            "Chat",
+            "Import files",
+            "Read",
+            "Write",
+            "Sidebars",
+            "Share",
+            "User interface",
+            "Chrome extension",
+            "Help and support",
+            "Legal",
+            "Overview"
+          ],
+          "description": "",
+          "category": "Chrome extension"
+        }
+      ]
+    },
+    {
+      "group": "Help and support",
+      "pages": [
+        {
+          "title": "Referral program",
+          "href": "/help-and-support/referral-program",
+          "content": "You can earn $10 cash just by referring a friend to Anara. If you know anyone that wants to save time on their research work or studies - now’s a great time to invite them.\nHere’s how it works:\n\nRefer a friend to Anara\nThey sign up for a paid plan with a $10 discount\nYou receive $10 cash 7 days later\n\nIt’s as easy as that. Spread the word about Anara and reap the rewards!\nTo create your referral link: go to Settings, click “Rewards,” enter your PayPal email address, and copy your unique link.\nCurrently, we only support bank transfer payments.\nAnd there’s no limit to how much you can earn.",
+          "headings": [
+            "Get started",
+            "Chat",
+            "Import files",
+            "Read",
+            "Write",
+            "Sidebars",
+            "Share",
+            "User interface",
+            "Chrome extension",
+            "Help and support",
+            "Legal",
+            "Referral program"
+          ],
+          "description": "",
+          "category": "Help and support"
+        },
+        {
+          "title": "Affiliate Program",
+          "href": "/help-and-support/affiliate-program",
+          "content": "You can earn cash by spreading the word about Anara. If you know anyone who wants to optimize their research – now’s the perfect time to share Anara with them.\nHere’s how it works:\n\n\nGet your affiliate link\nRegister with your email and get your link here – it only takes 30 seconds.\n\n\nShare Anara on your socials\nShare your link on social media, group chats, videos, or directly to friends and coworkers.\n\n\nEarn cash\nWhen someone signs up through your link, you earn a 25% of what they pay - every month they stay subscribed.\nFor example, if a friend signs up for a $20/month plan and stays for 10 months, you earn $50. If they choose the $144/year plan, you get $36 upfront – and again each year they renew.\n\n\nFAQs\n\n\nIs there a limit to how much I can earn?\nNope – earn as much as you want.\n\n\nHow long does my link stay active for?\nThe cookie lasts 30 days.\n\n\nWhat currency do you pay out?\nUS dollars.\n\n\nWhat payment methods do you support?\nWe currently support bank transfers.\n\n\nPlease note:\n\nRunning paid ads (Google, Meta, or any other platform) using your affiliate link is strictly prohibited. Violating this policy will result in removal from the program and forfeiture of any pending payouts.",
+          "headings": [
+            "Get started",
+            "Chat",
+            "Import files",
+            "Read",
+            "Write",
+            "Sidebars",
+            "Share",
+            "User interface",
+            "Chrome extension",
+            "Help and support",
+            "Legal",
+            "Affiliate Program"
+          ],
+          "description": "",
+          "category": "Help and support"
+        },
+        {
+          "title": "Accessing your invoice",
+          "href": "/help-and-support/invoices",
+          "content": "To retrieve your invoice in Anara, follow these steps:\n\nLog In: Sign in to your Anara account.\nAccess Settings: Click on you display name in the top left corner of the screen and then click “Settings”.\nNavigate to Billing: Select “More settings” from the menu, then choose “Billing.”\nView Invoices: Within the billing section, you’ll find an option to view your invoices. Click on it to access your latest invoice.",
+          "headings": [
+            "Get started",
+            "Chat",
+            "Import files",
+            "Read",
+            "Write",
+            "Sidebars",
+            "Share",
+            "User interface",
+            "Chrome extension",
+            "Help and support",
+            "Legal",
+            "Accessing your invoice"
+          ],
+          "description": "",
+          "category": "Help and support"
+        },
+        {
+          "title": "Refund policy",
+          "href": "/help-and-support/refund-policy",
+          "content": "Refunds for Anara subscriptions are available within 7 days of the initial payment. If a refund request is made after this period, or after a renewal, it cannot be processed.\nUpon cancellation of a subscription, access to paid features remains available until the end of the current billing cycle.\nFor further assistance or inquiries regarding refunds or account management, feel free to reach out.",
+          "headings": [
+            "Get started",
+            "Chat",
+            "Import files",
+            "Read",
+            "Write",
+            "Sidebars",
+            "Share",
+            "User interface",
+            "Chrome extension",
+            "Help and support",
+            "Legal",
+            "Refund policy"
+          ],
+          "description": "",
+          "category": "Help and support"
+        },
+        {
+          "title": "Get in touch",
+          "href": "/help-and-support/get-in-touch",
+          "content": "You can reach a member of the team anytime by clicking clicking “Support” in the bottom left corner of the app. Here you’ll find options to start a live chat, email support or access this user guide. See our FAQ page for a list of questions we get often.\nOur features were crafted by us but driven by conversations with you. Feel free to reach out via email or message us in our Slack community any time with feedback, negative or positive. We read every single message!\n\nSomething we didn’t cover? Reach out: support@anara.com",
+          "headings": [
+            "Get started",
+            "Chat",
+            "Import files",
+            "Read",
+            "Write",
+            "Sidebars",
+            "Share",
+            "User interface",
+            "Chrome extension",
+            "Help and support",
+            "Legal",
+            "Get in touch"
+          ],
+          "description": "",
+          "category": "Help and support"
+        }
+      ]
+    },
+    {
+      "group": "Legal",
+      "pages": [
+        {
+          "title": "Security",
+          "href": "/legal/security",
+          "content": "At Anara, safeguarding your data is our highest priority. We’ve designed our platform with security and privacy at its core. Below, you’ll find information on how we protect your data, our compliance efforts, and answers to common security questions.\nWe encourage responsible disclosure of any security vulnerabilities. Please send reports to security@anara.com, and our team will acknowledge and investigate promptly.\n​Compliance\nSOC 2 (in progress)We are actively working with an audit partner to achieve full SOC 2 Type 2 compliance. This ensures that Anara’s controls around security, availability, processing integrity, confidentiality, and privacy meet rigorous, industry-recognized standards.\nCCPACCPA (California Consumer Privacy Act): California residents have rights to access, delete, and opt out of the sale of their personal information. Refer to our Privacy Policy for details on exercising these rights.\n​Model Training\nAnara employs advanced language models to surface insights from your research materials.\n\nNo Third-Party Model Training: We never allow third-party AI providers (like OpenAI and Anthropic) to train their models on your private or proprietary data.\nNo Internal Model Training: Your data is never used to train any AI models within Anara. We do not use your information for internal model development.\n\n​Data Encryption\n​Encryption at Rest\nOur data security measures include multiple layers of encryption: our primary database uses AES-256 (or equivalent) encryption for all user and application data, which is hosted in US-based data centers. Uploaded files and media are protected in encrypted object storage buckets with server-side encryption, also located in US regions. Additionally, we employ managed in-memory data stores for caching and session data, all of which remains encrypted at rest using industry-standard algorithms.\n​Encryption in Transit\nAll data transmitted to and from Anara is protected using industry-standard encryption protocols. We enforce TLS 1.2 or higher across our entire infrastructure, including web app access, API calls, database connections, object storage, CDN delivery, and internal service communications. This ensures that all data remains private and secure while in transit, with automatic rejection of any non-encrypted connection attempts.\n​Access Control\n​Role-Based Access\nWe implement strict role-based access controls (RBAC) at both the application and infrastructure levels. Only authorized personnel have the minimum permissions required to perform their jobs. Database credentials, API keys, and production secrets are stored in encrypted secret-management services with fine-grained access policies.\n​Multi-Factor Authentication (MFA)\nAll Anara employees with access to production systems are required to use MFA (with hardware tokens or authenticator apps). For organizations using Anara’s Enterprise tier, we offer Single Sign-On (SSO) via SAML 2.0 or OAuth2, integrating seamlessly with popular identity providers. MFA is enforced at the identity provider level.\n​Data Retention\n\nData Deletion: You have full control over your data. At any time, you can delete individual folders, files, or your entire account. Once deleted, content is purged from our database and object storage within 30 days.\nData Export: To request an export of your files, folders and library data, email support@anara.com. We’ll prepare a downloadable ZIP containing your raw files and database exports.\nRetention Policies:\n\nActive Data: Stored indefinitely until you choose to delete.\nBackups: Daily encrypted backups of your database are retained for 30 days, after which they’re permanently deleted.\nLogs: Application logs and audit trails are stored for 90 days and then automatically purged or aggregated.\n\n\n\n​Frequently Asked Questions (FAQ)\nCan I export my project data and attachments?Yes. You can request a data export by emailing support@anara.com. We’ll prepare a downloadable ZIP file containing all your files, folders and library data.How do you protect my data if I share a project with teammates?Access controls are enforced at the application layer. When you share a folder, only explicitly invited users (by email address) can view or edit. All data is encrypted both in transit and at rest, so unauthorized users cannot intercept or read shared files.What happens if Anara experiences a data breach?In the unlikely event of a breach, our Incident Response Team will follow our documented IR playbook—identifying and containing the threat, notifying affected parties within 72 hours (or as legally required), and providing remediation guidance. We’ll also conduct a post-mortem to improve future defenses.Are my transcripts or summaries used to train AI models?No third-party AI vendor is permitted to use your data for model training. We only send temporary, encrypted text snippets to transcription providers, and they delete that data within 30 days.Do you support Single Sign-On (SSO)?Yes. Enterprise customers can configure SSO via SAML 2.0 or OAuth2. We integrate with popular identity providers. Audit logging and MFA enforcement are available through your identity provider.How long do you retain backups?We keep daily-encrypted database backups for 30 days. Old backups are securely deleted via automated retention policies. For files stored in object storage, older versions remain for 30 days before permanent deletion.Can I delete my account and all associated data?Yes. You can delete your account at any time by going to Settings → Account → Delete Account. After confirming deletion, your data will be queued for permanent deletion and removed from all active storage immediately.How can I report a security vulnerability?Please email any suspected vulnerabilities to security@anara.com. Include as much detail as possible (e.g., steps to reproduce, screenshots). Our team will respond within 48 hours to acknowledge receipt and keep you informed of remediation progress.\n​Additional Resources\n\nPrivacy Policy: For detailed information about data collection, processing, and sharing.\nTerms of Service: Governs your use of Anara.\n\nIf you have further questions or need clarification about our security practices, please reach out to our Security team at security@anara.com. We’re here to ensure that your research environment is not only powerful, but also secure and trustworthy.",
+          "headings": [
+            "Get started",
+            "Chat",
+            "Import files",
+            "Read",
+            "Write",
+            "Sidebars",
+            "Share",
+            "User interface",
+            "Chrome extension",
+            "Help and support",
+            "Legal",
+            "Security",
+            "​Compliance",
+            "SOC 2 (in progress)",
+            "CCPA",
+            "​Model Training",
+            "​Data Encryption",
+            "​Encryption at Rest",
+            "​Encryption in Transit",
+            "​Access Control",
+            "​Role-Based Access",
+            "​Multi-Factor Authentication (MFA)",
+            "​Data Retention",
+            "​Frequently Asked Questions (FAQ)",
+            "​Additional Resources"
+          ],
+          "description": "",
+          "category": "Legal"
+        },
+        {
+          "title": "Terms & Conditions",
+          "href": "/legal/terms",
+          "content": "Last updated April 9, 2025\n1. AGREEMENT TO TERMS\nThese Terms and Conditions constitute a legally binding agreement made between you, whether personally or on behalf of an entity (“you”) and Anara Labs, Inc, (“Anara”, “Company”, “we”, “us”, or “our”), concerning your access to and use of the https://anara.com website as well as any other media form, media channel, mobile website or mobile application related, linked, or otherwise connected thereto (collectively, the “Site”). We are registered in England and have our registered office at Unit 2, 49 Princes Gate, London, Westminster SW7 2PG. You agree that by accessing the Site, you have read, understood, and agree to be bound by all of these Terms and Conditions. IF YOU DO NOT AGREE WITH ALL OF THESE TERMS AND CONDITIONS, THEN YOU ARE EXPRESSLY PROHIBITED FROM USING THE SITE AND YOU MUST DISCONTINUE USE IMMEDIATELY.\nSupplemental terms and conditions or documents that may be posted on the Site from time to time are hereby expressly incorporated herein by reference. We reserve the right, in our sole discretion, to make changes or modifications to these Terms and Conditions from time to time. We will alert you about any changes by updating the “Last updated” date of these Terms and Conditions, and you waive any right to receive specific notice of each such change. Please ensure that you check the applicable Terms every time you use our Site so that you understand which Terms apply. You will be subject to, and will be deemed to have been made aware of and to have accepted, the changes in any revised Terms and Conditions by your continued use of the Site after the date such revised Terms and Conditions are posted.\nThe information provided on the Site is not intended for distribution to or use by any person or entity in any jurisdiction or country where such distribution or use would be contrary to law or regulation or which would subject us to any registration requirement within such jurisdiction or country. Accordingly, those persons who choose to access the Site from other locations do so on their own initiative and are solely responsible for compliance with local laws, if and to the extent local laws are applicable.\nThe Site is not tailored to comply with industry-specific regulations (Health Insurance Portability and Accountability Act (HIPAA), Federal Information Security Management Act (FISMA), etc.), so if your interactions would be subjected to such laws, you may not use this Site. You may not use the Site in a way that would violate the Gramm-Leach-Bliley Act (GLBA).\nThe Site is intended for users who are at least 13 years of age. All users who are minors in the jurisdiction in which they reside (generally under the age of 18) must have the permission of, and be directly supervised by, their parent or guardian to use the Site. If you are a minor, you must have your parent or guardian read and agree to these Terms and Conditions prior to you using the Site.\n2. INTELLECTUAL PROPERTY RIGHTS\nUnless otherwise indicated, the Site is our proprietary property and all source code, databases, functionality, software, website designs, audio, video, text, photographs, and graphics on the Site (collectively, the “Content”) and the trademarks, service marks, and logos contained therein (the “Marks”) are owned or controlled by us or licensed to us, and are protected by copyright and trademark laws and various other intellectual property rights and unfair competition laws of the United States, international copyright laws, and international conventions. The Content and the Marks are provided on the Site “AS IS” for your information and personal use only. Except as expressly provided in these Terms and Conditions, no part of the Site and no Content or Marks may be copied, reproduced, aggregated, republished, uploaded, posted, publicly displayed, encoded, translated, transmitted, distributed, sold, licensed, or otherwise exploited for any commercial purpose whatsoever, without our express prior written permission.\nProvided that you are eligible to use the Site, you are granted a limited license to access and use the Site and to download or print a copy of any portion of the Content to which you have properly gained access solely for your personal, non-commercial use. We reserve all rights not expressly granted to you in and to the Site, the Content and the Marks.\n3. USER REPRESENTATIONS\nBy using the Site, you represent and warrant that: (1) all registration information you submit will be true, accurate, current, and complete; (2) you will maintain the accuracy of such information and promptly update such registration information as necessary; (3) you have the legal capacity and you agree to comply with these Terms and Conditions; (4) you are not under the age of 13; (5) you are not a minor in the jurisdiction in which you reside, or if a minor, you have received parental permission to use the Site; (6) you will not access the Site through automated or non-human means, whether through a bot, script or otherwise; (7) you will not use the Site for any illegal or unauthorized purpose; and (8) your use of the Site will not violate any applicable law or regulation.\nIf you provide any information that is untrue, inaccurate, not current, or incomplete, we have the right to suspend or terminate your account and refuse any and all current or future use of the Site (or any portion thereof).\n4. USER REGISTRATION\nYou may be required to register with the Site. You agree to keep your password confidential and will be responsible for all use of your account and password. We reserve the right to remove, reclaim, or change a username you select if we determine, in our sole discretion, that such username is inappropriate, obscene, or otherwise objectionable.\n5. FEES AND PAYMENT\nWe accept the following forms of payment:\n\nVisa\n\nYou may be required to purchase or pay a fee to access some of our services. You agree to provide current, complete, and accurate purchase and account information for all purchases made via the Site. You further agree to promptly update account and payment information, including email address, payment method, and payment card expiration date, so that we can complete your transactions and contact you as needed. We bill you through an online billing account for purchases made via the Site. Sales tax will be added to the price of purchases as deemed required by us. We may change prices at any time. All payments shall be in U.S. dollars.\nYou agree to pay all charges or fees at the prices then in effect for your purchases, and you authorize us to charge your chosen payment provider for any such amounts upon making your purchase. If your purchase is subject to recurring charges, then you consent to our charging your payment method on a recurring basis without requiring your prior approval for each recurring charge, until you notify us of your cancellation.\nWe reserve the right to correct any errors or mistakes in pricing, even if we have already requested or received payment. We also reserve the right to refuse any order placed through the Site.\n7. CANCELLATION\nYou can cancel your subscription at any time by logging into your account. Your cancellation will take effect at the end of the current paid term.\nIf you are unsatisfied with our services, please email us at support@anara.com.\n8. SOFTWARE\nWe may include software for use in connection with our services. If such software is accompanied by an end user license agreement (“EULA”), the terms of the EULA will govern your use of the software. If such software is not accompanied by a EULA, then we grant to you a non-exclusive, revocable, personal, and non-transferable license to use such software solely in connection with our services and in accordance with these Terms and Conditions. Any Software and any related documentation is provided “as is” without warranty of any kind, either express or implied, including, without limitation, the implied warranties of merchantability, fitness for a particular purpose, or non-infringement. You accept any and all risk arising out of use or performance of any Software. You may not reproduce or redistribute any software except in accordance with the EULA or these Terms and Conditions.\n9. PROHIBITED ACTIVITIES\nYou may not access or use the Site for any purpose other than that for which we make the Site available. The Site may not be used in connection with any commercial endeavors except those that are specifically endorsed or approved by us.\nAs a user of the Site, you agree not to:\n\nSystematically retrieve data or other content from the Site to create or compile, directly or indirectly, a collection, compilation, database, or directory without written permission from us.\nTrick, defraud, or mislead us and other users, especially in any attempt to learn sensitive account information such as user passwords.\nCircumvent, disable, or otherwise interfere with security-related features of the Site, including features that prevent or restrict the use or copying of any Content or enforce limitations on the use of the Site and/or the Content contained therein.\nDisparage, tarnish, or otherwise harm, in our opinion, us and/or the Site.\nUse any information obtained from the Site in order to harass, abuse, or harm another person.\nMake improper use of our support services or submit false reports of abuse or misconduct.\nUse the Site in a manner inconsistent with any applicable laws or regulations.\nEngage in unauthorized framing of or linking to the Site.\nUpload or transmit (or attempt to upload or to transmit) viruses, Trojan horses, or other material, including excessive use of capital letters and spamming (continuous posting of repetitive text), that interferes with any party’s uninterrupted use and enjoyment of the Site or modifies, impairs, disrupts, alters, or interferes with the use, features, functions, operation, or maintenance of the Site.\nEngage in any automated use of the system, such as using scripts to send comments or messages, or using any data mining, robots, or similar data gathering and extraction tools.\nDelete the copyright or other proprietary rights notice from any Content.\nAttempt to impersonate another user or person or use the username of another user.\nUpload or transmit (or attempt to upload or to transmit) any material that acts as a passive or active information collection or transmission mechanism, including without limitation, clear graphics interchange formats (“gifs”), 1×1 pixels, web bugs, cookies, or other similar devices (sometimes referred to as “spyware” or “passive collection mechanisms” or “pcms”).\nInterfere with, disrupt, or create an undue burden on the Site or the networks or services connected to the Site.\nHarass, annoy, intimidate, or threaten any of our employees or agents engaged in providing any portion of the Site to you.\nAttempt to bypass any measures of the Site designed to prevent or restrict access to the Site, or any portion of the Site.\nCopy or adapt the Site’s software, including but not limited to Flash, PHP, HTML, JavaScript, or other code.\nExcept as permitted by applicable law, decipher, decompile, disassemble, or reverse engineer any of the software comprising or in any way making up a part of the Site.\nExcept as may be the result of standard search engine or Internet browser usage, use, launch, develop, or distribute any automated system, including without limitation, any spider, robot, cheat utility, scraper, or offline reader that accesses the Site, or using or launching any unauthorized script or other software.\nUse a buying agent or purchasing agent to make purchases on the Site.\nMake any unauthorized use of the Site, including collecting usernames and/or email addresses of users by electronic or other means for the purpose of sending unsolicited email, or creating user accounts by automated means or under false pretenses.\nUse the Site as part of any effort to compete with us or otherwise use the Site and/or the Content for any revenue-generating endeavor or commercial enterprise.\nSell or otherwise transfer your profile.\nUse the Site to advertise or offer to sell goods and services.\n\n10. USER GENERATED CONTRIBUTIONS\nThe Site may invite you to chat, contribute to, or participate in blogs, message boards, online forums, and other functionality, and may provide you with the opportunity to create, submit, post, display, transmit, perform, publish, distribute, or broadcast content and materials to us or on the Site, including but not limited to text, writings, video, audio, photographs, graphics, comments, suggestions, or personal information or other material (collectively, “Contributions”). Contributions may be viewable by other users of the Site and through third-party websites. As such, any Contributions you transmit may be treated as non-confidential and non-proprietary. When you create or make available any Contributions, you thereby represent and warrant that:\n\nThe creation, distribution, transmission, public display, or performance, and the accessing, downloading, or copying of your Contributions do not and will not infringe the proprietary rights, including but not limited to the copyright, patent, trademark, trade secret, or moral rights of any third party.\nYou are the creator and owner of or have the necessary licenses, rights, consents, releases, and permissions to use and to authorize us, the Site, and other users of the Site to use your Contributions in any manner contemplated by the Site and these Terms and Conditions.\nYou have the written consent, release, and/or permission of each and every identifiable individual person in your Contributions to use the name or likeness of each and every such identifiable individual person to enable inclusion and use of your Contributions in any manner contemplated by the Site and these Terms and Conditions.\nYour Contributions are not false, inaccurate, or misleading.\nYour Contributions are not unsolicited or unauthorized advertising, promotional materials, pyramid schemes, chain letters, spam, mass mailings, or other forms of solicitation.\nYour Contributions are not obscene, lewd, lascivious, filthy, violent, harassing, libelous, slanderous, or otherwise objectionable (as determined by us).\nYour Contributions do not ridicule, mock, disparage, intimidate, or abuse anyone.\nYour Contributions are not used to harass or threaten (in the legal sense of those terms) any other person and to promote violence against a specific person or class of people.\nYour Contributions do not violate any applicable law, regulation, or rule.\nYour Contributions do not violate the privacy or publicity rights of any third party.\nYour Contributions do not violate any applicable law concerning child pornography, or otherwise intended to protect the health or well-being of minors.\nYour Contributions do not include any offensive comments that are connected to race, national origin, gender, sexual preference, or physical handicap.\nYour Contributions do not otherwise violate, or link to material that violates, any provision of these Terms and Conditions, or any applicable law or regulation.\n\nAny use of the Site in violation of the foregoing violates these Terms and Conditions and may result in, among other things, termination or suspension of your rights to use the Site.\n11. CONTRIBUTION LICENSE\nBy posting your Contributions to any part of the Site or making Contributions accessible to the Site by linking your account from the Site to any of your social networking accounts, you automatically grant, and you represent and warrant that you have the right to grant, to us an unrestricted, unlimited, irrevocable, perpetual, non-exclusive, transferable, royalty-free, fully-paid, worldwide right, and license to host, use, copy, reproduce, disclose, sell, resell, publish, broadcast, retitle, archive, store, cache, publicly perform, publicly display, reformat, translate, transmit, excerpt (in whole or in part), and distribute such Contributions (including, without limitation, your image and voice) for any purpose, commercial, advertising, or otherwise, and to prepare derivative works of, or incorporate into other works, such Contributions, and grant and authorize sublicenses of the foregoing. The use and distribution may occur in any media formats and through any media channels.\nThis license will apply to any form, media, or technology now known or hereafter developed, and includes our use of your name, company name, and franchise name, as applicable, and any of the trademarks, service marks, trade names, logos, and personal and commercial images you provide. You waive all moral rights in your Contributions, and you warrant that moral rights have not otherwise been asserted in your Contributions.\nWe do not assert any ownership over your Contributions. You retain full ownership of all of your Contributions and any intellectual property rights or other proprietary rights associated with your Contributions. We are not liable for any statements or representations in your Contributions provided by you in any area on the Site. You are solely responsible for your Contributions to the Site and you expressly agree to exonerate us from any and all responsibility and to refrain from any legal action against us regarding your Contributions.\nWe have the right, in our sole and absolute discretion, (1) to edit, redact, or otherwise change any Contributions; (2) to re-categorize any Contributions to place them in more appropriate locations on the Site; and (3) to pre-screen or delete any Contributions at any time and for any reason, without notice. We have no obligation to monitor your Contributions.\n12. GUIDELINES FOR REVIEWS\nWe may provide you areas on the Site to leave reviews or ratings. When posting a review, you must comply with the following criteria: (1) you should have firsthand experience with the person/entity being reviewed; (2) your reviews should not contain offensive profanity, or abusive, racist, offensive, or hate language; (3) your reviews should not contain discriminatory references based on religion, race, gender, national origin, age, marital status, sexual orientation, or disability; (4) your reviews should not contain references to illegal activity; (5) you should not be affiliated with competitors if posting negative reviews; (6) you should not make any conclusions as to the legality of conduct; (7) you may not post any false or misleading statements; and (8) you may not organize a campaign encouraging others to post reviews, whether positive or negative.\nWe may accept, reject, or remove reviews in our sole discretion. We have absolutely no obligation to screen reviews or to delete reviews, even if anyone considers reviews objectionable or inaccurate. Reviews are not endorsed by us, and do not necessarily represent our opinions or the views of any of our affiliates or partners. We do not assume liability for any review or for any claims, liabilities, or losses resulting from any review. By posting a review, you hereby grant to us a perpetual, non-exclusive, worldwide, royalty-free, fully-paid, assignable, and sublicensable right and license to reproduce, modify, translate, transmit by any means, display, perform, and/or distribute all content relating to reviews.\n13. SOCIAL MEDIA\nAs part of the functionality of the Site, you may link your account with online accounts you have with third-party service providers (each such account, a “Third-Party Account”) by either: (1) providing your Third-Party Account login information through the Site; or (2) allowing us to access your Third-Party Account, as is permitted under the applicable terms and conditions that govern your use of each Third-Party Account. You represent and warrant that you are entitled to disclose your Third-Party Account login information to us and/or grant us access to your Third-Party Account, without breach by you of any of the terms and conditions that govern your use of the applicable Third-Party Account, and without obligating us to pay any fees or making us subject to any usage limitations imposed by the third-party service provider of the Third-Party Account. By granting us access to any Third-Party Accounts, you understand that (1) we may access, make available, and store (if applicable) any content that you have provided to and stored in your Third-Party Account (the “Social Network Content”) so that it is available on and through the Site via your account, including without limitation any friend lists and (2) we may submit to and receive from your Third-Party Account additional information to the extent you are notified when you link your account with the Third-Party Account. Depending on the Third-Party Accounts you choose and subject to the privacy settings that you have set in such Third-Party Accounts, personally identifiable information that you post to your Third-Party Accounts may be available on and through your account on the Site. Please note that if a Third-Party Account or associated service becomes unavailable or our access to such Third-Party Account is terminated by the third-party service provider, then Social Network Content may no longer be available on and through the Site. You will have the ability to disable the connection between your account on the Site and your Third-Party Accounts at any time. PLEASE NOTE THAT YOUR RELATIONSHIP WITH THE THIRD-PARTY SERVICE PROVIDERS ASSOCIATED WITH YOUR THIRD-PARTY ACCOUNTS IS GOVERNED SOLELY BY YOUR AGREEMENT(S) WITH SUCH THIRD-PARTY SERVICE PROVIDERS. We make no effort to review any Social Network Content for any purpose, including but not limited to, for accuracy, legality, or non-infringement, and we are not responsible for any Social Network Content. You acknowledge and agree that we may access your email address book associated with a Third-Party Account and your contacts list stored on your mobile device or tablet computer solely for purposes of identifying and informing you of those contacts who have also registered to use the Site. You can deactivate the connection between the Site and your Third-Party Account by contacting us using the contact information below or through your account settings (if applicable). We will attempt to delete any information stored on our servers that was obtained through such Third-Party Account, except the username and profile picture that become associated with your account.\n14. SUBMISSIONS\nYou acknowledge and agree that any questions, comments, suggestions, ideas, feedback, or other information regarding the Site (“Submissions”) provided by you to us are non-confidential and shall become our sole property. We shall own exclusive rights, including all intellectual property rights, and shall be entitled to the unrestricted use and dissemination of these Submissions for any lawful purpose, commercial or otherwise, without acknowledgment or compensation to you. You hereby waive all moral rights to any such Submissions, and you hereby warrant that any such Submissions are original with you or that you have the right to submit such Submissions. You agree there shall be no recourse against us for any alleged or actual infringement or misappropriation of any proprietary right in your Submissions.\n15. THIRD-PARTY WEBSITES AND CONTENT\nThe Site may contain (or you may be sent via the Site) links to other websites (“Third-Party Websites”) as well as articles, photographs, text, graphics, pictures, designs, music, sound, video, information, applications, software, and other content or items belonging to or originating from third parties (“Third-Party Content”). Such Third-Party Websites and Third-Party Content are not investigated, monitored, or checked for accuracy, appropriateness, or completeness by us, and we are not responsible for any Third-Party Websites accessed through the Site or any Third-Party Content posted on, available through, or installed from the Site, including the content, accuracy, offensiveness, opinions, reliability, privacy practices, or other policies of or contained in the Third-Party Websites or the Third-Party Content. Inclusion of, linking to, or permitting the use or installation of any Third-Party Websites or any Third-Party Content does not imply approval or endorsement thereof by us. If you decide to leave the Site and access the Third-Party Websites or to use or install any Third-Party Content, you do so at your own risk, and you should be aware these Terms and Conditions no longer govern. You should review the applicable terms and policies, including privacy and data gathering practices, of any website to which you navigate from the Site or relating to any applications you use or install from the Site. Any purchases you make through Third-Party Websites will be through other websites and from other companies, and we take no responsibility whatsoever in relation to such purchases which are exclusively between you and the applicable third party. You agree and acknowledge that we do not endorse the products or services offered on Third-Party Websites and you shall hold us harmless from any harm caused by your purchase of such products or services. Additionally, you shall hold us harmless from any losses sustained by you or harm caused to you relating to or resulting in any way from any Third-Party Content or any contact with Third-Party Websites.\n16. U.S. GOVERNMENT RIGHTS\nOur services are “commercial items” as defined in Federal Acquisition Regulation (“FAR”) 2.101. If our services are acquired by or on behalf of any agency not within the Department of Defense (“DOD”), our services are subject to the terms of these Terms and Conditions in accordance with FAR 12.212 (for computer software) and FAR 12.211 (for technical data). If our services are acquired by or on behalf of any agency within the Department of Defense, our services are subject to the terms of these Terms and Conditions in accordance with Defense Federal Acquisition Regulation (“DFARS”) 227.7202-3. In addition, DFARS 252.227-7015 applies to technical data acquired by the DOD. This U.S. Government Rights clause is in lieu of, and supersedes, any other FAR, DFARS, or other clause or provision that addresses government rights in computer software or technical data under these Terms and Conditions.\n17. SITE MANAGEMENT\nWe reserve the right, but not the obligation, to: (1) monitor the Site for violations of these Terms and Conditions; (2) take appropriate legal action against anyone who, in our sole discretion, violates the law or these Terms and Conditions, including without limitation, reporting such user to law enforcement authorities; (3) in our sole discretion and without limitation, refuse, restrict access to, limit the availability of, or disable (to the extent technologically feasible) any of your Contributions or any portion thereof; (4) in our sole discretion and without limitation, notice, or liability, to remove from the Site or otherwise disable all files and content that are excessive in size or are in any way burdensome to our systems; and (5) otherwise manage the Site in a manner designed to protect our rights and property and to facilitate the proper functioning of the Site.\n18. PRIVACY POLICY\nWe care about data privacy and security. Please review our Privacy Policy: https://anara.com/privacy. By using the Site, you agree to be bound by our Privacy Policy, which is incorporated into these Terms and Conditions. Please be advised the Site is hosted in the United States. If you access the Site from any other region of the world with laws or other requirements governing personal data collection, use, or disclosure that differ from applicable laws in the United States, then through your continued use of the Site, you are transferring your data to the United States, and you agree to have your data transferred to and processed in the United States. Further, we do not knowingly accept, request, or solicit information from children or knowingly market to children. Therefore, in accordance with the U.S. Children’s Online Privacy Protection Act, if we receive actual knowledge that anyone under the age of 13 has provided personal information to us without the requisite and verifiable parental consent, we will delete that information from the Site as quickly as is reasonably practical.\n19. COPYRIGHT INFRINGEMENTS\nWe respect the intellectual property rights of others. If you believe that any material available on or through the Site infringes upon any copyright you own or control, please immediately notify us using the contact information provided below (a “Notification”). A copy of your Notification will be sent to the person who posted or stored the material addressed in the Notification. Please be advised that pursuant to applicable law you may be held liable for damages if you make material misrepresentations in a Notification. Thus, if you are not sure that material located on or linked to by the Site infringes your copyright, you should consider first contacting an attorney.\n20. TERM AND TERMINATION\nThese Terms and Conditions shall remain in full force and effect while you use the Site. WITHOUT LIMITING ANY OTHER PROVISION OF THESE TERMS AND CONDITIONS, WE RESERVE THE RIGHT TO, IN OUR SOLE DISCRETION AND WITHOUT NOTICE OR LIABILITY, DENY ACCESS TO AND USE OF THE SITE (INCLUDING BLOCKING CERTAIN IP ADDRESSES), TO ANY PERSON FOR ANY REASON OR FOR NO REASON, INCLUDING WITHOUT LIMITATION FOR BREACH OF ANY REPRESENTATION, WARRANTY, OR COVENANT CONTAINED IN THESE TERMS AND CONDITIONS OR OF ANY APPLICABLE LAW OR REGULATION. WE MAY TERMINATE YOUR USE OR PARTICIPATION IN THE SITE OR DELETE YOUR ACCOUNT AND ANY CONTENT OR INFORMATION THAT YOU POSTED AT ANY TIME, WITHOUT WARNING, IN OUR SOLE DISCRETION.\nIf we terminate or suspend your account for any reason, you are prohibited from registering and creating a new account under your name, a fake or borrowed name, or the name of any third party, even if you may be acting on behalf of the third party. In addition to terminating or suspending your account, we reserve the right to take appropriate legal action, including without limitation pursuing civil, criminal, and injunctive redress.\n21. MODIFICATIONS AND INTERRUPTIONS\nWe reserve the right to change, modify, or remove the contents of the Site at any time or for any reason at our sole discretion without notice. However, we have no obligation to update any information on our Site. We also reserve the right to modify or discontinue all or part of the Site without notice at any time. We will not be liable to you or any third party for any modification, price change, suspension, or discontinuance of the Site.\nWe cannot guarantee the Site will be available at all times. We may experience hardware, software, or other problems or need to perform maintenance related to the Site, resulting in interruptions, delays, or errors. We reserve the right to change, revise, update, suspend, discontinue, or otherwise modify the Site at any time or for any reason without notice to you. You agree that we have no liability whatsoever for any loss, damage, or inconvenience caused by your inability to access or use the Site during any downtime or discontinuance of the Site. Nothing in these Terms and Conditions will be construed to obligate us to maintain and support the Site or to supply any corrections, updates, or releases in connection therewith.\n22. GOVERNING LAW\nThese conditions are governed by and interpreted following the laws of the United Kingdom, and the use of the United Nations Convention of Contracts for the International Sale of Goods is expressly excluded. If your habitual residence is in the EU, and you are a consumer, you additionally possess the protection provided to you by obligatory provisions of the law of your country of residence. Anara and yourself both agree to submit to the non-exclusive jurisdiction of the courts of London, which means that you may make a claim to defend your consumer protection rights in regards to these Conditions of Use in the United Kingdom, or in the EU country in which you reside.\n23. DISPUTE RESOLUTION\nThe European Commission provides an online dispute resolution platform, which you can access here: https://ec.europa.eu/consumers/odr. If you would like to bring this subject to our attention, please contact us.\n24. CORRECTIONS\nThere may be information on the Site that contains typographical errors, inaccuracies, or omissions, including descriptions, pricing, availability, and various other information. We reserve the right to correct any errors, inaccuracies, or omissions and to change or update the information on the Site at any time, without prior notice.\n25. DISCLAIMER\nTHE SITE IS PROVIDED ON AN AS-IS AND AS-AVAILABLE BASIS. YOU AGREE THAT YOUR USE OF THE SITE AND OUR SERVICES WILL BE AT YOUR SOLE RISK. TO THE FULLEST EXTENT PERMITTED BY LAW, WE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, IN CONNECTION WITH THE SITE AND YOUR USE THEREOF, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. WE MAKE NO WARRANTIES OR REPRESENTATIONS ABOUT THE ACCURACY OR COMPLETENESS OF THE SITE’S CONTENT OR THE CONTENT OF ANY WEBSITES LINKED TO THE SITE AND WE WILL ASSUME NO LIABILITY OR RESPONSIBILITY FOR ANY (1) ERRORS, MISTAKES, OR INACCURACIES OF CONTENT AND MATERIALS, (2) PERSONAL INJURY OR PROPERTY DAMAGE, OF ANY NATURE WHATSOEVER, RESULTING FROM YOUR ACCESS TO AND USE OF THE SITE, (3) ANY UNAUTHORIZED ACCESS TO OR USE OF OUR SECURE SERVERS AND/OR ANY AND ALL PERSONAL INFORMATION AND/OR FINANCIAL INFORMATION STORED THEREIN, (4) ANY INTERRUPTION OR CESSATION OF TRANSMISSION TO OR FROM THE SITE, (5) ANY BUGS, VIRUSES, TROJAN HORSES, OR THE LIKE WHICH MAY BE TRANSMITTED TO OR THROUGH THE SITE BY ANY THIRD PARTY, AND/OR (6) ANY ERRORS OR OMISSIONS IN ANY CONTENT AND MATERIALS OR FOR ANY LOSS OR DAMAGE OF ANY KIND INCURRED AS A RESULT OF THE USE OF ANY CONTENT POSTED, TRANSMITTED, OR OTHERWISE MADE AVAILABLE VIA THE SITE. WE DO NOT WARRANT, ENDORSE, GUARANTEE, OR ASSUME RESPONSIBILITY FOR ANY PRODUCT OR SERVICE ADVERTISED OR OFFERED BY A THIRD PARTY THROUGH THE SITE, ANY HYPERLINKED WEBSITE, OR ANY WEBSITE OR MOBILE APPLICATION FEATURED IN ANY BANNER OR OTHER ADVERTISING, AND WE WILL NOT BE A PARTY TO OR IN ANY WAY BE RESPONSIBLE FOR MONITORING ANY TRANSACTION BETWEEN YOU AND ANY THIRD-PARTY PROVIDERS OF PRODUCTS OR SERVICES. AS WITH THE PURCHASE OF A PRODUCT OR SERVICE THROUGH ANY MEDIUM OR IN ANY ENVIRONMENT, YOU SHOULD USE YOUR BEST JUDGMENT AND EXERCISE CAUTION WHERE APPROPRIATE.\n26. LIMITATIONS OF LIABILITY\nIN NO EVENT WILL WE OR OUR DIRECTORS, EMPLOYEES, OR AGENTS BE LIABLE TO YOU OR ANY THIRD PARTY FOR ANY DIRECT, INDIRECT, CONSEQUENTIAL, EXEMPLARY, INCIDENTAL, SPECIAL, OR PUNITIVE DAMAGES, INCLUDING LOST PROFIT, LOST REVENUE, LOSS OF DATA, OR OTHER DAMAGES ARISING FROM YOUR USE OF THE SITE, EVEN IF WE HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. NOTWITHSTANDING ANYTHING TO THE CONTRARY CONTAINED HEREIN, OUR LIABILITY TO YOU FOR ANY CAUSE WHATSOEVER AND REGARDLESS OF THE FORM OF THE ACTION, WILL AT ALL TIMES BE LIMITED TO THE AMOUNT PAID, IF ANY, BY YOU TO US. CERTAIN US STATE LAWS AND INTERNATIONAL LAWS DO NOT ALLOW LIMITATIONS ON IMPLIED WARRANTIES OR THE EXCLUSION OR LIMITATION OF CERTAIN DAMAGES. IF THESE LAWS APPLY TO YOU, SOME OR ALL OF THE ABOVE DISCLAIMERS OR LIMITATIONS MAY NOT APPLY TO YOU, AND YOU MAY HAVE ADDITIONAL RIGHTS.\n27. INDEMNIFICATION\nYou agree to defend, indemnify, and hold us harmless, including our subsidiaries, affiliates, and all of our respective officers, agents, partners, and employees, from and against any loss, damage, liability, claim, or demand, including reasonable attorneys’ fees and expenses, made by any third party due to or arising out of: (1) your Contributions; (2) use of the Site; (3) breach of these Terms and Conditions; (4) any breach of your representations and warranties set forth in these Terms and Conditions; (5) your violation of the rights of a third party, including but not limited to intellectual property rights; or (6) any overt harmful act toward any other user of the Site with whom you connected via the Site. Notwithstanding the foregoing, we reserve the right, at your expense, to assume the exclusive defense and control of any matter for which you are required to indemnify us, and you agree to cooperate, at your expense, with our defense of such claims. We will use reasonable efforts to notify you of any such claim, action, or proceeding which is subject to this indemnification upon becoming aware of it.\n28. USER DATA\nWe will maintain certain data that you transmit to the Site for the purpose of managing the performance of the Site, as well as data relating to your use of the Site. Although we perform regular routine backups of data, you are solely responsible for all data that you transmit or that relates to any activity you have undertaken using the Site. You agree that we shall have no liability to you for any loss or corruption of any such data, and you hereby waive any right of action against us arising from any such loss or corruption of such data.\n29. ELECTRONIC COMMUNICATIONS, TRANSACTIONS, AND SIGNATURES\nVisiting the Site, sending us emails, and completing online forms constitute electronic communications. You consent to receive electronic communications, and you agree that all agreements, notices, disclosures, and other communications we provide to you electronically, via email and on the Site, satisfy any legal requirement that such communication be in writing. YOU HEREBY AGREE TO THE USE OF ELECTRONIC SIGNATURES, CONTRACTS, ORDERS, AND OTHER RECORDS, AND TO ELECTRONIC DELIVERY OF NOTICES, POLICIES, AND RECORDS OF TRANSACTIONS INITIATED OR COMPLETED BY US OR VIA THE SITE. You hereby waive any rights or requirements under any statutes, regulations, rules, ordinances, or other laws in any jurisdiction which require an original signature or delivery or retention of non-electronic records, or to payments or the granting of credits by any means other than electronic means.\n30. CALIFORNIA USERS AND RESIDENTS\nIf any complaint with us is not satisfactorily resolved, you can contact the Complaint Assistance Unit of the Division of Consumer Services of the California Department of Consumer Affairs in writing at 1625 North Market Blvd., Suite N 112, Sacramento, California 95834 or by telephone at (800) 952-5210 or (916) 445-1254.\n31. MISCELLANEOUS\nThese Terms and Conditions and any policies or operating rules posted by us on the Site or in respect to the Site constitute the entire agreement and understanding between you and us. Our failure to exercise or enforce any right or provision of these Terms and Conditions shall not operate as a waiver of such right or provision. These Terms and Conditions operate to the fullest extent permissible by law. We may assign any or all of our rights and obligations to others at any time. We shall not be responsible or liable for any loss, damage, delay, or failure to act caused by any cause beyond our reasonable control. If any provision or part of a provision of these Terms and Conditions is determined to be unlawful, void, or unenforceable, that provision or part of the provision is deemed severable from these Terms and Conditions and does not affect the validity and enforceability of any remaining provisions. There is no joint venture, partnership, employment or agency relationship created between you and us as a result of these Terms and Conditions or use of the Site. You agree that these Terms and Conditions will not be construed against us by virtue of having drafted them. You hereby waive any and all defenses you may have based on the electronic form of these Terms and Conditions and the lack of signing by the parties hereto to execute these Terms and Conditions.\n32. CONTACT US\nIn order to resolve a complaint regarding the Site or to receive further information regarding use of the Site, please contact us at:\nAnara Labs, Inc,\n49 Princes Gate\nLondon, Westminster,\nSW7 2PG\nEngland\nsupport@anara.com",
+          "headings": [
+            "Get started",
+            "Chat",
+            "Import files",
+            "Read",
+            "Write",
+            "Sidebars",
+            "Share",
+            "User interface",
+            "Chrome extension",
+            "Help and support",
+            "Legal",
+            "Terms & Conditions"
+          ],
+          "description": "",
+          "category": "Legal"
+        },
+        {
+          "title": "Privacy Policy",
+          "href": "/legal/privacy",
+          "content": "Last updated April 9, 2025\n1. WHAT INFORMATION DO WE COLLECT?\nPersonal information you disclose to us\nIn Short: We collect personal information that you provide to us.\nWe collect personal information that you voluntarily provide to us when you register on the Services, express an interest in obtaining information about us or our products and Services, when you participate in activities on the Services, or otherwise when you contact us.\nPersonal Information Provided by You. The personal information that we collect depends on the context of your interactions with us and the Services, the choices you make, and the products and features you use. The personal information we collect may include the following:\n\nnames\nemail addresses\nusernames\n\nSensitive Information. We do not process sensitive information.\nPayment Data. We may collect data necessary to process your payment if you make purchases, such as your payment instrument number, and the security code associated with your payment instrument. All payment data is stored by Stripe. You may find their privacy notice link(s) here: https://stripe.com/en-gb/privacy.\nSocial Media Login Data. We may provide you with the option to register with us using your existing social media account details, like your Facebook, Twitter, or other social media account. If you choose to register in this way, we will collect the information described in the section called “HOW DO WE HANDLE YOUR SOCIAL LOGINS?” below.\nAll personal information that you provide to us must be true, complete, and accurate, and you must notify us of any changes to such personal information.\nInformation automatically collected\nIn Short: Some information — such as your Internet Protocol (IP) address and/or browser and device characteristics — is collected automatically when you visit our Services.\nWe automatically collect certain information when you visit, use, or navigate the Services. This information does not reveal your specific identity (like your name or contact information) but may include device and usage information, such as your IP address, browser and device characteristics, operating system, language preferences, referring URLs, device name, country, location, information about how and when you use our Services, and other technical information. This information is primarily needed to maintain the security and operation of our Services, and for our internal analytics and reporting purposes.\nLike many businesses, we also collect information through cookies and similar technologies.\nThe information we collect includes:\n\nLog and Usage Data. Log and usage data is service-related, diagnostic, usage, and performance information our servers automatically collect when you access or use our Services and which we record in log files. Depending on how you interact with us, this log data may include your IP address, device information, browser type, and settings and information about your activity in the Services (such as the date/time stamps associated with your usage, pages and files viewed, searches, and other actions you take such as which features you use), device event information (such as system activity, error reports (sometimes called “crash dumps”), and hardware settings).\nDevice Data. We collect device data such as information about your computer, phone, tablet, or other device you use to access the Services. Depending on the device used, this device data may include information such as your IP address (or proxy server), device and application identification numbers, location, browser type, hardware model, Internet service provider and/or mobile carrier, operating system, and system configuration information.\n\n2. HOW DO WE PROCESS YOUR INFORMATION?\nIn Short: We process your information to provide, improve, and administer our Services, communicate with you, for security and fraud prevention, and to comply with law. We may also process your information for other purposes with your consent.\nWe process your personal information for a variety of reasons, depending on how you interact with our Services, including:\n\nTo facilitate account creation and authentication and otherwise manage user accounts. We may process your information so you can create and log in to your account, as well as keep your account in working order.\nTo deliver and facilitate delivery of services to the user. We may process your information to provide you with the requested service.\nTo respond to user inquiries/offer support to users. We may process your information to respond to your inquiries and solve any potential issues you might have with the requested service.\nTo send administrative information to you. We may process your information to send you details about our products and services, changes to our terms and policies, and other similar information.\nTo save or protect an individual’s vital interest. We may process your information when necessary to save or protect an individual’s vital interest, such as to prevent harm.\n\n3. WHAT LEGAL BASES DO WE RELY ON TO PROCESS YOUR INFORMATION?\nIn Short: We only process your personal information when we believe it is necessary and we have a valid legal reason (i.e., legal basis) to do so under applicable law, like with your consent, to comply with laws, to provide you with services to enter into or fulfill our contractual obligations, to protect your rights, or to fulfill our legitimate business interests.\nIf you are located in the EU or UK, this section applies to you.\nThe General Data Protection Regulation (GDPR) and UK GDPR require us to explain the valid legal bases we rely on in order to process your personal information. As such, we may rely on the following legal bases to process your personal information:\n\nConsent. We may process your information if you have given us permission (i.e., consent) to use your personal information for a specific purpose. You can withdraw your consent at any time. Learn more about withdrawing your consent.\nPerformance of a Contract. We may process your personal information when we believe it is necessary to fulfill our contractual obligations to you, including providing our Services or at your request prior to entering into a contract with you.\nLegal Obligations. We may process your information where we believe it is necessary for compliance with our legal obligations, such as to cooperate with a law enforcement body or regulatory agency, exercise or defend our legal rights, or disclose your information as evidence in litigation in which we are involved.\nVital Interests. We may process your information where we believe it is necessary to protect your vital interests or the vital interests of a third party, such as situations involving potential threats to the safety of any person.\n\nIn legal terms, we are generally the “data controller” under European data protection laws of the personal information described in this privacy notice, since we determine the means and/or purposes of the data processing we perform. This privacy notice does not apply to the personal information we process as a “data processor” on behalf of our customers. In those situations, the customer that we provide services to and with whom we have entered into a data processing agreement is the “data controller” responsible for your personal information, and we merely process your information on their behalf in accordance with your instructions. If you want to know more about our customers’ privacy practices, you should read their privacy policies and direct any questions you have to them.\nIf you are located in Canada, this section applies to you.\nWe may process your information if you have given us specific permission (i.e., express consent) to use your personal information for a specific purpose, or in situations where your permission can be inferred (i.e., implied consent). You can withdraw your consent at any time.\nIn some exceptional cases, we may be legally permitted under applicable law to process your information without your consent, including, for example:\n\nIf collection is clearly in the interests of an individual and consent cannot be obtained in a timely way\nFor investigations and fraud detection and prevention\nFor business transactions provided certain conditions are met\nIf it is contained in a witness statement and the collection is necessary to assess, process, or settle an insurance claim\nFor identifying injured, ill, or deceased persons and communicating with next of kin\nIf we have reasonable grounds to believe an individual has been, is, or may be victim of financial abuse\nIf it is reasonable to expect collection and use with consent would compromise the availability or the accuracy of the information and the collection is reasonable for purposes related to investigating a breach of an agreement or a contravention of the laws of Canada or a province\nIf disclosure is required to comply with a subpoena, warrant, court order, or rules of the court relating to the production of records\nIf it was produced by an individual in the course of their employment, business, or profession and the collection is consistent with the purposes for which the information was produced\nIf the collection is solely for journalistic, artistic, or literary purposes\nIf the information is publicly available and is specified by the regulations\n\n4. WHEN AND WITH WHOM DO WE SHARE YOUR PERSONAL INFORMATION?\nIn Short: We may share information in specific situations described in this section and/or with the following third parties.\nWe may need to share your personal information in the following situations:\n\nBusiness Transfers. We may share or transfer your information in connection with, or during negotiations of, any merger, sale of company assets, financing, or acquisition of all or a portion of our business to another company.\n\n5. DO WE USE COOKIES AND OTHER TRACKING TECHNOLOGIES?\nIn Short: We may use cookies and other tracking technologies to collect and store your information.\nWe may use cookies and similar tracking technologies (like web beacons and pixels) to access or store information. Specific information about how we use such technologies and how you can refuse certain cookies is set out in our Cookie Notice.\n6. HOW DO WE HANDLE YOUR SOCIAL LOGINS?\nIn Short: If you choose to register or log in to our Services using a social media account, we may have access to certain information about you.\nOur Services offer you the ability to register and log in using your third-party social media account details (like your Facebook or Twitter logins). Where you choose to do this, we will receive certain profile information about you from your social media provider. The profile information we receive may vary depending on the social media provider concerned, but will often include your name, email address, friends list, and profile picture, as well as other information you choose to make public on such a social media platform.\nWe will use the information we receive only for the purposes that are described in this privacy notice or that are otherwise made clear to you on the relevant Services. Please note that we do not control, and are not responsible for, other uses of your personal information by your third-party social media provider. We recommend that you review their privacy notice to understand how they collect, use, and share your personal information, and how you can set your privacy preferences on their sites and apps.\n7. HOW LONG DO WE KEEP YOUR INFORMATION?\nIn Short: We keep your information for as long as necessary to fulfill the purposes outlined in this privacy notice unless otherwise required by law.\nWe will only keep your personal information for as long as it is necessary for the purposes set out in this privacy notice, unless a longer retention period is required or permitted by law (such as tax, accounting, or other legal requirements). No purpose in this notice will require us keeping your personal information for longer than three (3) months past the termination of the user’s account.\nWhen we have no ongoing legitimate business need to process your personal information, we will either delete or anonymize such information, or, if this is not possible (for example, because your personal information has been stored in backup archives), then we will securely store your personal information and isolate it from any further processing until deletion is possible.\n8. HOW DO WE KEEP YOUR INFORMATION SAFE?\nIn Short: We aim to protect your personal information through a system of organizational and technical security measures.\nWe have implemented appropriate and reasonable technical and organizational security measures designed to protect the security of any personal information we process. However, despite our safeguards and efforts to secure your information, no electronic transmission over the Internet or information storage technology can be guaranteed to be 100% secure, so we cannot promise or guarantee that hackers, cybercriminals, or other unauthorized third parties will not be able to defeat our security and improperly collect, access, steal, or modify your information. Although we will do our best to protect your personal information, transmission of personal information to and from our Services is at your own risk. You should only access the Services within a secure environment.\n9. DO WE COLLECT INFORMATION FROM MINORS?\nIn Short: We do not knowingly collect data from or market to children under 18 years of age.\nWe do not knowingly solicit data from or market to children under 18 years of age. By using the Services, you represent that you are at least 18 or that you are the parent or guardian of such a minor and consent to such minor dependent’s use of the Services. If we learn that personal information from users less than 18 years of age has been collected, we will deactivate the account and take reasonable measures to promptly delete such data from our records. If you become aware of any data we may have collected from children under age 18, please contact us at support@anara.com.\n10. WHAT ARE YOUR PRIVACY RIGHTS?\nIn Short: In some regions, such as the European Economic Area (EEA), United Kingdom (UK), and Canada, you have rights that allow you greater access to and control over your personal information. You may review, change, or terminate your account at any time.\nIn some regions (like the EEA, UK, and Canada), you have certain rights under applicable data protection laws. These may include the right (i) to request access and obtain a copy of your personal information, (ii) to request rectification or erasure; (iii) to restrict the processing of your personal information; and (iv) if applicable, to data portability. In certain circumstances, you may also have the right to object to the processing of your personal information. You can make such a request by contacting us by using the contact details provided in the section “HOW CAN YOU CONTACT US ABOUT THIS NOTICE?” below.\nWe will consider and act upon any request in accordance with applicable data protection laws.\nIf you are located in the EEA or UK and you believe we are unlawfully processing your personal information, you also have the right to complain to your Member State data protection authority or UK data protection authority.\nIf you are located in Switzerland, you may contact the Federal Data Protection and Information Commissioner.\nWithdrawing your consent: If we are relying on your consent to process your personal information, which may be express and/or implied consent depending on the applicable law, you have the right to withdraw your consent at any time. You can withdraw your consent at any time by contacting us by using the contact details provided in the section “HOW CAN YOU CONTACT US ABOUT THIS NOTICE?” below.\nHowever, please note that this will not affect the lawfulness of the processing before its withdrawal nor, when applicable law allows, will it affect the processing of your personal information conducted in reliance on lawful processing grounds other than consent.\nOpting out of marketing and promotional communications: You can unsubscribe from our marketing and promotional communications at any time by clicking on the unsubscribe link in the emails that we send, or by contacting us using the details provided in the section “HOW CAN YOU CONTACT US ABOUT THIS NOTICE?” below. You will then be removed from the marketing lists. However, we may still communicate with you — for example, to send you service-related messages that are necessary for the administration and use of your account, to respond to service requests, or for other non-marketing purposes.\nAccount Information\nIf you would at any time like to review or change the information in your account or terminate your account, you can:\n\nLog in to your account settings and update your user account.\n\nUpon your request to terminate your account, we will deactivate or delete your account and information from our active databases. However, we may retain some information in our files to prevent fraud, troubleshoot problems, assist with any investigations, enforce our legal terms and/or comply with applicable legal requirements.\nCookies and similar technologies: Most Web browsers are set to accept cookies by default. If you prefer, you can usually choose to set your browser to remove cookies and to reject cookies. If you choose to remove cookies or reject cookies, this could affect certain features or services of our Services. You may also opt out of interest-based advertising by advertisers on our Services.\nIf you have questions or comments about your privacy rights, you may email us at support@anara.com.\n11. CONTROLS FOR DO-NOT-TRACK FEATURES\nMost web browsers and some mobile operating systems and mobile applications include a Do-Not-Track (“DNT”) feature or setting you can activate to signal your privacy preference not to have data about your online browsing activities monitored and collected. At this stage no uniform technology standard for recognizing and implementing DNT signals has been finalized. As such, we do not currently respond to DNT browser signals or any other mechanism that automatically communicates your choice not to be tracked online. If a standard for online tracking is adopted that we must follow in the future, we will inform you about that practice in a revised version of this privacy notice.\n12. DO CALIFORNIA RESIDENTS HAVE SPECIFIC PRIVACY RIGHTS?\nIn Short: Yes, if you are a resident of California, you are granted specific rights regarding access to your personal information.\nCalifornia Civil Code Section 1798.83, also known as the “Shine The Light” law, permits our users who are California residents to request and obtain from us, once a year and free of charge, information about categories of personal information (if any) we disclosed to third parties for direct marketing purposes and the names and addresses of all third parties with which we shared personal information in the immediately preceding calendar year. If you are a California resident and would like to make such a request, please submit your request in writing to us using the contact information provided below.\nIf you are under 18 years of age, reside in California, and have a registered account with Services, you have the right to request removal of unwanted data that you publicly post on the Services. To request removal of such data, please contact us using the contact information provided below and include the email address associated with your account and a statement that you reside in California. We will make sure the data is not publicly displayed on the Services, but please be aware that the data may not be completely or comprehensively removed from all our systems (e.g., backups, etc.).\nCCPA Privacy Notice\nThe California Code of Regulations defines a “resident” as:\n(1) every individual who is in the State of California for other than a temporary or transitory purpose and\n(2) every individual who is domiciled in the State of California who is outside the State of California for a temporary or transitory purpose\nAll other individuals are defined as “non-residents.”\nIf this definition of “resident” applies to you, we must adhere to certain rights and obligations regarding your personal information.\nWhat categories of personal information do we collect?\nWe have collected the following categories of personal information in the past twelve (12) months:\nCategoryExamplesCollectedA. IdentifiersContact details, such as real name, alias, postal address, telephone or mobile contact number, unique personal identifier, online identifier, Internet Protocol address, email address, and account nameYESB. Personal information categories listed in the California Customer Records statuteName, contact information, education, employment, employment history, and financial informationYESC. Protected classification characteristics under California or federal lawGender and date of birthNOD. Commercial informationTransaction information, purchase history, financial details, and payment informationYESE. Biometric informationFingerprints and voiceprintsNOF. Internet or other similar network activityBrowsing history, search history, online behavior, interest data, and interactions with our and other websites, applications, systems, and advertisementsYESG. Geolocation dataDevice locationNOH. Audio, electronic, visual, thermal, olfactory, or similar informationImages and audio, video or call recordings created in connection with our business activitiesNOI. Professional or employment-related informationBusiness contact details in order to provide you our Services at a business level or job title, work history, and professional qualifications if you apply for a job with usNOJ. Education InformationStudent records and directory informationNOK. Inferences drawn from other personal informationInferences drawn from any of the collected personal information listed above to create a profile or summary about, for example, an individual’s preferences and characteristicsNOL. Sensitive Personal InformationNO\nWe will use and retain the collected personal information as needed to provide the Services or for:\n\nCategory A - As long as the user has an account with us\nCategory B - As long as the user has an account with us\nCategory D - As long as the user has an account with us\nCategory F - As long as the user has an account with us\n\nWe may also collect other personal information outside of these categories through instances where you interact with us in person, online, or by phone or mail in the context of:\n\nReceiving help through our customer support channels;\nParticipation in customer surveys or contests; and\nFacilitation in the delivery of our Services and to respond to your inquiries.\n\nHow do we use and share your personal information?\nMore information about our data collection and sharing practices can be found in this privacy notice.\nYou may contact us by email at support@anara.com, or by referring to the contact details at the bottom of this document.\nIf you are using an authorized agent to exercise your right to opt out we may deny a request if the authorized agent does not submit proof that they have been validly authorized to act on your behalf.\nWill your information be shared with anyone else?\nWe may disclose your personal information with our service providers pursuant to a written contract between us and each service provider. Each service provider is a for-profit entity that processes the information on our behalf, following the same strict privacy protection obligations mandated by the CCPA.\nWe may use your personal information for our own business purposes, such as for undertaking internal research for technological development and demonstration. This is not considered to be “selling” of your personal information.\nAnara Labs, Inc (“Anara”), has not disclosed, sold, or shared any personal information to third parties for a business or commercial purpose in the preceding twelve (12) months. Anara will not sell or share personal information in the future belonging to website visitors, users, and other consumers.\nYour rights with respect to your personal data\nRight to request deletion of the data — Request to delete\nYou can ask for the deletion of your personal information. If you ask us to delete your personal information, we will respect your request and delete your personal information, subject to certain exceptions provided by law, such as (but not limited to) the exercise by another consumer of his or her right to free speech, our compliance requirements resulting from a legal obligation, or any processing that may be required to protect against illegal activities.\nRight to be informed — Request to know\nDepending on the circumstances, you have a right to know:\n\nwhether we collect and use your personal information;\nthe categories of personal information that we collect;\nthe purposes for which the collected personal information is used;\nwhether we sell or share personal information to third parties;\nthe categories of personal information that we sold, shared, or disclosed for a business purpose;\nthe categories of third parties to whom the personal information was sold, shared, or disclosed for a business purpose;\nthe business or commercial purpose for collecting, selling, or sharing personal information; and\nthe specific pieces of personal information we collected about you.\n\nIn accordance with applicable law, we are not obligated to provide or delete consumer information that is de-identified in response to a consumer request or to re-identify individual data to verify a consumer request.\nRight to Non-Discrimination for the Exercise of a Consumer’s Privacy Rights\nWe will not discriminate against you if you exercise your privacy rights.\nRight to Limit Use and Disclosure of Sensitive Personal Information\nWe do not process consumer’s sensitive personal information.\nVerification process\nUpon receiving your request, we will need to verify your identity to determine you are the same person about whom we have the information in our system. These verification efforts require us to ask you to provide information so that we can match it with information you have previously provided us. For instance, depending on the type of request you submit, we may ask you to provide certain information so that we can match the information you provide with the information we already have on file, or we may contact you through a communication method (e.g., phone or email) that you have previously provided to us. We may also use other verification methods as the circumstances dictate.\nWe will only use personal information provided in your request to verify your identity or authority to make the request. To the extent possible, we will avoid requesting additional information from you for the purposes of verification. However, if we cannot verify your identity from the information already maintained by us, we may request that you provide additional information for the purposes of verifying your identity and for security or fraud-prevention purposes. We will delete such additionally provided information as soon as we finish verifying you.\nOther privacy rights\n\nYou may object to the processing of your personal information.\nYou may request correction of your personal data if it is incorrect or no longer relevant, or ask to restrict the processing of the information.\nYou can designate an authorized agent to make a request under the CCPA on your behalf. We may deny a request from an authorized agent that does not submit proof that they have been validly authorized to act on your behalf in accordance with the CCPA.\nYou may request to opt out from future selling or sharing of your personal information to third parties. Upon receiving an opt-out request, we will act upon the request as soon as feasibly possible, but no later than fifteen (15) days from the date of the request submission.\n\nTo exercise these rights, you can contact us by email at support@anara.com, or by referring to the contact details at the bottom of this document. If you have a complaint about how we handle your data, we would like to hear from you.\n13. DO VIRGINIA RESIDENTS HAVE SPECIFIC PRIVACY RIGHTS?\nIn Short: Yes, if you are a resident of Virginia, you may be granted specific rights regarding access to and use of your personal information.\nVirginia CDPA Privacy Notice\nUnder the Virginia Consumer Data Protection Act (CDPA):\n“Consumer” means a natural person who is a resident of the Commonwealth acting only in an individual or household context. It does not include a natural person acting in a commercial or employment context.\n“Personal data” means any information that is linked or reasonably linkable to an identified or identifiable natural person. “Personal data” does not include de-identified data or publicly available information.\n“Sale of personal data” means the exchange of personal data for monetary consideration.\nIf this definition “consumer” applies to you, we must adhere to certain rights and obligations regarding your personal data.\nThe information we collect, use, and disclose about you will vary depending on how you interact with Anara and our Services. To find out more, please visit the following links:\n\nPersonal data we collect\nHow we use your personal data\nWhen and with whom we share your personal data\n\nYour rights with respect to your personal data\n\nRight to be informed whether or not we are processing your personal data\nRight to access your personal data\nRight to correct inaccuracies in your personal data\nRight to request deletion of your personal data\nRight to obtain a copy of the personal data you previously shared with us\nRight to opt out of the processing of your personal data if it is used for targeted advertising, the sale of personal data, or profiling in furtherance of decisions that produce legal or similarly significant effects (“profiling”)\n\nAnara has not sold any personal data to third parties for business or commercial purposes. Anara will not sell personal data in the future belonging to website visitors, users, and other consumers.\nExercise your rights provided under the Virginia CDPA\nMore information about our data collection and sharing practices can be found in this privacy notice.\nYou may contact us by email at support@anara.com, by visiting https://anara.com, or by referring to the contact details at the bottom of this document.\nIf you are using an authorized agent to exercise your rights, we may deny a request if the authorized agent does not submit proof that they have been validly authorized to act on your behalf.\nVerification process\nWe may request that you provide additional information reasonably necessary to verify you and your consumer’s request. If you submit the request through an authorized agent, we may need to collect additional information to verify your identity before processing your request.\nUpon receiving your request, we will respond without undue delay, but in all cases, within forty-five (45) days of receipt. The response period may be extended once by forty-five (45) additional days when reasonably necessary. We will inform you of any such extension within the initial 45-day response period, together with the reason for the extension.\nRight to appeal\nIf we decline to take action regarding your request, we will inform you of our decision and reasoning behind it. If you wish to appeal our decision, please email us at support@anara.com. Within sixty (60) days of receipt of an appeal, we will inform you in writing of any action taken or not taken in response to the appeal, including a written explanation of the reasons for the decisions. If your appeal if denied, you may contact the Attorney General to submit a complaint.\n14. DO WE MAKE UPDATES TO THIS NOTICE?\nIn Short: Yes, we will update this notice as necessary to stay compliant with relevant laws.\nWe may update this privacy notice from time to time. The updated version will be indicated by an updated “Revised” date and the updated version will be effective as soon as it is accessible. If we make material changes to this privacy notice, we may notify you either by prominently posting a notice of such changes or by directly sending you a notification. We encourage you to review this privacy notice frequently to be informed of how we are protecting your information.\n15. HOW CAN YOU CONTACT US ABOUT THIS NOTICE?\nIf you have questions or comments about this notice, you may email us at support@anara.com or by post to:\nAnara Labs, Inc,\nUnit 2\n49 Princes Gate\nLondon, Westminster SW7 2PG\nUnited Kingdom\nIf you are a resident in the United Kingdom, the “data controller” of your personal information is Anara. Anara has appointed Naveed Janmohamed to be its representative in the UK. You can contact them directly regarding the processing of your information by Anara, by email at support@anara.com, by visiting https://anara.com, or by post to:\n49 Princes Gate\nLondon, Westminster SW7 2PG\nEngland\n16. HOW CAN YOU REVIEW, UPDATE, OR DELETE THE DATA WE COLLECT FROM YOU?\nYou have the right to request access to the personal information we collect from you, change that information, or delete it. To request to review, update, or delete your personal information, please contact: support@anara.com",
+          "headings": [
+            "Get started",
+            "Chat",
+            "Import files",
+            "Read",
+            "Write",
+            "Sidebars",
+            "Share",
+            "User interface",
+            "Chrome extension",
+            "Help and support",
+            "Legal",
+            "Privacy Policy"
+          ],
+          "description": "",
+          "category": "Legal"
+        }
+      ]
+    }
+  ],
+  "totalPages": 33
+}

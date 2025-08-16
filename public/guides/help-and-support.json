@@ -1,0 +1,110 @@
+{
+  "group": "Help and support",
+  "pages": [
+    {
+      "title": "Referral program",
+      "href": "/help-and-support/referral-program",
+      "content": "You can earn $10 cash just by referring a friend to Anara. If you know anyone that wants to save time on their research work or studies - now’s a great time to invite them.\nHere’s how it works:\n\nRefer a friend to Anara\nThey sign up for a paid plan with a $10 discount\nYou receive $10 cash 7 days later\n\nIt’s as easy as that. Spread the word about Anara and reap the rewards!\nTo create your referral link: go to Settings, click “Rewards,” enter your PayPal email address, and copy your unique link.\nCurrently, we only support bank transfer payments.\nAnd there’s no limit to how much you can earn.",
+      "headings": [
+        "Get started",
+        "Chat",
+        "Import files",
+        "Read",
+        "Write",
+        "Sidebars",
+        "Share",
+        "User interface",
+        "Chrome extension",
+        "Help and support",
+        "Legal",
+        "Referral program"
+      ],
+      "description": "",
+      "category": "Help and support"
+    },
+    {
+      "title": "Affiliate Program",
+      "href": "/help-and-support/affiliate-program",
+      "content": "You can earn cash by spreading the word about Anara. If you know anyone who wants to optimize their research – now’s the perfect time to share Anara with them.\nHere’s how it works:\n\n\nGet your affiliate link\nRegister with your email and get your link here – it only takes 30 seconds.\n\n\nShare Anara on your socials\nShare your link on social media, group chats, videos, or directly to friends and coworkers.\n\n\nEarn cash\nWhen someone signs up through your link, you earn a 25% of what they pay - every month they stay subscribed.\nFor example, if a friend signs up for a $20/month plan and stays for 10 months, you earn $50. If they choose the $144/year plan, you get $36 upfront – and again each year they renew.\n\n\nFAQs\n\n\nIs there a limit to how much I can earn?\nNope – earn as much as you want.\n\n\nHow long does my link stay active for?\nThe cookie lasts 30 days.\n\n\nWhat currency do you pay out?\nUS dollars.\n\n\nWhat payment methods do you support?\nWe currently support bank transfers.\n\n\nPlease note:\n\nRunning paid ads (Google, Meta, or any other platform) using your affiliate link is strictly prohibited. Violating this policy will result in removal from the program and forfeiture of any pending payouts.",
+      "headings": [
+        "Get started",
+        "Chat",
+        "Import files",
+        "Read",
+        "Write",
+        "Sidebars",
+        "Share",
+        "User interface",
+        "Chrome extension",
+        "Help and support",
+        "Legal",
+        "Affiliate Program"
+      ],
+      "description": "",
+      "category": "Help and support"
+    },
+    {
+      "title": "Accessing your invoice",
+      "href": "/help-and-support/invoices",
+      "content": "To retrieve your invoice in Anara, follow these steps:\n\nLog In: Sign in to your Anara account.\nAccess Settings: Click on you display name in the top left corner of the screen and then click “Settings”.\nNavigate to Billing: Select “More settings” from the menu, then choose “Billing.”\nView Invoices: Within the billing section, you’ll find an option to view your invoices. Click on it to access your latest invoice.",
+      "headings": [
+        "Get started",
+        "Chat",
+        "Import files",
+        "Read",
+        "Write",
+        "Sidebars",
+        "Share",
+        "User interface",
+        "Chrome extension",
+        "Help and support",
+        "Legal",
+        "Accessing your invoice"
+      ],
+      "description": "",
+      "category": "Help and support"
+    },
+    {
+      "title": "Refund policy",
+      "href": "/help-and-support/refund-policy",
+      "content": "Refunds for Anara subscriptions are available within 7 days of the initial payment. If a refund request is made after this period, or after a renewal, it cannot be processed.\nUpon cancellation of a subscription, access to paid features remains available until the end of the current billing cycle.\nFor further assistance or inquiries regarding refunds or account management, feel free to reach out.",
+      "headings": [
+        "Get started",
+        "Chat",
+        "Import files",
+        "Read",
+        "Write",
+        "Sidebars",
+        "Share",
+        "User interface",
+        "Chrome extension",
+        "Help and support",
+        "Legal",
+        "Refund policy"
+      ],
+      "description": "",
+      "category": "Help and support"
+    },
+    {
+      "title": "Get in touch",
+      "href": "/help-and-support/get-in-touch",
+      "content": "You can reach a member of the team anytime by clicking clicking “Support” in the bottom left corner of the app. Here you’ll find options to start a live chat, email support or access this user guide. See our FAQ page for a list of questions we get often.\nOur features were crafted by us but driven by conversations with you. Feel free to reach out via email or message us in our Slack community any time with feedback, negative or positive. We read every single message!\n\nSomething we didn’t cover? Reach out: support@anara.com",
+      "headings": [
+        "Get started",
+        "Chat",
+        "Import files",
+        "Read",
+        "Write",
+        "Sidebars",
+        "Share",
+        "User interface",
+        "Chrome extension",
+        "Help and support",
+        "Legal",
+        "Get in touch"
+      ],
+      "description": "",
+      "category": "Help and support"
+    }
+  ]
+}

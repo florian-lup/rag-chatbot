@@ -1,0 +1,53 @@
+{
+  "group": "User interface",
+  "pages": [
+    {
+      "title": "Keyboard shortcuts",
+      "href": "/user-interface/keyboard-shortcuts",
+      "content": "​General\ncmd/ctrl + \\ to open/close the Left Sidebar\ncmd/ctrl + / to open/close the Right Sidebar\ncmd/ctrl + K to search library\n​Text Editor\ncmd/ctrl + J to open the AI Menu\ncmd/ctrl + L to open the Cite\n​Basics\ncmd/ctrl + C to Copy\ncmd/ctrl + X to Cut\ncmd/ctrl + V to Paste\ncmd/ctrl + Shift + V to Paste without formatting\ncmd/ctrl + Z to Undo\ncmd/ctrl + Shift + Z to Redo\nShift + Enter to Add a line break\n​Text Formatting\ncmd/ctrl + B to Bold\ncmd/ctrl + I to Italicize\ncmd/ctrl + U to Underline\ncmd/ctrl + Shift + X to Strikethrough\ncmd/ctrl + Shift + H to Highlight\ncmd/ctrl + E to Code\n​Paragraph Formatting\ncmd/ctrl + Alt + 0 to Apply normal text style\ncmd/ctrl + Alt + 1 to Apply heading style 1\ncmd/ctrl + Alt + 2 to Apply heading style 2\ncmd/ctrl + Alt + 3 to Apply heading style 3\ncmd/ctrl + Alt + 4 to Apply heading style 4\ncmd/ctrl + Alt + 5 to Apply heading style 5\ncmd/ctrl + Alt + 6 to Apply heading style 6\ncmd/ctrl + Shift + 7 to Ordered list\ncmd/ctrl + Shift + 8 to Bullet list\ncmd/ctrl + Shift + 9 to Task list\ncmd/ctrl + Shift + B to Blockquote\ncmd/ctrl + Shift + L to Left align\ncmd/ctrl + Shift + E to Center align\ncmd/ctrl + Shift + R to Right align\ncmd/ctrl + Shift + J to Justify\ncmd/ctrl + Alt + C to Code block\ncmd/ctrl + , to Subscript\ncmd/ctrl + . to Superscript\n​Text Selection\ncmd/ctrl + A to Select all\nShift + ← to Extend selection one character to the left\nShift + → to Extend selection one character to the right\nShift + ↑ to Extend selection one line up\nShift + ↓ to Extend selection one line down\ncmd/ctrl + Shift + ↑ to Extend selection to the beginning of the document\ncmd/ctrl + Shift + ↓ to Extend selection to the end of the document",
+      "headings": [
+        "Get started",
+        "Chat",
+        "Import files",
+        "Read",
+        "Write",
+        "Sidebars",
+        "Share",
+        "User interface",
+        "Chrome extension",
+        "Help and support",
+        "Legal",
+        "Keyboard shortcuts",
+        "​General",
+        "​Text Editor",
+        "​Basics",
+        "​Text Formatting",
+        "​Paragraph Formatting",
+        "​Text Selection"
+      ],
+      "description": "",
+      "category": "User interface"
+    },
+    {
+      "title": "Themes",
+      "href": "/user-interface/themes",
+      "content": "Anara includes dark and light mode support across the entire platform, including our PDF viewer. This means when you switch to dark mode, both the main interface and any PDF documents you’re viewing will adapt to the darker theme.\nTo change the theme, click your library name in the top left corner, navigate to Theme, and select either light, dark, or system settings.",
+      "headings": [
+        "Get started",
+        "Chat",
+        "Import files",
+        "Read",
+        "Write",
+        "Sidebars",
+        "Share",
+        "User interface",
+        "Chrome extension",
+        "Help and support",
+        "Legal",
+        "Themes"
+      ],
+      "description": "",
+      "category": "User interface"
+    }
+  ]
+}

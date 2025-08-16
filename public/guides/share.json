@@ -1,0 +1,68 @@
+{
+  "group": "Share",
+  "pages": [
+    {
+      "title": "Overview",
+      "href": "/share/share-overview",
+      "content": "When a note is shared with the team, all team members can edit and add text in real time. You’ll see their cursors and changes as they type.",
+      "headings": [
+        "Get started",
+        "Chat",
+        "Import files",
+        "Read",
+        "Write",
+        "Sidebars",
+        "Share",
+        "User interface",
+        "Chrome extension",
+        "Help and support",
+        "Legal",
+        "Overview"
+      ],
+      "description": "",
+      "category": "Share"
+    },
+    {
+      "title": "Creating a share link",
+      "href": "/share/creating-a-share-link",
+      "content": "To create a share link, click “Share” at the top of any chat and then “Publish”. The share link is automatically copied to your clipboard.\nPeople visiting your share link will be able to see all messages sent before you created the link. To include new messages you’ve sent since then, simply open the share menu and click “Republish” to update the link.",
+      "headings": [
+        "Get started",
+        "Chat",
+        "Import files",
+        "Read",
+        "Write",
+        "Sidebars",
+        "Share",
+        "User interface",
+        "Chrome extension",
+        "Help and support",
+        "Legal",
+        "Creating a share link"
+      ],
+      "description": "",
+      "category": "Share"
+    },
+    {
+      "title": "Receiving a share link",
+      "href": "/share/receiving-a-share-link",
+      "content": "Anyone who has access to a shared link can view the linked conversation and the associated file. They’ll have the option to continue the conversation. If they do so, the file will be added to their library along with the shared message history.",
+      "headings": [
+        "Get started",
+        "Chat",
+        "Import files",
+        "Read",
+        "Write",
+        "Sidebars",
+        "Share",
+        "User interface",
+        "Chrome extension",
+        "Help and support",
+        "Legal",
+        "Receiving a share link"
+      ],
+      "description": "",
+      "category": "Share"
+    }
+  ]
+}

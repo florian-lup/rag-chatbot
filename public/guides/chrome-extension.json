@@ -1,0 +1,26 @@
+{
+  "group": "Chrome extension",
+  "pages": [
+    {
+      "title": "Overview",
+      "href": "/chrome-extension/chrome-overview",
+      "content": "The Anara Web Clipper Chrome extension lets you effortlessly save PDFs, webpages, and YouTube videos directly into your Anara library with just one click—no downloads necessary.\n\nGetting Started:\n\nInstall the Anara Web Clipper extension from the Chrome Web Store.\nPin it to your browser toolbar for quick access.\nWhenever you find a useful PDF, webpage, or YouTube video, click the Anara icon and select “Add to Library.”\n\nIdeal for researchers, academics, and knowledge professionals who want an easy way to collect and organize important online content seamlessly.\nStart simplifying your research workflow today with Anara.",
+      "headings": [
+        "Get started",
+        "Chat",
+        "Import files",
+        "Read",
+        "Write",
+        "Sidebars",
+        "Share",
+        "User interface",
+        "Chrome extension",
+        "Help and support",
+        "Legal",
+        "Overview"
+      ],
+      "description": "",
+      "category": "Chrome extension"
+    }
+  ]
+}

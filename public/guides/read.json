@@ -1,0 +1,50 @@
+{
+  "group": "Read",
+  "pages": [
+    {
+      "title": "Overview",
+      "href": "/read/overview",
+      "content": "Anara’s built-in PDF viewer makes it easy to read and work with your documents in one place. Use the panel on the left to switch between page thumbnails, an outline view, or in-document search. You can zoom, navigate between pages, and adjust the view to suit your reading style.",
+      "headings": [
+        "Get started",
+        "Chat",
+        "Import files",
+        "Read",
+        "Write",
+        "Sidebars",
+        "Share",
+        "User interface",
+        "Chrome extension",
+        "Help and support",
+        "Legal",
+        "Overview"
+      ],
+      "description": "",
+      "category": "Read"
+    },
+    {
+      "title": "Annotate with highlights and comments",
+      "href": "/read/annotating",
+      "content": "Annotations in Anara let you capture, organize, and discuss key information directly within your documents. You can highlight important passages, add color-coded notes, and leave comments for yourself or collaborators — all without leaving the viewer.\n​Creating a highlight\n\nOpen a document.\nSelect any text to bring up the annotation toolbar.\nChoose a highlight color from the palette to mark the text.\nYour highlight will be saved automatically and appear in the Annotations tab on the right-hand panel.\n\n​Adding a comment\n\nAfter highlighting text, click Comment in the annotation toolbar.\nType your note in the comment box and press Enter to save.\nComments appear in the Annotations tab alongside the highlighted text.\n\n​Viewing and managing\n\nOpen the Annotations tab in the right-hand panel to see all highlights and comments for the document.\nClick any annotation in the list to navigate instantly to that specific location in the document.\nHover over any highlight to quickly view its associated comments.",
+      "headings": [
+        "Get started",
+        "Chat",
+        "Import files",
+        "Read",
+        "Write",
+        "Sidebars",
+        "Share",
+        "User interface",
+        "Chrome extension",
+        "Help and support",
+        "Legal",
+        "Annotate with highlights and comments",
+        "​Creating a highlight",
+        "​Adding a comment",
+        "​Viewing and managing"
+      ],
+      "description": "",
+      "category": "Read"
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "group": "Import files",
+  "pages": [
+    {
+      "title": "Overview",
+      "href": "/import/overview",
+      "content": "Anara offers several ways to add content to your library.\n​Upload menu\nYou can upload files or entire folders by clicking the + icon at the top of the left sidebar.\n​Drag and drop\nIf you prefer drag and drop, you can drop files into the main library table, into a specific folder’s table, or directly onto a folder in the left sidebar.\n​Via URL or ID\nYou can also bring content in using the in-app import tools. Select Import → URL from the + menu to add websites, PDFs, or YouTube videos by pasting a link. For research papers, use Import → ID to import directly by DOI, PMID, or arXiv ID.\n​URL prefix\nIf you already have the link open in your browser, you can use the URL prefix method. Simply type anara.com/ before any YouTube, website, or document URL in your browser’s address bar and press Enter—just make sure you’re logged in to Anara first.\n​Chrome extension\nFinally, you can install our Web Clipper Chrome extension to save content while browsing the web. It lets you import files, folders, and web pages directly to your library in a single click. See the Chrome extension guide.",
+      "headings": [
+        "Get started",
+        "Chat",
+        "Import files",
+        "Read",
+        "Write",
+        "Sidebars",
+        "Share",
+        "User interface",
+        "Chrome extension",
+        "Help and support",
+        "Legal",
+        "Overview",
+        "​Upload menu",
+        "​Drag and drop",
+        "​Via URL or ID",
+        "​URL prefix",
+        "​Chrome extension"
+      ],
+      "description": "",
+      "category": "Import files"
+    },
+    {
+      "title": "Supported file types for import",
+      "href": "/import/file-types",
+      "content": "Anara supports importing all major document, image, video, and audio file types.\n\nDocuments: pdf, doc, docx, epub, ppt, pptx, md, txt\nWebsites: url\nImages: jpg, jpeg, png, tiff, bmp, heic\nVideos: mp4, YouTube url\nAudio: mp3, wav\n\nSomething missing from this list? Reach out with a suggestion.\nWe automatically apply OCR to supported image-based documents, including poorly formatted and handwritten documents, so their text is searchable. See OCR support for details.",
+      "headings": [
+        "Get started",
+        "Chat",
+        "Import files",
+        "Read",
+        "Write",
+        "Sidebars",
+        "Share",
+        "User interface",
+        "Chrome extension",
+        "Help and support",
+        "Legal",
+        "Supported file types for import"
+      ],
+      "description": "",
+      "category": "Import files"
+    },
+    {
+      "title": "OCR support",
+      "href": "/import/ocr-support",
+      "content": "Our system can automatically extract text from scanned documents and images using Optical Character Recognition (OCR). This allows you to search, highlight, and work with text that would otherwise be locked inside image-based files.\nThe OCR process is applied automatically to all imported content containing image-based text, with no manual activation required.\n​How it works\nWhen you upload a supported file type containing image-based text, Anara runs OCR in the background. Once processed, the extracted text is stored alongside the file so it can be included in full-text search results, highlighted and copied, and used in Anara’s summarization and analysis tools\n​Supported formats\nOur OCR feature supports a wide range of document types:\n\nPDFs with scanned pages or image content\nAll image files (jpg, jpeg, png, tiff, bmp, heic)\nScreenshots and images embedded within documents\nHandwritten notes (with support for multiple languages)",
+      "headings": [
+        "Get started",
+        "Chat",
+        "Import files",
+        "Read",
+        "Write",
+        "Sidebars",
+        "Share",
+        "User interface",
+        "Chrome extension",
+        "Help and support",
+        "Legal",
+        "OCR support",
+        "​How it works",
+        "​Supported formats"
+      ],
+      "description": "",
+      "category": "Import files"
+    }
+  ]
+}

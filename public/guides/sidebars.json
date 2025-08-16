@@ -1,0 +1,80 @@
+{
+  "group": "Sidebars",
+  "pages": [
+    {
+      "title": "Left sidebar",
+      "href": "/sidebars/left-sidebar",
+      "content": "The left sidebar in Anara keeps all your essential tools and content within reach as you navigate Anara. It stays visible as you work so you can quickly move between files, chats, folders, and other parts of the app without losing your place.\n​Account menu\nAt the very top, you’ll see your account or team name. Click it to access a dropdown menu where you can open Settings, change your Theme, or log out of Anara.\n​Create menu (+ button)\nThe + button next to the team menu opens the create/import menu. From here you can upload files or folders, import content via URL, ID, or Zotero, start a new chat or note, create a new folder, record audio, and learn about supported file types.\n​Navigation menu\nThe navigation menu is your primary way to access different parts of Anara. It includes:\n\nHome. Go to your workspace’s main view where you can ask questions for answers from the web and the files in your library.\nLibrary. Browse, organize, and access all your imported files.\nSearch. Search for any files in your library.\n\n​Chats\nShows your recent chats with Anara. Click More to expand the list and see your full chat history.\n​Folders\nLists all your folders. You can click a folder to open it, expand a folder to see subfolders, right-click or use the menu to rename, separate, or delete folders, and drag and drop files onto a folder to move them there.\n​Bottom menu\nAt the bottom of the sidebar, you’ll find three important options:\n\nInvite and earn. Share Anara with friends and colleagues to earn rewards.\nFeedback. Provide suggestions or report issues directly through the sidebar.\nSupport. Access comprehensive help resources, including user guides, direct support contact, issue reporting, and release notes.",
+      "headings": [
+        "Get started",
+        "Chat",
+        "Import files",
+        "Read",
+        "Write",
+        "Sidebars",
+        "Share",
+        "User interface",
+        "Chrome extension",
+        "Help and support",
+        "Legal",
+        "Left sidebar",
+        "​Account menu",
+        "​Create menu (+ button)",
+        "​Navigation menu",
+        "​Chats",
+        "​Folders",
+        "​Bottom menu"
+      ],
+      "description": "",
+      "category": "Sidebars"
+    },
+    {
+      "title": "Right sidebar",
+      "href": "/sidebars/right-sidebar",
+      "content": "The right sidebar in Anara shows information and options related to the file, folder, or chat you have open. Its content changes depending on the context, giving you quick access to details, related files, and your annotations.\n​Details tab\nThe Details tab displays key information about the current file. This can include the title, authors, publication details, tags, citation count, and links such as the DOI or source URL.\nDepending on the file type, you may also see a summary, abstract, and full citation. From here you can copy citations or change the citation format in settings.\n​Related tab\nThe Related tab shows connections to other files and resources. This includes papers that cite the current file, papers it cites, related items from your library, and related items from the internet.\n​Annotations tab\nThe Annotations tab lists all highlights and comments for the current file.\nYou can click an annotation to jump to that location in the document, change its highlight color, or edit and delete it. You can also filter annotations by color to focus on specific types of notes.",
+      "headings": [
+        "Get started",
+        "Chat",
+        "Import files",
+        "Read",
+        "Write",
+        "Sidebars",
+        "Share",
+        "User interface",
+        "Chrome extension",
+        "Help and support",
+        "Legal",
+        "Right sidebar",
+        "​Details tab",
+        "​Related tab",
+        "​Annotations tab"
+      ],
+      "description": "",
+      "category": "Sidebars"
+    },
+    {
+      "title": "Notes sidebar",
+      "href": "/sidebars/notes-sidebar",
+      "content": "The notes sidebar in Anara shows a global list of all notes in your library. This means you can see and access every note you’ve created.\n​Notes list\nThe main view displays your notes sorted by most recent. Each note is shown with its title, and clicking a note opens it in the sidebar so you can read or edit it.\n​Creating a note\nClick the + button in the top-right corner of the notes sidebar to create a new note. Notes can be used to capture ideas, summaries, or references that you want to keep in one place, regardless of where you are in Anara.\n​Editing and managing notes\nOpen any note to make edits directly. You can rename a note, update its content, or delete it using the menu in the top-right corner of the note view.\nThis menu also includes an option to open the note in full view for easier reading and editing.",
+      "headings": [
+        "Get started",
+        "Chat",
+        "Import files",
+        "Read",
+        "Write",
+        "Sidebars",
+        "Share",
+        "User interface",
+        "Chrome extension",
+        "Help and support",
+        "Legal",
+        "Notes sidebar",
+        "​Notes list",
+        "​Creating a note",
+        "​Editing and managing notes"
+      ],
+      "description": "",
+      "category": "Sidebars"
+    }
+  ]
+}

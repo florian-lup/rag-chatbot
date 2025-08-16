@@ -1,0 +1,205 @@
+{
+  "timestamp": "2025-08-16T16:16:13.929Z",
+  "baseUrl": "https://docs.anara.com",
+  "totalPages": 33,
+  "categories": [
+    {
+      "group": "Get started",
+      "pageCount": 3,
+      "pages": [
+        {
+          "title": "Welcome",
+          "href": "/get-started/welcome"
+        },
+        {
+          "title": "Concepts",
+          "href": "/get-started/core-concepts"
+        },
+        {
+          "title": "Filetypes",
+          "href": "/get-started/anara-filetypes"
+        }
+      ]
+    },
+    {
+      "group": "Chat",
+      "pageCount": 6,
+      "pages": [
+        {
+          "title": "Overview",
+          "href": "/chat/chat-overview"
+        },
+        {
+          "title": "Agents",
+          "href": "/chat/chat-agents"
+        },
+        {
+          "title": "Chat with folders",
+          "href": "/chat/chat-with-folders"
+        },
+        {
+          "title": "Citations",
+          "href": "/chat/citations"
+        },
+        {
+          "title": "Edit sent messages",
+          "href": "/chat/edit-sent-messages"
+        },
+        {
+          "title": "Chat settings",
+          "href": "/chat/chat-settings"
+        }
+      ]
+    },
+    {
+      "group": "Import files",
+      "pageCount": 3,
+      "pages": [
+        {
+          "title": "Overview",
+          "href": "/import/overview"
+        },
+        {
+          "title": "Supported file types for import",
+          "href": "/import/file-types"
+        },
+        {
+          "title": "OCR support",
+          "href": "/import/ocr-support"
+        }
+      ]
+    },
+    {
+      "group": "Read",
+      "pageCount": 2,
+      "pages": [
+        {
+          "title": "Overview",
+          "href": "/read/overview"
+        },
+        {
+          "title": "Annotate with highlights and comments",
+          "href": "/read/annotating"
+        }
+      ]
+    },
+    {
+      "group": "Write",
+      "pageCount": 2,
+      "pages": [
+        {
+          "title": "AI autocomplete",
+          "href": "/write/ai-autocomplete"
+        },
+        {
+          "title": "Citing in Anara",
+          "href": "/write/citing"
+        }
+      ]
+    },
+    {
+      "group": "Sidebars",
+      "pageCount": 3,
+      "pages": [
+        {
+          "title": "Left sidebar",
+          "href": "/sidebars/left-sidebar"
+        },
+        {
+          "title": "Right sidebar",
+          "href": "/sidebars/right-sidebar"
+        },
+        {
+          "title": "Notes sidebar",
+          "href": "/sidebars/notes-sidebar"
+        }
+      ]
+    },
+    {
+      "group": "Share",
+      "pageCount": 3,
+      "pages": [
+        {
+          "title": "Overview",
+          "href": "/share/share-overview"
+        },
+        {
+          "title": "Creating a share link",
+          "href": "/share/creating-a-share-link"
+        },
+        {
+          "title": "Receiving a share link",
+          "href": "/share/receiving-a-share-link"
+        }
+      ]
+    },
+    {
+      "group": "User interface",
+      "pageCount": 2,
+      "pages": [
+        {
+          "title": "Keyboard shortcuts",
+          "href": "/user-interface/keyboard-shortcuts"
+        },
+        {
+          "title": "Themes",
+          "href": "/user-interface/themes"
+        }
+      ]
+    },
+    {
+      "group": "Chrome extension",
+      "pageCount": 1,
+      "pages": [
+        {
+          "title": "Overview",
+          "href": "/chrome-extension/chrome-overview"
+        }
+      ]
+    },
+    {
+      "group": "Help and support",
+      "pageCount": 5,
+      "pages": [
+        {
+          "title": "Referral program",
+          "href": "/help-and-support/referral-program"
+        },
+        {
+          "title": "Affiliate Program",
+          "href": "/help-and-support/affiliate-program"
+        },
+        {
+          "title": "Accessing your invoice",
+          "href": "/help-and-support/invoices"
+        },
+        {
+          "title": "Refund policy",
+          "href": "/help-and-support/refund-policy"
+        },
+        {
+          "title": "Get in touch",
+          "href": "/help-and-support/get-in-touch"
+        }
+      ]
+    },
+    {
+      "group": "Legal",
+      "pageCount": 3,
+      "pages": [
+        {
+          "title": "Security",
+          "href": "/legal/security"
+        },
+        {
+          "title": "Terms & Conditions",
+          "href": "/legal/terms"
+        },
+        {
+          "title": "Privacy Policy",
+          "href": "/legal/privacy"
+        }
+      ]
+    }
+  ]
+}
