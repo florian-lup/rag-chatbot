@@ -11,8 +11,14 @@ async function debugScraper() {
     }
     const html = await response.text();
 
+    // Ensure public/changelog directory exists
+    const changelogDir = path.join(process.cwd(), "public", "changelog");
+    if (!fs.existsSync(changelogDir)) {
+      fs.mkdirSync(changelogDir, { recursive: true });
+    }
+
     // Save the raw HTML for inspection
-    const htmlPath = path.join(process.cwd(), "public", "changelog-raw.html");
+    const htmlPath = path.join(changelogDir, "changelog-raw.html");
     fs.writeFileSync(htmlPath, html);
     console.log(`✅ Raw HTML saved to ${htmlPath}`);
 
@@ -26,7 +32,7 @@ async function debugScraper() {
       const sampleSection = html.substring(startIndex, Math.min(startIndex + 5000, html.length));
 
       // Save sample section
-      const samplePath = path.join(process.cwd(), "public", "changelog-sample.html");
+      const samplePath = path.join(changelogDir, "changelog-sample.html");
       fs.writeFileSync(samplePath, sampleSection);
       console.log(`✅ Sample section saved to ${samplePath}`);
 
@@ -84,8 +90,8 @@ async function debugScraper() {
 
     console.log("\n💡 Suggestions:");
     console.log("================================");
-    console.log("1. Check public/changelog-raw.html for the full HTML");
-    console.log("2. Check public/changelog-sample.html for a sample section");
+    console.log("1. Check public/changelog/changelog-raw.html for the full HTML");
+    console.log("2. Check public/changelog/changelog-sample.html for a sample section");
     console.log("3. Look for consistent patterns in the HTML structure");
     console.log("4. Consider using a proper HTML parser like cheerio for better extraction");
   } catch (error) {

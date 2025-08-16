@@ -15,14 +15,15 @@ async function scrapeChangelog() {
     console.log("📊 Parsing changelog entries...");
     const sections = parseChangelogHTML(html);
 
-    // Ensure public directory exists
+    // Ensure public/changelog directory exists
     const publicDir = path.join(process.cwd(), "public");
-    if (!fs.existsSync(publicDir)) {
-      fs.mkdirSync(publicDir, { recursive: true });
+    const changelogDir = path.join(publicDir, "changelog");
+    if (!fs.existsSync(changelogDir)) {
+      fs.mkdirSync(changelogDir, { recursive: true });
     }
 
     // Save to JSON file
-    const outputPath = path.join(publicDir, "changelog.json");
+    const outputPath = path.join(changelogDir, "changelog.json");
     fs.writeFileSync(outputPath, JSON.stringify(sections, null, 2));
 
     console.log(`✅ Changelog saved to ${outputPath}`);

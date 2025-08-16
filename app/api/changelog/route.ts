@@ -5,7 +5,7 @@ import path from "path";
 export async function GET() {
   try {
     // Read from the scraped JSON file
-    const jsonPath = path.join(process.cwd(), "public", "changelog.json");
+    const jsonPath = path.join(process.cwd(), "public", "changelog", "changelog.json");
 
     if (!fs.existsSync(jsonPath)) {
       console.log('No changelog file found. Run "npm run scrape:changelog" to generate it.');
