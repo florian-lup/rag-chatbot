@@ -52,7 +52,7 @@ export function AppSidebar() {
         </div>
       </SidebarHeader>
 
-      <SidebarContent className="overflow-auto">
+      <SidebarContent className="overflow-y-auto overflow-x-hidden">
         <div className="px-4 py-4 space-y-6">
           {loading && (
             <div className="space-y-4">
