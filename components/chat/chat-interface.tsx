@@ -3,7 +3,7 @@
 import React, { useState, useRef, useCallback } from "react";
 import { Send, Bot, Loader2, FileText, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
+import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Alert, AlertDescription } from "@/components/ui/alert";
@@ -25,13 +25,13 @@ export function ChatInterface() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
-  const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   // Auto-scroll to bottom when new messages arrive
   useAutoScrollToBottom(messagesEndRef, [messages]);
 
-  // Focus textarea on mount
-  useAutoFocus(textareaRef);
+  // Focus input on mount
+  useAutoFocus(inputRef);
 
   const handleSubmit = useCallback(
     async (e: React.FormEvent) => {
@@ -90,7 +90,7 @@ export function ChatInterface() {
         setError(err instanceof Error ? err.message : "An unexpected error occurred");
       } finally {
         setIsLoading(false);
-        textareaRef.current?.focus();
+        inputRef.current?.focus();
       }
     },
     [input, isLoading, messages],
@@ -224,13 +224,13 @@ export function ChatInterface() {
       <form onSubmit={handleSubmit} className="border-t flex-shrink-0">
         <div className="max-w-4xl mx-auto p-4">
           <div className="flex gap-2">
-            <Textarea
-              ref={textareaRef}
+            <Input
+              ref={inputRef}
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
               placeholder="Ask a question about Anara..."
-              className="flex-1 min-h-[60px] max-h-[200px] resize-none"
+              className="flex-1"
               disabled={isLoading}
             />
             <Button
@@ -247,7 +247,7 @@ export function ChatInterface() {
             </Button>
           </div>
           <p className="text-xs text-muted-foreground mt-2">
-            Press Enter to send, Shift+Enter for new line
+            Press Enter to send
           </p>
         </div>
       </form>

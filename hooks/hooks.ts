@@ -15,8 +15,8 @@ export function useAutoFocus<T extends HTMLElement>(ref: RefObject<T | null>) {
 
 export function useEnterToSubmit(submit: () => void) {
   return useCallback(
-    (e: KeyboardEvent<HTMLTextAreaElement>) => {
-      if (e.key === "Enter" && !e.shiftKey) {
+    (e: KeyboardEvent<HTMLInputElement>) => {
+      if (e.key === "Enter") {
         e.preventDefault();
         submit();
       }
