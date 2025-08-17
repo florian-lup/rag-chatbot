@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { RAGService } from "@/lib/rag-service";
-import type { ChatMessage, SourcePreview, ChatApiRequest } from "@/types/types";
+import type { ChatMessage, ChatApiRequest } from "@/types/types";
 
 // Initialize RAG service
 let ragService: RAGService | null = null;
@@ -53,36 +53,19 @@ export async function POST(request: NextRequest) {
     console.log(`🚀 Starting RAG pipeline processing...`);
 
     // Process the query through the RAG pipeline
-    const result = await service.processQuery(message, conversationHistory as ChatMessage[]);
+    const answer = await service.processQuery(message, conversationHistory as ChatMessage[]);
 
     const processingTime = Date.now() - startTime;
     console.log(`📤 Response prepared:`);
-    console.log(`   - Answer length: ${result.answer.length} characters`);
-    console.log(`   - Sources found: ${result.sources.length}`);
+    console.log(`   - Answer length: ${answer.length} characters`);
     console.log(`   - Processing time: ${processingTime}ms`);
-
-    if (result.sources.length > 0) {
-      console.log(
-        `   - Source scores: [${result.sources.map((s) => s.score.toFixed(4)).join(", ")}]`,
-      );
-    }
-
     console.log("===============================\n");
 
     // Return the response
     return NextResponse.json({
       success: true,
       data: {
-        answer: result.answer,
-        sources: result.sources.map(
-          (source): SourcePreview => ({
-            text: source.text.substring(0, 200) + "...", // Truncate for preview
-            source: source.metadata.source,
-            section: source.metadata.section,
-            subsection: source.metadata.subsection,
-            score: source.score,
-          }),
-        ),
+        answer,
       },
     });
   } catch (error) {

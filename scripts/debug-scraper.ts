@@ -23,9 +23,10 @@ async function debugScraper() {
     console.log(`✅ Raw HTML saved to ${htmlPath}`);
 
     // Extract a sample section for analysis - look for main content
-    const mainContentPattern = /<main[^>]*>|<article[^>]*>|class="[^"]*content[^"]*"|id="[^"]*content[^"]*"/gi;
+    const mainContentPattern =
+      /<main[^>]*>|<article[^>]*>|class="[^"]*content[^"]*"|id="[^"]*content[^"]*"/gi;
     const contentMatches = html.match(mainContentPattern);
-    
+
     let sampleSection = html;
     if (contentMatches && contentMatches.length > 0) {
       // Try to find the main content area
@@ -89,9 +90,7 @@ async function debugScraper() {
     console.log(
       `"Tutorial" or "Guide" found: ${(sampleSection.match(/tutorial|guide/gi) || []).length} times`,
     );
-    console.log(
-      `"API" found: ${(sampleSection.match(/\bapi\b/gi) || []).length} times`,
-    );
+    console.log(`"API" found: ${(sampleSection.match(/\bapi\b/gi) || []).length} times`);
 
     // Check for paragraph structures
     const paragraphs = sampleSection.match(/<p[^>]*>/gi) || [];
@@ -111,7 +110,7 @@ async function debugScraper() {
 
     // Look for data attributes
     const dataAttrs = sampleSection.match(/data-[a-zA-Z-]+="[^"]*"/gi) || [];
-    const uniqueDataAttrs = new Set(dataAttrs.map((attr) => attr.split('=')[0]));
+    const uniqueDataAttrs = new Set(dataAttrs.map((attr) => attr.split("=")[0]));
     console.log(`\nData attributes found: ${uniqueDataAttrs.size}`);
     if (uniqueDataAttrs.size > 0) {
       console.log("Sample data attributes:", Array.from(uniqueDataAttrs).slice(0, 10));

@@ -10,6 +10,7 @@ export interface ChatMessage {
 export interface DocumentMetadata {
   source: string;
   section: string;
+  title?: string;
   subsection?: string;
 }
 
@@ -20,15 +21,6 @@ export interface RetrievedDocument {
   metadata: DocumentMetadata;
 }
 
-// What the API returns to the UI for sources (preview, already flattened)
-export interface SourcePreview {
-  text: string; // truncated preview
-  source: string;
-  section: string;
-  subsection?: string;
-  score: number;
-}
-
 // API request/response contracts
 export interface ChatApiRequest {
   message: string;
@@ -37,7 +29,6 @@ export interface ChatApiRequest {
 
 export interface ChatApiResponseData {
   answer: string;
-  sources: SourcePreview[];
 }
 
 // Shared document chunk schema used by scripts

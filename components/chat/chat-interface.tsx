@@ -1,22 +1,20 @@
 "use client";
 
 import React, { useState, useRef, useCallback } from "react";
-import { Send, Bot, Loader2, FileText, AlertCircle } from "lucide-react";
+import { Send, Bot, Loader2, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import type { Components } from "react-markdown";
-import type { ChatMessage as ApiChatMessage, SourcePreview } from "@/types/types";
+import type { ChatMessage as ApiChatMessage } from "@/types/types";
 import { useAutoFocus, useAutoScrollToBottom, useEnterToSubmit } from "@/hooks/hooks";
 
 interface UIMessage extends ApiChatMessage {
   id: string;
   timestamp: Date;
-  sources?: SourcePreview[];
 }
 
 export function ChatInterface() {
@@ -80,7 +78,6 @@ export function ChatInterface() {
           id: (Date.now() + 1).toString(),
           role: "assistant",
           content: data.data.answer,
-          sources: data.data.sources,
           timestamp: new Date(),
         };
 
@@ -163,24 +160,6 @@ export function ChatInterface() {
                   </CardContent>
                 </Card>
 
-                {/* Sources */}
-                {message.sources && message.sources.length > 0 && (
-                  <div className="flex flex-wrap gap-1">
-                    {message.sources.map((source, index) => (
-                      <Badge
-                        key={index}
-                        variant="secondary"
-                        className="text-xs cursor-pointer hover:bg-secondary/80"
-                        title={`${source.text}\n\nScore: ${source.score.toFixed(2)}`}
-                      >
-                        <FileText className="w-3 h-3 mr-1" />
-                        {source.source} - {source.section}
-                        {source.subsection && ` (${source.subsection})`}
-                      </Badge>
-                    ))}
-                  </div>
-                )}
-
                 {/* Timestamp */}
                 <span className="text-xs text-muted-foreground">
                   {message.timestamp.toLocaleTimeString()}
@@ -246,9 +225,7 @@ export function ChatInterface() {
               )}
             </Button>
           </div>
-          <p className="text-xs text-muted-foreground mt-2">
-            Press Enter to send
-          </p>
+          <p className="text-xs text-muted-foreground mt-2">Press Enter to send</p>
         </div>
       </form>
     </div>

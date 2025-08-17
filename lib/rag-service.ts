@@ -118,6 +118,7 @@ export class RAGService {
           console.log(`      Score: ${(match.score || 0).toFixed(4)}`);
           console.log(`      Source: ${String(md.source ?? "unknown")}`);
           console.log(`      Section: ${String(md.section ?? "unknown")}`);
+          console.log(`      Title: ${String(md.title ?? "unknown")}`);
           console.log(`      Text preview: "${String(md.text ?? "").substring(0, 100)}..."`);
         });
       } else {
@@ -155,6 +156,7 @@ export class RAGService {
             metadata: {
               source: String(md.source ?? ""),
               section: String(md.section ?? ""),
+              title: md.title !== undefined ? String(md.title) : undefined,
               subsection: md.subsection !== undefined ? String(md.subsection) : undefined,
             },
           };
@@ -165,8 +167,9 @@ export class RAGService {
       if (documents.length > 0) {
         console.log(`📑 Retrieved documents summary:`);
         documents.forEach((doc, index) => {
+          const titleDisplay = doc.metadata.title ? ` - "${doc.metadata.title}"` : "";
           console.log(
-            `   ${index + 1}. ${doc.metadata.source} - ${doc.metadata.section} (score: ${doc.score.toFixed(4)})`,
+            `   ${index + 1}. ${doc.metadata.section}${titleDisplay} (${doc.metadata.source}) - score: ${doc.score.toFixed(4)}`,
           );
         });
       }
@@ -259,13 +262,7 @@ ${context}`;
   /**
    * Complete RAG pipeline: retrieve and answer
    */
-  async processQuery(
-    userQuery: string,
-    conversationHistory: ChatMessage[] = [],
-  ): Promise<{
-    answer: string;
-    sources: RetrievedDocument[];
-  }> {
+  async processQuery(userQuery: string, conversationHistory: ChatMessage[] = []): Promise<string> {
     try {
       // Check index stats on first query (helpful for debugging)
       await this.getIndexStats();
@@ -280,10 +277,7 @@ ${context}`;
         console.log(`   • Query not matching indexed content semantically`);
         console.log(`   • Incorrect index name or configuration`);
 
-        return {
-          answer: config.chat.noResultsMessage,
-          sources: [],
-        };
+        return config.chat.noResultsMessage;
       }
 
       // Generate answer
@@ -295,10 +289,7 @@ ${context}`;
       console.log(answer);
       console.log("========================\n");
 
-      return {
-        answer,
-        sources: retrievedDocuments,
-      };
+      return answer;
     } catch (error) {
       console.error("❌ Error processing query:", error);
       throw error;

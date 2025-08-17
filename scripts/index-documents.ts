@@ -11,6 +11,28 @@ import type { DocumentChunk as SharedDocumentChunk } from "@/types/types";
 
 type DocumentChunk = SharedDocumentChunk;
 
+// Define the structure of the scraped documentation
+interface DocPage {
+  title: string;
+  href: string;
+  content: string;
+  headings: string[];
+  description: string;
+  category: string;
+}
+
+interface DocCategory {
+  group: string;
+  pages: DocPage[];
+}
+
+interface DocData {
+  timestamp: string;
+  baseUrl: string;
+  categories: DocCategory[];
+  totalPages: number;
+}
+
 class DocumentIndexer {
   private pinecone: Pinecone;
   private openai: OpenAI;
@@ -28,52 +50,41 @@ class DocumentIndexer {
   }
 
   /**
-   * Get a summary of the document for context
+   * Get a summary of the page for context
    */
-  private getDocumentSummary(filename: string): string {
-    const summaries: Record<string, string> = {
-      "welcome.md":
-        "Overview of Anara, an AI-enabled research workspace with features for finding, understanding, organizing and producing scientific content",
-      "concepts.md":
-        "Key concepts and terminology used in Anara including workspace, library, folders, files, agents, chat, queries, and references",
-      "filetypes.md":
-        "Supported file formats in Anara including documents, images, audio, video, webpages, notes, and flashcards",
-    };
+  private getPageSummary(page: DocPage): string {
+    // Use description if available, otherwise create a summary from title and category
+    if (page.description && page.description.trim()) {
+      return page.description;
+    }
 
-    return summaries[filename] || `Documentation about ${filename.replace(".md", "")}`;
+    // Generate a default summary based on title and category
+    return `${page.category} documentation about ${page.title}`;
   }
 
   /**
-   * Parse markdown content using simple size-based chunking
+   * Parse page content using size-based chunking
    */
-  private parseMarkdownBySemanticGroups(content: string, filename: string): DocumentChunk[] {
+  private parsePageContent(page: DocPage): DocumentChunk[] {
+    const content = page.content;
     const lines = content.split("\n");
     const chunks: DocumentChunk[] = [];
 
     // Get chunking configuration from config
     const { minChunkSize, maxChunkSize, overlapLines } = config.chunking;
 
-    // Get document summary for enhanced context
-    const documentSummary = this.getDocumentSummary(filename);
+    // Get page summary for enhanced context
+    const pageSummary = this.getPageSummary(page);
 
-    // For small documents, consider keeping them whole
+    // For small content, consider keeping it whole
     const documentText = lines.join("\n");
     if (documentText.length <= maxChunkSize) {
-      // Document is small enough to be a single chunk
-      chunks.push(
-        this.createEnhancedChunk(
-          documentText,
-          filename,
-          filename.replace(".md", ""),
-          "",
-          0,
-          documentSummary,
-        ),
-      );
+      // Content is small enough to be a single chunk
+      chunks.push(this.createEnhancedChunk(documentText, page, "", 0, pageSummary));
       return chunks;
     }
 
-    // For larger documents, chunk by size with overlap
+    // For larger content, chunk by size with overlap
     let currentChunk: string[] = [];
     let chunkIndex = 0;
 
@@ -97,11 +108,10 @@ class DocumentIndexer {
         chunks.push(
           this.createEnhancedChunk(
             chunkToSave,
-            filename,
-            filename.replace(".md", ""),
+            page,
             `Part ${chunkIndex + 1}`,
             chunkIndex++,
-            documentSummary,
+            pageSummary,
           ),
         );
 
@@ -119,11 +129,10 @@ class DocumentIndexer {
         chunks.push(
           this.createEnhancedChunk(
             currentText,
-            filename,
-            filename.replace(".md", ""),
+            page,
             chunks.length > 0 ? `Part ${chunkIndex + 1}` : "",
             chunkIndex,
-            documentSummary,
+            pageSummary,
           ),
         );
       } else if (chunks.length > 0) {
@@ -132,11 +141,10 @@ class DocumentIndexer {
         const combinedText = lastChunk.text + "\n\n" + currentText;
         chunks[chunks.length - 1] = this.createEnhancedChunk(
           combinedText,
-          filename,
-          filename.replace(".md", ""),
+          page,
           lastChunk.metadata.subsection || "",
           lastChunk.metadata.chunkIndex,
-          documentSummary,
+          pageSummary,
         );
       }
     }
@@ -145,24 +153,23 @@ class DocumentIndexer {
   }
 
   /**
-   * Create an enhanced chunk with document-level context
+   * Create an enhanced chunk with page-level context
    */
   private createEnhancedChunk(
     text: string,
-    source: string,
-    section: string,
+    page: DocPage,
     subsection: string,
     chunkIndex: number,
-    documentSummary: string,
+    pageSummary: string,
   ): DocumentChunk {
     // Clean up the text
     const cleanText = text.trim();
 
     // Build enhanced text with minimal but useful context
-    const contextParts = [`${source.replace(".md", "")} documentation:`, documentSummary];
+    const contextParts = [`${page.category} - ${page.title}:`, pageSummary];
 
     if (subsection) {
-      contextParts.push(`Topic: ${subsection}`);
+      contextParts.push(`Section: ${subsection}`);
     }
 
     // Combine context with actual content - keep it natural
@@ -172,8 +179,9 @@ class DocumentIndexer {
       id: uuidv4(),
       text: enhancedText, // Use enhanced text for embedding generation
       metadata: {
-        source,
-        section,
+        source: page.href, // Use href as source for tracking
+        section: page.category,
+        title: page.title,
         ...(subsection && { subsection }),
         chunkIndex,
       },
@@ -198,17 +206,21 @@ class DocumentIndexer {
   }
 
   /**
-   * Process all markdown files in the docs directory
+   * Process all pages from the scraped documentation JSON
    */
   async indexDocuments() {
-    const docsDir = path.join(process.cwd(), "docs");
+    const jsonPath = path.join(process.cwd(), "public", "guides", "anara-docs-complete.json");
 
     try {
-      // Read all markdown files
-      const files = await fs.readdir(docsDir);
-      const markdownFiles = files.filter((file) => file.endsWith(".md"));
+      // Read the JSON file
+      const jsonContent = await fs.readFile(jsonPath, "utf-8");
+      const docData: DocData = JSON.parse(jsonContent);
 
-      console.log(`Found ${markdownFiles.length} markdown files to index`);
+      // Count total pages
+      const totalPages = docData.categories.reduce((sum, cat) => sum + cat.pages.length, 0);
+      console.log(
+        `Found ${totalPages} pages to index from ${docData.categories.length} categories`,
+      );
 
       // Log chunking configuration
       console.log(`\n📊 Chunking Configuration:`);
@@ -219,16 +231,16 @@ class DocumentIndexer {
 
       let allChunks: DocumentChunk[] = [];
 
-      // Process each file
-      for (const file of markdownFiles) {
-        const filePath = path.join(docsDir, file);
-        const content = await fs.readFile(filePath, "utf-8");
+      // Process each category and its pages
+      for (const category of docData.categories) {
+        console.log(`\nProcessing category: ${category.group}`);
 
-        console.log(`Processing ${file}...`);
-        const chunks = this.parseMarkdownBySemanticGroups(content, file);
-        allChunks = allChunks.concat(chunks);
-
-        console.log(`  - Created ${chunks.length} chunks`);
+        for (const page of category.pages) {
+          console.log(`  Processing page: ${page.title} (${page.href})`);
+          const chunks = this.parsePageContent(page);
+          allChunks = allChunks.concat(chunks);
+          console.log(`    - Created ${chunks.length} chunks`);
+        }
       }
 
       console.log(`\nTotal chunks to index: ${allChunks.length}`);
@@ -255,17 +267,26 @@ class DocumentIndexer {
       const index = this.pinecone.Index(config.pinecone.indexName);
 
       // Prepare vectors for upsert
-      const vectors = allChunks.map((chunk) => ({
-        id: chunk.id,
-        values: chunk.embedding!,
-        metadata: {
+      const vectors = allChunks.map((chunk) => {
+        const metadata: Record<string, any> = {
           text: chunk.text,
           source: chunk.metadata.source,
           section: chunk.metadata.section,
           subsection: chunk.metadata.subsection || "",
           chunkIndex: chunk.metadata.chunkIndex,
-        },
-      }));
+        };
+
+        // Only add title if it exists (Pinecone doesn't accept undefined values)
+        if (chunk.metadata.title) {
+          metadata.title = chunk.metadata.title;
+        }
+
+        return {
+          id: chunk.id,
+          values: chunk.embedding!,
+          metadata,
+        };
+      });
 
       // Upsert to Pinecone in batches
       const upsertBatchSize = 100;
@@ -279,7 +300,12 @@ class DocumentIndexer {
       }
 
       console.log("\n✅ Indexing complete!");
-      console.log(`Indexed ${allChunks.length} chunks from ${markdownFiles.length} files`);
+      console.log(
+        `Indexed ${allChunks.length} chunks from ${totalPages} pages across ${docData.categories.length} categories`,
+      );
+      console.log(
+        `Data source: ${docData.baseUrl} (scraped on ${new Date(docData.timestamp).toLocaleString()})`,
+      );
     } catch (error) {
       console.error("Error during indexing:", error);
       throw error;
