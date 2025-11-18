@@ -3,8 +3,6 @@ import * as path from "path";
 
 async function debugScraper() {
   try {
-    console.log("Fetching docs HTML for debugging...");
-
     const response = await fetch("https://docs.anara.com/get-started/");
     if (!response.ok) {
       throw new Error(`Failed to fetch: ${response.status} ${response.statusText}`);
@@ -20,7 +18,6 @@ async function debugScraper() {
     // Save the raw HTML for inspection
     const htmlPath = path.join(guidesDir, "docs-raw.html");
     fs.writeFileSync(htmlPath, html);
-    console.log(`✅ Raw HTML saved to ${htmlPath}`);
 
     // Extract a sample section for analysis - look for main content
     const mainContentPattern =
@@ -43,44 +40,38 @@ async function debugScraper() {
     // Save sample section
     const samplePath = path.join(guidesDir, "docs-sample.html");
     fs.writeFileSync(samplePath, sampleSection);
-    console.log(`✅ Sample section saved to ${samplePath}`);
 
     // Look for common patterns
-    console.log("\n📊 HTML Structure Analysis:");
-    console.log("================================");
 
     // Check for heading tags
     const headings = sampleSection.match(/<h[1-6][^>]*>/gi) || [];
-    console.log(`Heading tags found: ${headings.length}`);
     if (headings.length > 0) {
-      console.log("Sample headings:", headings.slice(0, 5));
+      // console.log("Sample headings:", headings.slice(0, 5));
     }
 
     // Check for list structures
     const lists = sampleSection.match(/<ul[^>]*>/gi) || [];
-    console.log(`\nUnordered lists found: ${lists.length}`);
+    // console.log(`\nUnordered lists found: ${lists.length}`);
 
     const listItems = sampleSection.match(/<li[^>]*>/gi) || [];
-    console.log(`List items found: ${listItems.length}`);
+    // console.log(`List items found: ${listItems.length}`);
 
     // Check for div/section structures
     const divs = sampleSection.match(/<div[^>]*class="[^"]*"[^>]*>/gi) || [];
-    console.log(`\nDivs with classes: ${divs.length}`);
     if (divs.length > 0) {
-      console.log("Sample div classes:", divs.slice(0, 5));
+      // console.log("Sample div classes:", divs.slice(0, 5));
     }
 
     // Check for article/main/section tags
     const articles = sampleSection.match(/<(article|main|section)[^>]*>/gi) || [];
-    console.log(`Article/main/section tags found: ${articles.length}`);
+    // console.log(`Article/main/section tags found: ${articles.length}`);
 
     // Check for navigation elements
     const navs = sampleSection.match(/<nav[^>]*>/gi) || [];
-    console.log(`Navigation elements found: ${navs.length}`);
+    // console.log(`Navigation elements found: ${navs.length}`);
 
     // Check for specific documentation keywords
-    console.log("\n📝 Content Markers:");
-    console.log("================================");
+
     console.log(
       `"Get started" found: ${(sampleSection.match(/get started/gi) || []).length} times`,
     );
@@ -94,26 +85,24 @@ async function debugScraper() {
 
     // Check for paragraph structures
     const paragraphs = sampleSection.match(/<p[^>]*>/gi) || [];
-    console.log(`\nParagraph tags found: ${paragraphs.length}`);
+    // console.log(`\nParagraph tags found: ${paragraphs.length}`);
 
     // Check for code blocks
     const codeBlocks = sampleSection.match(/<code[^>]*>|<pre[^>]*>/gi) || [];
-    console.log(`Code blocks found: ${codeBlocks.length}`);
+    // console.log(`Code blocks found: ${codeBlocks.length}`);
 
     // Look for potential CSS classes that might help
     const classMatches = sampleSection.match(/class="([^"]*)"/gi) || [];
     const uniqueClasses = new Set(classMatches.map((c) => c.replace(/class="|"/g, "")));
-    console.log(`\nUnique CSS classes found: ${uniqueClasses.size}`);
     if (uniqueClasses.size > 0) {
-      console.log("Sample classes:", Array.from(uniqueClasses).slice(0, 15));
+      // console.log("Sample classes:", Array.from(uniqueClasses).slice(0, 15));
     }
 
     // Look for data attributes
     const dataAttrs = sampleSection.match(/data-[a-zA-Z-]+="[^"]*"/gi) || [];
     const uniqueDataAttrs = new Set(dataAttrs.map((attr) => attr.split("=")[0]));
-    console.log(`\nData attributes found: ${uniqueDataAttrs.size}`);
     if (uniqueDataAttrs.size > 0) {
-      console.log("Sample data attributes:", Array.from(uniqueDataAttrs).slice(0, 10));
+      // console.log("Sample data attributes:", Array.from(uniqueDataAttrs).slice(0, 10));
     }
 
     console.log("\n💡 Suggestions:");

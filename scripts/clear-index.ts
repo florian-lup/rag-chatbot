@@ -31,8 +31,6 @@ class IndexCleaner {
    */
   async clearIndex(): Promise<void> {
     try {
-      console.log(`\n🗑️  Preparing to clear index: ${config.pinecone.indexName}`);
-
       // Get index
       const index = this.pinecone.Index(config.pinecone.indexName);
 
@@ -41,32 +39,22 @@ class IndexCleaner {
       const totalVectors = stats.totalRecordCount || 0;
 
       if (totalVectors === 0) {
-        console.log("✅ Index is already empty. No records to delete.");
         return;
       }
 
-      console.log(`\n📊 Current index stats:`);
-      console.log(`   Total vectors: ${totalVectors}`);
-
       // Confirm deletion
-      console.log("\n⚠️  WARNING: This will delete ALL records from the index!");
       const confirmation = await question(
         `Type "DELETE ALL" to confirm deletion of ${totalVectors} vectors: `,
       );
 
       if (confirmation !== "DELETE ALL") {
-        console.log("\n❌ Deletion cancelled. Index remains unchanged.");
         return;
       }
-
-      console.log("\n🔄 Deleting all vectors from index...");
 
       // Delete all vectors using deleteAll
       await index.namespace("").deleteAll();
 
       // Verify deletion
-      console.log("⏳ Verifying deletion...");
-
       // Wait a moment for Pinecone to process
       await new Promise((resolve) => setTimeout(resolve, 2000));
 
@@ -74,14 +62,11 @@ class IndexCleaner {
       const remainingVectors = newStats.totalRecordCount || 0;
 
       if (remainingVectors === 0) {
-        console.log("\n✅ Success! All vectors have been deleted from the index.");
-        console.log(`   Deleted: ${totalVectors} vectors`);
+        return;
       } else {
-        console.log(`\n⚠️  Partial deletion. Remaining vectors: ${remainingVectors}`);
-        console.log(`   You may need to run this script again.`);
+        return;
       }
     } catch (error) {
-      console.error("\n❌ Error clearing index:", error);
       throw error;
     }
   }
@@ -89,9 +74,6 @@ class IndexCleaner {
 
 // Run the cleaner
 async function main() {
-  console.log("🧹 Pinecone Index Cleaner");
-  console.log("========================\n");
-
   try {
     const cleaner = new IndexCleaner();
     await cleaner.clearIndex();

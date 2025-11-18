@@ -4,15 +4,12 @@ import { ChangelogSection } from "../types/types";
 
 async function scrapeChangelog() {
   try {
-    console.log("🔄 Fetching changelog from Anara.com...");
-
     const response = await fetch("https://anara.com/changelog");
     if (!response.ok) {
       throw new Error(`Failed to fetch: ${response.status} ${response.statusText}`);
     }
     const html = await response.text();
 
-    console.log("📊 Parsing changelog entries...");
     const sections = parseChangelogHTML(html);
 
     // Ensure public/changelog directory exists
@@ -25,19 +22,6 @@ async function scrapeChangelog() {
     // Save to JSON file
     const outputPath = path.join(changelogDir, "changelog.json");
     fs.writeFileSync(outputPath, JSON.stringify(sections, null, 2));
-
-    console.log(`✅ Changelog saved to ${outputPath}`);
-    console.log(`📊 Found ${sections.length} changelog entries`);
-
-    // Show preview
-    if (sections.length > 0) {
-      console.log("\n📋 Preview of scraped entries:");
-      sections.slice(0, 3).forEach((section) => {
-        console.log(`  - ${section.date}: ${section.title}`);
-        console.log(`    • ${section.improvements.length} improvements`);
-        console.log(`    • ${section.fixes.length} fixes`);
-      });
-    }
   } catch (error) {
     console.error("❌ Error scraping changelog:", error);
     process.exit(1);

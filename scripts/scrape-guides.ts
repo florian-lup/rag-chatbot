@@ -121,8 +121,6 @@ async function scrapePage(
   headings: string[];
   description: string;
 }> {
-  console.log(`  📄 Scraping: ${url}`);
-
   await page.goto(url, {
     waitUntil: "networkidle",
     timeout: 30000,
@@ -190,8 +188,6 @@ async function scrapeDocumentation() {
   const page = await context.newPage();
   const baseUrl = "https://docs.anara.com";
 
-  console.log("🚀 Starting Anara documentation scraper...\n");
-
   const scrapedData: ScrapedDocs = {
     timestamp: new Date().toISOString(),
     baseUrl,
@@ -201,8 +197,6 @@ async function scrapeDocumentation() {
 
   // Scrape each category and page
   for (const category of DOCUMENTATION_STRUCTURE) {
-    console.log(`\n📁 Scraping category: ${category.group}`);
-
     const scrapedCategory: DocCategory = {
       group: category.group,
       pages: [],

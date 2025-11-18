@@ -17,8 +17,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Anara Support",
-  description: "An AI-powered customer support system",
+  title: "RAG Chatbot",
+  description: "An AI-powered customer service chatbot using RAG to answer questions",
 };
 
 export default function RootLayout({
