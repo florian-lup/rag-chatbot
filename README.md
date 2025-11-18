@@ -1,50 +1,65 @@
-# Anara Support - AI RAG Customer Support Chatbot
+# RAG Customer Support Chatbot
 
-An intelligent customer support chatbot that uses Retrieval-Augmented Generation (RAG) to answer questions based on your product documentation.
+An intelligent AI-powered customer support chatbot built with Retrieval-Augmented Generation (RAG). The chatbot provides accurate answers to user questions by retrieving relevant information and leveraging OpenAI's GPT models.
 
-## Features
+## ✨ Features
 
-- 🤖 **AI-Powered Responses**: Uses GPT-4 for generating accurate, contextual answers
-- 🔍 **Smart Retrieval**: Query rewriting with GPT-4o-mini for better document matching
-- 📚 **Semantic Search**: Document chunking by headings with OpenAI embeddings
-- 💾 **Vector Database**: Pinecone integration for efficient similarity search
-- 🎨 **Modern UI**: Clean, responsive chat interface with dark mode support
-- 📝 **Source Citations**: Every answer includes references to source documentation
-- 🔄 **Conversation Memory**: Maintains context throughout the chat session
+- 🤖 **AI-Powered Responses**: Uses GPT-5-mini for generating contextual, accurate answers
+- 🔍 **Semantic Search**: Intelligent document retrieval using OpenAI embeddings
+- 📚 **Smart Document Chunking**: Optimized content chunking with configurable size and overlap
+- 💾 **Vector Database**: Pinecone integration for fast similarity search
+- 🎨 **Modern UI**: Clean chat interface with dark mode support
+- 📝 **Live Changelog**: Sidebar displaying Anara's latest updates and improvements
+- 🔄 **Conversation Memory**: Maintains context throughout chat sessions
+- 🌐 **Web Scraping**: Automated documentation and changelog scrapers
+- 📊 **Index Management**: Utilities for managing vector database
 
-## Tech Stack
+## 🛠️ Tech Stack
 
-- **Frontend**: Next.js 15, React 19, TypeScript, Tailwind CSS
-- **UI Components**: shadcn/ui with Radix UI
-- **AI/ML**: OpenAI GPT-4, text-embedding-3-small
-- **Vector Database**: Pinecone
-- **Document Processing**: LangChain, markdown-it
+### Frontend
 
-## Prerequisites
+- **Framework**: Next.js 15 with App Router
+- **React**: 19.1.0
+- **TypeScript**: Type-safe development
+- **Styling**: Tailwind CSS 4
+- **UI Components**: shadcn/ui with Radix UI primitives
+- **Markdown**: react-markdown with GitHub Flavored Markdown
 
-- Node.js 18+ and pnpm
-- OpenAI API key
-- Pinecone account and API key
+### Backend & AI
 
-## Setup Instructions
+- **AI Models**:
+  - OpenAI `gpt-5-mini-2025-08-07` (answer generation)
+  - OpenAI `text-embedding-3-small` (embeddings)
+- **Vector Database**: Pinecone for semantic search
+- **Runtime**: Node.js 18+
 
-### 1. Clone and Install Dependencies
+### Development Tools
+
+- **Package Manager**: pnpm
+- **Web Scraping**: Playwright for automated documentation scraping
+- **Code Quality**: ESLint, Prettier
+- **Analytics**: Vercel Analytics (production)
+
+## 📋 Prerequisites
+
+- Node.js 18 or higher
+- pnpm package manager
+- OpenAI API key ([Get one here](https://platform.openai.com/api-keys))
+- Pinecone account and API key ([Sign up here](https://www.pinecone.io/))
+
+## 🚀 Setup Instructions
+
+### 1. Clone and Install
 
 ```bash
-git clone <your-repo>
-cd anara-support
+git clone https://github.com/florian-lup/rag-chatbot
+cd rag-chatbot
 pnpm install
 ```
 
 ### 2. Configure Environment Variables
 
-Copy the example environment file and add your API keys:
-
-```bash
-cp env.example .env.local
-```
-
-Edit `.env.local` with your credentials:
+Create a `.env.local` file in the root directory:
 
 ```env
 # OpenAI Configuration
@@ -52,219 +67,229 @@ OPENAI_API_KEY=your_openai_api_key_here
 
 # Pinecone Configuration
 PINECONE_API_KEY=your_pinecone_api_key_here
-PINECONE_ENVIRONMENT=your_pinecone_environment_here  # e.g., "us-east-1"
-PINECONE_INDEX_NAME=customer-support-rag
-
-# Model Configuration (optional - these are defaults)
-EMBEDDING_MODEL=text-embedding-3-small
-QUERY_REWRITE_MODEL=gpt-4o-mini
-ANSWER_MODEL=gpt-4o
+PINECONE_ENVIRONMENT=your_pinecone_environment  # e.g., "us-east-1"
+PINECONE_INDEX_NAME=anara-support-docs          # or your preferred index name
 ```
 
 ### 3. Create Pinecone Index
 
-1. Go to [Pinecone Console](https://console.pinecone.io/)
+1. Go to [Pinecone Console](https://app.pinecone.io/)
 2. Create a new index with these settings:
-   - **Name**: `customer-support-rag` (or match your PINECONE_INDEX_NAME)
+   - **Name**: `anara-support-docs` (or match your `PINECONE_INDEX_NAME`)
    - **Dimensions**: `1536` (for text-embedding-3-small)
    - **Metric**: `cosine`
    - **Cloud Provider**: Choose your preference
-   - **Environment**: Note this for PINECONE_ENVIRONMENT
+   - **Region**: Note this for `PINECONE_ENVIRONMENT`
 
-### 4. Index Your Documentation
+### 4. Scrape and Index Documentation
 
-The system will process all markdown files in the `docs/` directory:
+The project includes utilities to scrape Anara's documentation and index it:
 
 ```bash
+# Scrape the complete documentation from Anara's docs site
+pnpm run scrape:guides
+
+# Scrape the changelog from Anara's website
+pnpm run scrape:changelog
+
+# Index the scraped documentation into Pinecone
 pnpm run index:docs
 ```
 
-This script will:
+The indexing script will:
 
-- Read all `.md` files from the `docs/` directory
-- Split documents by semantic boundaries (headings)
+- Read documentation from `public/guides/anara-docs-complete.json`
+- Split documents into optimized chunks (300-1500 characters)
 - Generate embeddings using OpenAI
-- Store vectors in Pinecone
+- Store vectors with metadata in Pinecone
 
-You should see output like:
-
-```
-🚀 Starting document indexing...
-Found 3 markdown files to index
-Processing welcome.md...
-  - Created 5 chunks
-...
-✅ Indexing complete!
-Indexed 15 chunks from 3 files
-```
-
-### 5. Run the Application
+### 5. Run the Development Server
 
 ```bash
 pnpm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to see the chat interface.
+Open [http://localhost:3000](http://localhost:3000) to see the chatbot interface.
 
-## Project Structure
+## 📁 Project Structure
 
 ```
-anara-support/
-├── app/
+rag-chatbot/
+├── app/                          # Next.js App Router
 │   ├── api/
-│   │   └── chat/         # Chat API endpoint
-│   ├── layout.tsx        # Root layout with theme provider
-│   └── page.tsx          # Main chat interface page
-├── components/
+│   │   ├── chat/                # Chat endpoint (RAG pipeline)
+│   │   │   └── route.ts
+│   │   └── changelog/           # Changelog API endpoint
+│   │       └── route.ts
+│   ├── globals.css              # Global styles
+│   ├── layout.tsx               # Root layout with providers
+│   └── page.tsx                 # Main chat page
+│
+├── components/                   # React components
 │   ├── chat/
-│   │   └── chat-interface.tsx  # Main chat UI component
-│   ├── ui/               # shadcn/ui components
-│   └── theme-*.tsx       # Theme toggle components
-├── docs/                 # Your documentation (markdown files)
+│   │   └── chat-interface.tsx   # Main chat UI component
+│   ├── ui/                      # shadcn/ui components
+│   │   ├── button.tsx
+│   │   ├── card.tsx
+│   │   ├── input.tsx
+│   │   ├── sidebar.tsx
+│   │   └── ...                  # Other UI primitives
+│   ├── app-sidebar.tsx          # Changelog sidebar component
+│   ├── theme-provider.tsx       # Dark mode provider
+│   └── theme-toggle.tsx         # Theme switcher
+│
+├── config/
+│   └── config.ts                # Application configuration
+│
+├── docs/                        # Sample markdown documentation
+│   ├── concepts.md
+│   ├── filetypes.md
+│   └── welcome.md
+│
+├── hooks/
+│   ├── hooks.ts                 # Custom React hooks
+│   └── use-mobile.ts            # Mobile detection hook
+│
 ├── lib/
-│   ├── config.ts         # Configuration management
-│   ├── rag-service.ts    # RAG pipeline implementation
-│   └── utils.ts          # Utility functions
-├── scripts/
-│   └── index-documents.ts  # Document indexing script
-└── types/                # TypeScript type definitions
+│   ├── rag-service.ts           # RAG pipeline implementation
+│   └── utils.ts                 # Utility functions
+│
+├── public/
+│   ├── changelog/               # Scraped changelog data
+│   │   └── changelog.json
+│   └── guides/                  # Scraped documentation
+│       ├── anara-docs-complete.json
+│       ├── index.json
+│       └── ...                  # Category-specific JSON files
+│
+├── scripts/                     # Utility scripts
+│   ├── check-index.ts           # Check Pinecone index stats
+│   ├── clear-index.ts           # Clear all vectors from index
+│   ├── debug-scraper.ts         # Debug web scraping
+│   ├── index-documents.ts       # Index docs into Pinecone
+│   ├── scrape-changelog.ts      # Scrape Anara changelog
+│   └── scrape-guides.ts         # Scrape Anara documentation
+│
+├── types/
+│   └── types.ts                 # TypeScript type definitions
+│
+└── Configuration files
+    ├── package.json
+    ├── tsconfig.json
+    ├── next.config.ts
+    ├── tailwind.config.ts
+    └── components.json          # shadcn/ui config
 ```
 
-## How It Works
+## 🔄 How It Works
 
-### 1. Document Indexing Pipeline
+### RAG Pipeline Overview
 
-- Reads markdown files from `docs/` directory
-- Splits by semantic boundaries (H1, H2 headings)
-- Generates embeddings with OpenAI's text-embedding-3-small
-- Stores in Pinecone with metadata (source, section, subsection)
+1. **User Query** → Chat interface captures user input
+2. **Embedding Generation** → Query is embedded using OpenAI's text-embedding-3-small
+3. **Vector Search** → Pinecone retrieves top 10 most similar document chunks
+4. **Context Building** → Retrieved chunks are formatted with metadata
+5. **Answer Generation** → GPT-5-mini generates response using retrieved context
+6. **Display** → Answer is rendered with markdown formatting
 
-### 2. Query Processing (RAG Pipeline)
+### Document Indexing Process
 
-- **Query Rewriting**: User input is refined using GPT-4o-mini for better retrieval
-- **Embedding**: Rewritten query is embedded using the same model
-- **Retrieval**: Top 10 most similar chunks retrieved from Pinecone
-- **Answer Generation**: GPT-4 generates response using retrieved context
+The indexing pipeline (`scripts/index-documents.ts`) implements intelligent chunking:
 
-### 3. Chat Interface
+1. **Load Documentation**: Reads from `public/guides/anara-docs-complete.json`
+2. **Smart Chunking**:
+   - Splits content into chunks (300-1500 characters)
+   - Maintains paragraph boundaries
+   - Overlaps chunks by 2 lines for continuity
+   - Combines small trailing chunks
+3. **Context Enhancement**: Each chunk includes:
+   - Category and title
+   - Page description
+   - Section information
+4. **Batch Embedding**: Generates embeddings in batches of 20
+5. **Vector Storage**: Upserts to Pinecone with rich metadata
 
-- Real-time message streaming
-- Source attribution with relevance scores
-- Conversation history maintained for context
-- Responsive design with dark mode support
+### Configuration
 
-## Adding Your Documentation
-
-1. Add markdown files to the `docs/` directory
-2. Use proper heading hierarchy:
-   - `# H1` - Main sections
-   - `## H2` - Subsections (creates new chunks)
-   - `### H3` - Sub-subsections (included in parent chunk)
-3. Run `pnpm run index:docs` to update the index
-
-## API Endpoints
-
-### POST /api/chat
-
-Send a message and get an AI response.
-
-**Request:**
-
-```json
-{
-  "message": "What file types does Anara support?",
-  "conversationHistory": []
-}
-```
-
-**Response:**
-
-```json
-{
-  "success": true,
-  "data": {
-    "answer": "Anara supports a wide range of file types...",
-    "sources": [
-      {
-        "text": "Document preview...",
-        "source": "filetypes.md",
-        "section": "Documents",
-        "score": 0.92
-      }
-    ]
-  }
-}
-```
-
-## Customization
-
-### Adjust Retrieval Settings
-
-Edit `lib/config.ts`:
+Edit `config/config.ts` to customize behavior:
 
 ```typescript
+// Retrieval settings
 retrieval: {
-  topK: 10,        // Number of chunks to retrieve
-  minScore: 0.7,   // Minimum similarity score
+  topK: 10,           // Number of chunks to retrieve
+  minScore: 0.25,     // Minimum similarity threshold (0-1)
 }
-```
 
-### Change Chunking Strategy
-
-Edit `lib/config.ts`:
-
-```typescript
+// Chunking strategy
 chunking: {
-  chunkSize: 1000,     // Max chunk size
-  chunkOverlap: 200,   // Overlap between chunks
+  minChunkSize: 300,  // Minimum characters per chunk
+  maxChunkSize: 1500, // Maximum characters per chunk
+  overlapLines: 2,    // Lines to overlap between chunks
+}
+
+// Chat settings
+chat: {
+  maxConversationHistory: 4,  // Messages to keep in context
+  systemPrompt: "...",        // System instructions for the AI
 }
 ```
 
-### Use Different Models
+## 🔧 Available Scripts
 
-Update environment variables:
+### Development
+
+```bash
+pnpm run dev          # Start dev server with Turbopack
+pnpm run build        # Build for production
+pnpm run start        # Start production server
+pnpm run lint         # Run ESLint
+pnpm run format       # Format code with Prettier
+pnpm run format:check # Check formatting
+```
+
+### Documentation Management
+
+```bash
+pnpm run scrape:guides     # Scrape Anara documentation
+pnpm run scrape:changelog  # Scrape Anara changelog
+pnpm run index:docs        # Index scraped docs to Pinecone
+pnpm run check:index       # Check Pinecone index statistics
+pnpm run clear:index       # Clear all vectors from index
+pnpm run debug:scraper     # Debug web scraping issues
+```
+
+## 🚀 Production Deployment
+
+### Vercel (Recommended)
+
+1. Push your code to GitHub
+2. Import project in [Vercel](https://vercel.com)
+3. Add environment variables in Vercel dashboard
+4. Deploy
+
+### Environment Variables for Production
+
+Ensure these are set in your hosting platform:
 
 ```env
-EMBEDDING_MODEL=text-embedding-ada-002
-QUERY_REWRITE_MODEL=gpt-3.5-turbo
-ANSWER_MODEL=gpt-4-turbo-preview
+OPENAI_API_KEY=sk-...
+PINECONE_API_KEY=...
+PINECONE_ENVIRONMENT=...
+PINECONE_INDEX_NAME=...
+NODE_ENV=production
 ```
 
-## Troubleshooting
+## 📄 License
 
-### "Configuration errors" on startup
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-- Ensure all environment variables are set correctly
-- Check API keys are valid
-- Verify Pinecone index exists with correct dimensions (1536)
+## 🙏 Acknowledgments
 
-### No results returned
+- Built for [Anara](https://anara.com) - AI-enabled research workspace
+- Powered by [OpenAI](https://openai.com) GPT models
+- Vector search by [Pinecone](https://www.pinecone.io/)
+- UI components from [shadcn/ui](https://ui.shadcn.com/)
 
-- Verify documents are indexed: `pnpm run index:docs`
-- Check Pinecone dashboard for vector count
-- Lower `minScore` in `lib/config.ts`
+---
 
-### Slow responses
-
-- Consider using faster models (gpt-3.5-turbo)
-- Reduce `topK` value for fewer retrievals
-- Check Pinecone region proximity
-
-## Production Deployment
-
-1. Set environment variables in your hosting platform
-2. Run indexing script after deploying documentation updates
-3. Consider implementing:
-   - Rate limiting
-   - Authentication
-   - Analytics tracking
-   - Error monitoring
-   - Caching for common queries
-
-## License
-
-MIT
-
-## Support
-
-For issues or questions, please open a GitHub issue or contact support.
+**Note**: This chatbot is specifically configured for Anara's documentation. To adapt it for other use cases, update the scraping scripts, system prompt, and documentation sources accordingly.
